@@ -1,0 +1,616 @@
+[INFO ] 2023-03-01 00:01:57 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:01:57 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:01:57 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:01:57 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:01:57 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:01:57 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:01:57 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:01:57 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:01:57 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:01:57 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:01:57 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:01:57 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:04:47 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:04:47 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:04:47 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:04:47 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:04:47 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:04:47 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:04:47 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:04:47 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:04:47 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:04:47 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:04:47 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:04:47 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:07:38 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:07:38 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:07:38 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:07:38 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:07:38 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:07:38 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:07:38 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:07:38 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:07:38 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:07:38 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:07:38 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:07:38 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:08:18 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:08:18 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:08:18 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:08:18 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:08:18 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:08:18 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:08:18 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:08:18 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:08:18 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:08:18 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:08:18 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:08:18 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:08:34 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:08:34 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:08:34 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:08:34 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:08:34 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:08:34 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:08:34 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:08:34 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:08:34 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:08:34 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:08:34 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:08:34 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:13:23 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:13:23 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:13:23 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:13:23 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:13:23 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:13:23 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:13:23 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:13:23 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:13:23 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:13:23 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:13:23 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:13:23 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:15:30 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:15:30 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:15:30 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:15:30 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:15:30 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:15:30 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:15:30 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:15:30 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:15:30 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:15:30 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:15:30 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:15:30 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:20:31 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:20:31 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:20:31 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:20:31 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:20:31 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:20:31 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:20:31 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:20:31 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:20:31 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:20:31 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:20:31 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:20:31 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:22:27 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:22:27 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:22:27 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:22:27 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:22:27 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:22:27 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:22:27 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:22:27 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:22:27 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:22:27 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:22:27 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:22:27 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:24:21 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:24:21 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:24:21 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:24:21 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:24:21 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:24:21 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:24:21 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:24:21 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:24:21 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:24:21 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:24:21 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:24:21 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:24:36 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:24:36 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:24:36 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:24:36 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:24:36 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:24:36 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:24:36 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:24:36 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:24:36 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:24:36 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:24:36 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:24:36 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:24:59 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:24:59 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:24:59 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:24:59 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:24:59 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:24:59 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:24:59 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:24:59 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:24:59 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:24:59 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:24:59 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:24:59 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:25:46 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:25:46 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:25:46 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:25:46 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:25:46 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:25:46 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:25:46 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:25:46 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:25:46 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:25:46 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:25:46 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:25:46 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:26:18 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:26:18 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:26:18 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:26:18 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:26:18 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:26:18 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:26:18 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:26:18 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:26:18 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:26:18 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:26:18 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:26:18 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:30:29 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:30:29 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:30:29 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:30:29 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:30:29 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:30:29 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:30:29 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:30:29 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:30:29 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:30:29 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:30:29 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:30:29 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:32:24 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:32:25 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:32:25 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:32:25 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:32:25 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:32:25 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:32:25 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:32:25 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:32:25 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:32:25 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:32:25 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:32:25 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:36:20 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:36:20 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:36:20 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:36:20 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:36:20 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:36:20 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:36:20 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:36:20 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:36:20 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:36:20 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:36:20 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:36:20 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:36:40 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:36:40 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:36:40 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:36:40 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:36:40 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:36:40 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:36:40 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:36:40 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:36:40 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:36:40 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:36:40 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:36:40 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:38:34 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:38:34 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:38:34 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:38:34 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:38:34 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:38:34 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:38:34 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:38:34 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:38:34 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:38:34 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:38:34 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:38:34 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:39:47 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:39:47 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:39:47 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:39:47 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:39:47 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:39:47 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:39:47 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:39:47 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:39:47 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:39:47 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:39:47 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:39:47 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:42:16 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:42:16 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:42:16 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:42:16 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:42:16 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:42:16 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:42:16 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:42:16 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:42:16 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:42:16 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:42:16 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:42:16 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:42:46 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:42:46 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:42:46 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:42:46 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:42:46 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:42:46 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:42:46 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:42:46 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:42:46 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:42:46 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:42:46 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:42:46 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:43:30 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:43:30 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:43:30 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:43:30 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:43:30 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:43:30 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:43:30 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:43:30 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:43:30 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:43:30 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:43:30 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:43:30 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:43:49 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:43:49 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:43:49 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:43:49 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:43:49 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:43:49 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:43:49 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:43:49 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:43:49 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:43:49 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:43:49 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:43:49 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:45:43 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:45:43 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:45:43 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:45:43 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:45:43 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:45:43 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:45:43 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:45:43 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:45:43 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:45:43 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:45:43 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:45:43 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:46:23 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:46:23 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:46:23 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:46:23 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:46:23 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:46:23 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:46:23 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:46:23 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:46:23 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:46:23 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:46:23 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:46:23 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:46:30 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:46:30 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:46:30 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:46:30 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:46:30 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:46:30 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:46:30 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:46:30 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:46:30 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:46:30 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:46:30 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:46:30 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:47:15 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:47:15 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:47:15 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:47:15 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:47:15 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:47:15 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:47:15 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:47:15 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:47:15 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:47:15 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:47:15 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:47:15 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:47:30 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:47:30 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:47:30 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:47:30 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:47:30 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:47:30 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:47:30 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:47:30 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:47:30 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:47:30 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:47:30 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:47:30 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:51:37 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:51:37 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:51:37 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:51:37 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:51:37 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:51:37 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:51:37 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:51:37 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:51:37 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:51:37 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:51:37 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:51:37 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:53:39 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:53:39 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:53:39 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:53:39 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:53:39 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:53:39 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:53:39 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:53:39 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:53:39 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:53:39 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:53:39 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:53:39 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:53:56 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:53:56 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:53:56 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:53:56 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:53:56 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:53:56 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:53:56 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:53:56 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:53:56 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:53:56 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:53:56 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:53:56 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:54:12 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:54:12 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:54:12 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:54:12 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:54:12 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:54:12 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:54:12 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:54:12 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:54:12 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:54:12 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:54:12 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:54:12 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:55:44 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:55:44 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:55:44 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:55:44 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:55:44 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:55:44 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:55:44 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:55:44 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:55:44 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:55:44 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:55:44 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:55:44 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:55:57 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:55:57 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:55:57 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:55:57 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:55:57 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:55:57 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:55:57 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:55:57 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:55:57 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:55:57 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:55:57 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:55:57 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:56:57 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:56:57 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:56:57 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:56:57 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:56:57 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:56:57 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:56:57 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:56:57 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:56:57 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:56:57 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:56:57 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:56:57 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 00:57:37 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 00:57:37 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 00:57:37 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 00:57:37 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 00:57:37 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 00:57:37 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 00:57:37 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 00:57:37 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 00:57:37 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 00:57:37 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 00:57:37 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 00:57:37 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 01:00:38 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 01:00:38 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 01:00:38 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 01:00:38 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 01:00:38 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 01:00:38 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 01:00:38 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 01:00:38 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 01:00:38 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 01:00:38 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 01:00:38 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 01:00:38 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 01:01:57 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 01:01:57 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 01:01:57 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 01:01:57 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 01:01:57 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 01:01:57 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 01:01:57 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 01:01:57 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 01:01:57 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 01:01:57 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 01:01:57 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 01:01:57 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 01:03:10 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 01:03:10 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 01:03:10 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 01:03:10 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 01:03:10 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 01:03:10 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 01:03:10 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 01:03:10 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 01:03:10 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 01:03:10 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 01:03:10 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 01:03:10 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 01:03:27 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 01:03:28 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 01:03:28 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 01:03:28 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 01:03:28 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 01:03:28 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 01:03:28 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 01:03:28 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 01:03:28 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 01:03:28 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 01:03:28 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 01:03:28 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 01:03:51 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 01:03:51 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 01:03:51 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 01:03:51 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 01:03:51 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 01:03:51 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 01:03:51 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 01:03:51 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 01:03:51 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 01:03:51 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 01:03:51 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 01:03:51 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 01:05:01 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 01:05:01 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 01:05:01 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 01:05:01 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 01:05:01 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 01:05:01 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 01:05:01 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 01:05:01 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 01:05:01 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 01:05:01 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 01:05:01 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 01:05:01 [main] LexicalMatcherImpl - Finish analysis!
+[INFO ] 2023-03-01 01:05:11 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/metadata4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       22.
+[INFO ] 2023-03-01 01:05:11 [main] ModelStorage - Filename: FCA/src/test/resources/metadata4/wrong4.owl
+# Instances:        0, # Categories:        0, # OntProperties:        0, # DataTypeProperties:        0, # ObjectProperties:        0, # OntClasses:       14.
+[INFO ] 2023-03-01 01:05:11 [main] LexicalMatcherImpl - <<<<<<< Start matching class >>>>>>>
+[INFO ] 2023-03-01 01:05:11 [main] LexicalMatcherImpl - Init Formal Concept Analysis Builder...
+[INFO ] 2023-03-01 01:05:11 [main] LexicalMatcherImpl - Start formal concept analysis...
+[INFO ] 2023-03-01 01:05:11 [main] LexicalMatcherImpl - Start getting simplified concepts (Size of object: [1, -1], Size of attribute: [0, -1])...
+[INFO ] 2023-03-01 01:05:11 [main] LexicalMatcherImpl - Finish getting simplified concepts!
+[INFO ] 2023-03-01 01:05:11 [main] LexicalMatcherImpl - Finish extracting mappings from simplified concepts!
+[INFO ] 2023-03-01 01:05:11 [main] LexicalMatcherImpl - Start building complete concepts (Size of object: [2. 2], Size of attribute: [1, -1])...
+[INFO ] 2023-03-01 01:05:11 [main] LexicalMatcherImpl - Finish building complete concepts!
+[INFO ] 2023-03-01 01:05:11 [main] LexicalMatcherImpl - Finish extracting mappings from complete concepts!
+[INFO ] 2023-03-01 01:05:11 [main] LexicalMatcherImpl - Finish analysis!

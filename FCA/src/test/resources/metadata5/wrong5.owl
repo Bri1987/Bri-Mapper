@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/12167/wrong5#"
+     xml:base="http://www.semanticweb.org/12167/wrong5"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/12167/wrong5"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/12167/wrong5#Service_Provider_Information -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/12167/wrong5#Service_Provider_Information">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/12167/wrong5#Technology_platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/12167/wrong5#Technology_platform -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/12167/wrong5#Technology_platform"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/12167/wrong5#Access_restrictions_on_technology_platform_services -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/12167/wrong5#Access_restrictions_on_technology_platform_services">
+        <rdf:type rdf:resource="http://www.semanticweb.org/12167/wrong5#Technology_platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/12167/wrong5#Communication_address_of_technology_platform_service_provider -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/12167/wrong5#Communication_address_of_technology_platform_service_provider">
+        <rdf:type rdf:resource="http://www.semanticweb.org/12167/wrong5#Service_Provider_Information"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/12167/wrong5#Contact_number_of_technology_platform_service_provider -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/12167/wrong5#Contact_number_of_technology_platform_service_provider">
+        <rdf:type rdf:resource="http://www.semanticweb.org/12167/wrong5#Service_Provider_Information"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/12167/wrong5#E-mail_of_technology_platform_service_provider -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/12167/wrong5#E-mail_of_technology_platform_service_provider">
+        <rdf:type rdf:resource="http://www.semanticweb.org/12167/wrong5#Service_Provider_Information"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/12167/wrong5#Information_of_service_provider_of_science_and_technology_platform -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/12167/wrong5#Information_of_service_provider_of_science_and_technology_platform">
+        <rdf:type rdf:resource="http://www.semanticweb.org/12167/wrong5#Technology_platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/12167/wrong5#Institutions_of_service_providers_of_science_and_technology_platform -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/12167/wrong5#Institutions_of_service_providers_of_science_and_technology_platform">
+        <rdf:type rdf:resource="http://www.semanticweb.org/12167/wrong5#Service_Provider_Information"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/12167/wrong5#Latest_release_date_of_technology_platform_service -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/12167/wrong5#Latest_release_date_of_technology_platform_service">
+        <rdf:type rdf:resource="http://www.semanticweb.org/12167/wrong5#Technology_platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/12167/wrong5#Name_of_service_resources_of_science_and_technology_platform -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/12167/wrong5#Name_of_service_resources_of_science_and_technology_platform">
+        <rdf:type rdf:resource="http://www.semanticweb.org/12167/wrong5#Technology_platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/12167/wrong5#Postal_code_of_technology_platform_service_provider -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/12167/wrong5#Postal_code_of_technology_platform_service_provider">
+        <rdf:type rdf:resource="http://www.semanticweb.org/12167/wrong5#Service_Provider_Information"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/12167/wrong5#Service_content_of_science_and_technology_platform -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/12167/wrong5#Service_content_of_science_and_technology_platform">
+        <rdf:type rdf:resource="http://www.semanticweb.org/12167/wrong5#Technology_platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/12167/wrong5#Service_resource_identification_of_science_and_technology_platform -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/12167/wrong5#Service_resource_identification_of_science_and_technology_platform">
+        <rdf:type rdf:resource="http://www.semanticweb.org/12167/wrong5#Technology_platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/12167/wrong5#Technology_platform_service_provider -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/12167/wrong5#Technology_platform_service_provider">
+        <rdf:type rdf:resource="http://www.semanticweb.org/12167/wrong5#Service_Provider_Information"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

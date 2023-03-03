@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/2023/1/metadata#"
+     xml:base="http://www.semanticweb.org/2023/1/metadata"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/2023/1/metadata"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Access_restrictions_on_technology_platform_services -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Access_restrictions_on_technology_platform_services">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Technology_platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Communication_address_of_technology_platform_service_provider -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Communication_address_of_technology_platform_service_provider">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Service_Provider_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Contact_number_of_technology_platform_service_provider -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Contact_number_of_technology_platform_service_provider">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Service_Provider_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#E-mail_of_technology_platform_service_provider -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#E-mail_of_technology_platform_service_provider">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Service_Provider_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Information_of_service_provider_of_science_and_technology_platform -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Information_of_service_provider_of_science_and_technology_platform">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Technology_platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Key_words_of_technology_platform_service -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Key_words_of_technology_platform_service">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Technology_platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Latest_release_date_of_technology_platform_service -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Latest_release_date_of_technology_platform_service">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Technology_platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Name_of_service_classification_standard_for_science_and_technology_platform -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Name_of_service_classification_standard_for_science_and_technology_platform">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Service_classification"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Name_of_service_resources_of_science_and_technology_platform -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Name_of_service_resources_of_science_and_technology_platform">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Technology_platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Name_of_technology_platform_service_provider -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Name_of_technology_platform_service_provider">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Service_Provider_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Postal_code_of_technology_platform_service_provider -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Postal_code_of_technology_platform_service_provider">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Service_Provider_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Science_and_technology_platform_service_resource_identification_code -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Science_and_technology_platform_service_resource_identification_code">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Technology_platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Service_Provider_Information -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Service_Provider_Information">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Technology_platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Service_category_code_of_science_and_technology_platform -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Service_category_code_of_science_and_technology_platform">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Service_classification"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Service_category_name_of_science_and_technology_platform -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Service_category_name_of_science_and_technology_platform">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Service_classification"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Service_classification -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Service_classification">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Technology_platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Service_classification_of_science_and_technology_platform -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Service_classification_of_science_and_technology_platform">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Technology_platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Service_content_description_of_science_and_technology_platform -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Service_content_description_of_science_and_technology_platform">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Technology_platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Service_name_of_science_and_technology_platform -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Service_name_of_science_and_technology_platform">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Technology_platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Service_website_of_technology_platform_service_provider -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Service_website_of_technology_platform_service_provider">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Service_Provider_Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Technology_platform -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Technology_platform"/>
+    
+
+
+    <!-- http://www.semanticweb.org/2023/1/metadata#Version_number_of_service_classification_standard_of_science_and_technology_platform -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/2023/1/metadata#Version_number_of_service_classification_standard_of_science_and_technology_platform">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/2023/1/metadata#Service_classification"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

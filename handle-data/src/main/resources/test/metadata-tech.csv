@@ -1,0 +1,20 @@
+中文名称,同义名称,英文名称,表达符号,数据类型,类词,长度,值域,计量单位,定义,参考来源,参考来源MJ,描述对象,所属分类
+科技平台服务名称,,Service name of science and technology platform,,字符串型,名称,0..20,自由文本,无,标识科技平台服务的中文名称。科技平台是运用现代信息技术等手段，有效整合科技资源，为全社会的科技创新和经济社会发展提供共享服务的网络化、社会化的组织体系。,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台,通用元数据
+科技平台服务关键词,,Key words of technology platform service,,字符串型,文本,0..255,自由文本,无,用于描述科技平台服务信息主题的通用词、形式化词或短语,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台,通用元数据
+科技平台服务分类,,Service classification of science and technology platform,,字符串型,文本,0..255,自由文本,无,科技平台服务的类别信息,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台,通用元数据
+科技平台服务类目名称,,Service category name of science and technology platform,,字符串型,名称,0..20,自由文本,无,分类标准中对应类目的中文名称全称,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台，服务分类,通用元数据
+科技平台服务类目代码,,Service category code of science and technology platform,,字符串型,代码,0..20,自由文本,无,分类标准中类目名称对应的代码,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台，服务分类,通用元数据
+科技平台服务分类标准名称,,Name of service classification standard for science and technology platform,,字符串型,名称,0..20,自由文本,无,分类标准的名称,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台，服务分类,通用元数据
+科技平台服务分类标准版本号,,Version number of service classification standard of science and technology platform,,字符串型,代码,0..255,自由文本,无,分类标准的版本号,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台，服务分类,通用元数据
+科技平台服务最近发布日期,,Latest release date of technology platform service,,日期时间型,日期,8,YYYY-MM-DD,无,最近一次发布科技平台服务信息的日期,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台,通用元数据
+科技平台服务内容描述,,Service content description of science and technology platform,,字符串型,文本,0..255,自由文本,无,对科技平台服务内容的综合性介绍包括服务的来源、特征、指标、用途、方式等,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台,通用元数据
+科技平台服务访问限制,,Access restrictions on technology platform services,,字符串型,文本,0..255,公开级为1，限制级为2。,无,为保护隐私权或知识产权，对访问科技平台服务信息施加的限制或约束,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台,通用元数据
+科技平台服务资源标识代码,,Science and technology platform service resource identification code,,字符串型,代码,0..20,自由文本,无,标识科技平台服务对应资源的代码表示,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台,通用元数据
+科技平台服务资源名称,,Name of service resources of science and technology platform,,字符串型,名称,0..20,自由文本,无,标识科技平台服务对应资源的中文名称全称,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台,通用元数据
+科技平台服务服务方信息,,Information of service provider of science and technology platform,,字符串型,文本,0..255,自由文本,无,描述提供科技平台服务的单位或机构的一组信息,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台,通用元数据
+科技平台服务提供方机构名称,,Name of technology platform service provider,,字符串型,名称,0..20,自由文本,无,标识科技平台服务提供方的组织机构的中文名称全称,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台，服务提供方信息,通用元数据
+科技平台服务提供方通信地址,,Communication address of technology platform service provider,,字符串型,文本,0..255,自由文本,无,与科技平台服务提供方联系的通信地址,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台，服务提供方信息,通用元数据
+科技平台服务提供方邮政编码,,Postal code of technology platform service provider,,字符串型,代码,0..20,自由文本,无,与科技平台服务提供方通信地址相对应的邮政编码,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台，服务提供方信息,通用元数据
+科技平台服务提供方联系电话,,Contact number of technology platform service provider,,字符串型,代码,0..255,自由文本,无,科技平台服务提供方联系人的联系电话,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台，服务提供方信息,通用元数据
+科技平台服务提供方电子信箱,,E-mail of technology platform service provider,,字符串型,文本,0..255,自由文本,无,科技平台服务提供方联系人的电子邮件地址,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台，服务提供方信息,通用元数据
+科技平台服务提供方服务网址,,Service website of technology platform service provider,,字符串型,文本,0..255,自由文本,无,科技平台服务提供方提供服务的互联网链接地址,GB_T31073-2014 科技平台服务核心元数据,公开,科技平台，服务提供方信息,通用元数据

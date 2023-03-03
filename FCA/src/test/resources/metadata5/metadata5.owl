@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/bri/metadata5#"
+     xml:base="http://www.semanticweb.org/bri/metadata5"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/bri/metadata5"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Service_Provider_Information -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bri/metadata5#Service_Provider_Information">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bri/metadata5#Technology_platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Service_classification -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bri/metadata5#Service_classification">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bri/metadata5#Technology_platform"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Technology_platform -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bri/metadata5#Technology_platform"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Access_restrictions_on_technology_platform_services -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Access_restrictions_on_technology_platform_services">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Technology_platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Communication_address_of_technology_platform_service_provider -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Communication_address_of_technology_platform_service_provider">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Service_Provider_Information"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Contact_number_of_technology_platform_service_provider -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Contact_number_of_technology_platform_service_provider">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Service_Provider_Information"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#E-mail_of_technology_platform_service_provider -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#E-mail_of_technology_platform_service_provider">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Service_Provider_Information"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Information_of_service_provider_of_science_and_technology_platform -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Information_of_service_provider_of_science_and_technology_platform">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Technology_platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Key_words_of_technology_platform_service -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Key_words_of_technology_platform_service">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Technology_platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Latest_release_date_of_technology_platform_service -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Latest_release_date_of_technology_platform_service">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Technology_platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Name_of_service_classification_standard_for_science_and_technology_platform -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Name_of_service_classification_standard_for_science_and_technology_platform">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Service_classification"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Name_of_service_resources_of_science_and_technology_platform -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Name_of_service_resources_of_science_and_technology_platform">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Technology_platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Name_of_technology_platform_service_provider -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Name_of_technology_platform_service_provider">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Service_Provider_Information"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Postal_code_of_technology_platform_service_provider -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Postal_code_of_technology_platform_service_provider">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Service_Provider_Information"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Science_and_technology_platform_service_resource_identification_code -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Science_and_technology_platform_service_resource_identification_code">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Technology_platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Service_category_code_of_science_and_technology_platform -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Service_category_code_of_science_and_technology_platform">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Service_classification"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Service_category_name_of_science_and_technology_platform -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Service_category_name_of_science_and_technology_platform">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Service_classification"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Service_classification_of_science_and_technology_platform -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Service_classification_of_science_and_technology_platform">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Technology_platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Service_content_description_of_science_and_technology_platform -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Service_content_description_of_science_and_technology_platform">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Technology_platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Service_name_of_science_and_technology_platform -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Service_name_of_science_and_technology_platform">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Technology_platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Service_website_of_technology_platform_service_provider -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Service_website_of_technology_platform_service_provider">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Service_Provider_Information"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bri/metadata5#Version_number_of_service_classification_standard_of_science_and_technology_platform -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bri/metadata5#Version_number_of_service_classification_standard_of_science_and_technology_platform">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bri/metadata5#Service_classification"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
