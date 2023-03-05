@@ -9,6 +9,8 @@ import com.bri.webdemo.service.DataSourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务实现类
@@ -54,5 +56,10 @@ public class DataSourceServiceImpl implements DataSourceService{
     @Override
     public DataSourceDO detailDataSource(Long id) {
         return dataSourceMapper.selectOne(new QueryWrapper<DataSourceDO>().eq("id",id));
+    }
+
+    @Override
+    public List<DataSourceDO> listAll() {
+        return dataSourceMapper.selectList(new QueryWrapper<DataSourceDO>());
     }
 }

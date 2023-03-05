@@ -9,6 +9,8 @@ import com.bri.webdemo.util.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/datasource")
 @CrossOrigin(origins = "*")
@@ -47,5 +49,13 @@ public class DataSourceController
     {
         DataSourceDO dataSourceDO=dataSourceService.detailDataSource(id);
         return JsonData.buildSuccess(dataSourceDO);
+    }
+
+    //列出所有数据源
+    @GetMapping("/list")
+    public JsonData listAll()
+    {
+        List<DataSourceDO> list=dataSourceService.listAll();
+        return JsonData.buildSuccess(list);
     }
 }

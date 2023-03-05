@@ -3,8 +3,8 @@ package com.bri.webdemo.service;
 import com.bri.webdemo.controller.request.AddDataSourceRequest;
 import com.bri.webdemo.controller.request.UpdateDataSourceRequest;
 import com.bri.webdemo.model.DataSourceDO;
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.bri.webdemo.util.JsonData;
+
+import java.util.List;
 
 /**
  * <p>
@@ -21,4 +21,6 @@ public interface DataSourceService{
     int updateById(UpdateDataSourceRequest request);
 
     DataSourceDO detailDataSource(Long id);
+
+    List<DataSourceDO> listAll();
 }
