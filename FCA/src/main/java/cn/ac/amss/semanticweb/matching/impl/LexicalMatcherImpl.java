@@ -1,10 +1,3 @@
-/*
- * LexicalMatcherImpl.java
- * Copyright (C) 2019 Guowei Chen <icgw@outlook.com>
- *
- * Distributed under terms of the GPL license.
- */
-
 package cn.ac.amss.semanticweb.matching.impl;
 
 import cn.ac.amss.semanticweb.alignment.Mapping;
@@ -43,8 +36,6 @@ import java.util.Arrays;
 
 /**
  * The implement of lexical matcher based on formal concept analysis.
- *
- * @author Guowei Chen (icgw@outlook.com)
  */
 public class LexicalMatcherImpl extends AbstractMatcherByFCA implements LexicalMatcher
 {

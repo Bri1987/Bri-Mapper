@@ -1,10 +1,3 @@
-/*
- * FCABuilder.java
- * Copyright (C) 2020 Guowei Chen <icgw@outlook.com>
- *
- * Distributed under terms of the GPL license.
- */
-
 package cn.ac.amss.semanticweb.fca;
 
 import cn.ac.amss.semanticweb.util.AbstractTable;
