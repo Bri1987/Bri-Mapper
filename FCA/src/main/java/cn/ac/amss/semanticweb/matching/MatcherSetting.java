@@ -1,9 +1,3 @@
-/*
- * MatcherSetting.java
- * Copyright (C) 2019 Guowei Chen <icgw@outlook.com>
- *
- * Distributed under terms of the GPL license.
- */
 
 package cn.ac.amss.semanticweb.matching;
 
@@ -11,8 +5,6 @@ import cn.ac.amss.semanticweb.model.OntModelWrapper;
 
 /**
  * The common setting for matcher based on FCA
- *
- * @author Guowei Chen (icgw@outlook.com)
  */
 public interface MatcherSetting
 {

@@ -1,10 +1,3 @@
-/*
- * MatcherFactory.java
- * Copyright (C) 2019 Guowei Chen <icgw@outlook.com>
- *
- * Distributed under terms of the GPL license.
- */
-
 package cn.ac.amss.semanticweb.matching;
 
 import cn.ac.amss.semanticweb.matching.impl.LexicalMatcherImpl;
@@ -14,8 +7,6 @@ import cn.ac.amss.semanticweb.matching.impl.AdditionalPropertyMatcherImpl;
 
 /**
  * The matcher factory for creating a specified matcher model
- *
- * @author Guowei Chen (icgw@outlook.com)
  */
 public class MatcherFactory
 {

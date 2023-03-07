@@ -34,7 +34,6 @@ import java.util.HashSet;
 /**
  * The wrapping class storage of jena model
  *
- * @author Guowei Chen (icgw@outlook.com)
  */
 public class ModelStorage {
   private final static Logger logger = LogManager.getLogger(ModelStorage.class.getName());

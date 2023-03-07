@@ -17,8 +17,8 @@ public class Demo
 {
     public static Mapping map_lexi()
     {
-        ModelStorage source = new ModelStorage("FCA/src/test/resources/metadata4/metadata4.owl");
-        ModelStorage target = new ModelStorage("FCA/src/test/resources/metadata4/wrong4.owl");
+        ModelStorage source = new ModelStorage("FCA/src/test/resources/metadata3/metadata3.owl");
+        ModelStorage target = new ModelStorage("FCA/src/test/resources/metadata3/wrong3.owl");
 
         /************************** Lexical-level Matching ***************************/
         LexicalMatcher lm = MatcherFactory.createLexicalMatcher();
@@ -29,13 +29,14 @@ public class Demo
         Mapping lexicalOntClassMappings = new Mapping();
         lm.mapOntClasses(lexicalOntClassMappings);
         System.out.println(lexicalOntClassMappings);
-
+        System.out.println("________________________________________");
         return lexicalOntClassMappings;
     }
 
     public static void main(String[] args) {
         ModelStorage source = new ModelStorage("FCA/src/test/resources/metadata4/metadata4.owl");
         ModelStorage target = new ModelStorage("FCA/src/test/resources/metadata4/wrong4.owl");
+        map_lexi();
 
         /************************** Lexical-level Matching ***************************/
         LexicalMatcher lm = MatcherFactory.createLexicalMatcher();

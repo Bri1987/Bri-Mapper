@@ -1,9 +1,3 @@
-/*
- * LevenshteinDistanceImpl.java
- * Copyright (C) 2020 Guowei Chen <icgw@outlook.com>
- *
- * Distributed under terms of the GPL license.
- */
 package cn.ac.amss.stringsimilarity.impl;
 
 import cn.ac.amss.stringsimilarity.StringDistance;
@@ -16,7 +10,6 @@ import cn.ac.amss.stringsimilarity.StringDistance;
  *
  * Improved using dynamic programming.
  *
- * @author Guowei Chen (icgw@outlook.com)
  */
 public class LevenshteinDistanceImpl implements StringDistance
 {

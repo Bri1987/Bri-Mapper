@@ -38,7 +38,6 @@ import java.util.HashMap;
 /**
  * The implement of structural matcher based on formal concept analysis.
  *
- * @author Guowei Chen (icgw@outlook.com)
  */
 public class StructuralMatcherImpl extends AbstractMatcherByFCA implements StructuralMatcher
 {

@@ -9,7 +9,7 @@ public class MySqlVisitor extends sqlLikeBaseVisitor<Object>{
 
     public static String table= "";
     public static List<String> list_meta=new ArrayList<>();
-    public static List<List<String>> line_content=new ArrayList<>();
+    public static List<List<String>> line_content=new ArrayList<>();     //TODO 静态的line_content，一次启动只能跑一次
 
     @Override
     public Object visitInsert(sqlLikeParser.InsertContext ctx) {
@@ -43,5 +43,4 @@ public class MySqlVisitor extends sqlLikeBaseVisitor<Object>{
         line_content.add(one_list);
         return null;
     }
-
 }

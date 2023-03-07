@@ -1,17 +1,8 @@
-/*
- * LevenshteinSimilarityImpl.java
- * Copyright (C) 2020 Guowei Chen <icgw@outlook.com>
- *
- * Distributed under terms of the GPL license.
- */
+
 package cn.ac.amss.stringsimilarity.impl;
 
 import cn.ac.amss.stringsimilarity.StringSimilarity;
 
-/**
- *
- * @author Guowei Chen (icgw@outlook.com)
- */
 public class LevenshteinSimilarityImpl implements StringSimilarity
 {
   public LevenshteinSimilarityImpl() {}

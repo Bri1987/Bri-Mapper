@@ -1,10 +1,3 @@
-/*
- * PorterStemmer.java
- * Copyright (C) 2019 Guowei Chen <icgw@outlook.com>
- *
- * Distributed under terms of the MIT license.
- */
-
 package cn.ac.amss.semanticweb.linguistics.stemming;
 
 /**

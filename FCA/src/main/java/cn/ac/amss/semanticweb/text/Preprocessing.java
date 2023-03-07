@@ -1,9 +1,3 @@
-/*
- * Preprocessing.java
- * Copyright (C) 2019 Guowei Chen <icgw@outlook.com>
- *
- * Distributed under terms of the GPL license.
- */
 package cn.ac.amss.semanticweb.text;
 
 import java.io.InputStream;
@@ -17,11 +11,6 @@ import java.util.regex.Pattern;
 import cn.ac.amss.semanticweb.linguistics.stemming.Stemmer;
 import cn.ac.amss.semanticweb.linguistics.stemming.PorterStemmer;
 
-/**
- * Text preprocessing.
- *
- * @author Guowei Chen (icgw@outlook.com)
- */
 public class Preprocessing
 {
   private static Pattern TOKEN_DELIMITER = Init.patternTokenDelimiterEN();

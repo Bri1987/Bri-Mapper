@@ -1,10 +1,3 @@
-/*
- * Hermes.java
- * Copyright (C) 2019 Guowei Chen <icgw@outlook.com>
- *
- * Distributed under terms of the GPL license.
- */
-
 package cn.ac.amss.semanticweb.fca;
 
 import cn.ac.amss.semanticweb.util.Pair;
@@ -22,8 +15,6 @@ import java.util.Arrays;
 /**
  * Hermes: a simple and efficient algorithm for building the AOC-poset of a binary relation
  *   Anne Berry, Alain Gutierrez, Marianne Huchard, Amedeo Napoli, Alain Sigayret
- *
- * @author Guowei Chen (icgw@outlook.com)
  */
 public class Hermes <O, A>
 {

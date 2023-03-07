@@ -1,9 +1,3 @@
-/*
- * AbstractMatcher.java
- * Copyright (C) 2019 Guowei Chen <icgw@outlook.com>
- *
- * Distributed under terms of the GPL license.
- */
 
 package cn.ac.amss.semanticweb.matching.impl;
 

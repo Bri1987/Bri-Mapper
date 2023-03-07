@@ -16,12 +16,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-/**
- * An improved formal concept analysis builder designed by Guowei Chen.
- *   - AOC-poset algorithm part inspired by Hermes
- *
- * @author Guowei Chen (icgw@outlook.com)
- */
 public class FCABuilder <O, A>
 {
   private class LookupTable <V> extends AbstractTable<Integer, V> {
@@ -308,6 +302,8 @@ public class FCABuilder <O, A>
 
     Context<A, O> inverseContext = new Context<>();
 
+    Map<String,A> map_sa=new HashMap<>();
+
     for (Entry<O, Set<A>> e : context.entrySet()) {
       O k      = e.getKey();
       Set<A> v = e.getValue();
@@ -317,8 +313,22 @@ public class FCABuilder <O, A>
       objects.add(k);
       attributes.addAll(v);
 
+      String s="clever";
       for (A a : v) {
-        inverseContext.put(a, k);
+        //TODO 加个近义词判断，如果inverseContext中已有存在的a的近义词，就put到同一个地方，加value
+        if(a.toString().equals("intellig") && map_sa.containsKey(s))
+        {
+            inverseContext.put(map_sa.get(s),k);
+            //将attributes中移除intellig
+            attributes.remove(a);
+            //将context中的intelligent的值换为clever
+            context.put_replace(k,a,map_sa.get(s));
+        }
+        else
+        {
+          inverseContext.put(a, k);
+          map_sa.put(a.toString(),a);
+        }
       }
     }
 

@@ -1,10 +1,3 @@
-/*
- * OntModelWrapper.java
- * Copyright (C) 2019 Guowei Chen <icgw@outlook.com>
- *
- * Distributed under terms of the GPL license.
- */
-
 package cn.ac.amss.semanticweb.model;
 
 import java.util.Set;
@@ -31,11 +24,6 @@ import org.apache.jena.util.iterator.ExtendedIterator;
 
 import cn.ac.amss.semanticweb.vocabulary.DBkWik;
 
-/**
- * The wrapper of ontology model, which store the instances, properties and classes.
- *
- * @author Guowei Chen (icgw@outlook.com)
- */
 public class OntModelWrapper
 {
   private final static Logger m_logger = LogManager.getLogger(OntModelWrapper.class.getName());

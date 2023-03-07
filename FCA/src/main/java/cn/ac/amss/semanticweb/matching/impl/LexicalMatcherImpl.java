@@ -15,12 +15,14 @@ import cn.ac.amss.semanticweb.fca.FCABuilder;
 import cn.ac.amss.semanticweb.matching.LexicalMatcher;
 import cn.ac.amss.semanticweb.model.PlainRDFNode;
 import cn.ac.amss.semanticweb.model.ModelStorage;
+import cn.ac.amss.semanticweb.text.CHPreprocessing;
 import cn.ac.amss.semanticweb.text.Preprocessing;
 import cn.ac.amss.semanticweb.util.AbstractTable;
 import cn.ac.amss.semanticweb.vocabulary.DBkWik;
 import cn.ac.amss.stringsimilarity.StringMetricFactory;
 import cn.ac.amss.stringsimilarity.StringSimilarity;
 
+import com.huaban.analysis.jieba.JiebaSegmenter;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.Property;
@@ -30,8 +32,11 @@ import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.SKOS;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+import org.apdplat.word.WordSegmenter;
+import org.apdplat.word.segmentation.Word;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Arrays;
@@ -334,30 +339,52 @@ public class LexicalMatcherImpl extends AbstractMatcherByFCA implements LexicalM
 
   private Set<String> getAllTokens(String labelOrName) {
     Set<String> tokens = new HashSet<>();
-    Set<String> tokensBuffer = new HashSet<>(Arrays.asList(Preprocessing.stringTokenize(labelOrName)));
-
-    if (Preprocessing.isStopWordsEnabled()) {
-      Preprocessing.removeStopWords(tokensBuffer);
-      tokens.clear();
-      tokens.addAll(tokensBuffer);
-
-      tokensBuffer.clear();
-      tokensBuffer.addAll(tokens);
+    Set<String> tokensBuffer;
+    JiebaSegmenter segmenter = new JiebaSegmenter();
+    //中文
+    String regex="([\\u4e00-\\u9fa5])+";
+    if(labelOrName.matches(regex))
+    {
+      //调库分词
+      /*
+      List<Word> words = WordSegmenter.segWithStopWords(labelOrName);
+      for(Word word:words)
+      {
+        tokens.add(word.getText());
+      }*/
+      List<String> words =segmenter.sentenceProcess(labelOrName);
+      tokens.addAll(words);
+      //单词处理
+      //比如将标识符处理成标识
+      tokens=CHPreprocessing.removeCHStopWords(tokens);
     }
+    else
+    {
+      //英文
+      tokensBuffer= new HashSet<>(Arrays.asList(Preprocessing.stringTokenize(labelOrName)));
 
-    if (Preprocessing.isStemmerEnabled()) {
-      tokens.clear();
-      for (String t : tokensBuffer) {
-        String st = Preprocessing.stem(t);
-        if (null == st || st.isEmpty()) continue;
-        tokens.add(st);
+      if (Preprocessing.isStopWordsEnabled()) {
+        Preprocessing.removeStopWords(tokensBuffer);
+        tokens.clear();
+        tokens.addAll(tokensBuffer);
+
+        tokensBuffer.clear();
+        tokensBuffer.addAll(tokens);
       }
 
-      // XXX: if has another processing step then should add the following two line codes
-      // tokensBuffer.clear();
-      // tokensBuffer.addAll(tokens);
-    }
+      if (Preprocessing.isStemmerEnabled()) {
+        tokens.clear();
+        for (String t : tokensBuffer) {
+          String st = Preprocessing.stem(t);
+          if (null == st || st.isEmpty()) continue;
+          tokens.add(st);
+        }
 
+        // XXX: if has another processing step then should add the following two line codes
+        // tokensBuffer.clear();
+        // tokensBuffer.addAll(tokens);
+      }
+    }
     return tokens;
   }
 

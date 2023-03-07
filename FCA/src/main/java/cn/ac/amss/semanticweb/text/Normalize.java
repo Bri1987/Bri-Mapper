@@ -1,20 +1,8 @@
-/*
- * Normalize.java
- * Copyright (C) 2019 Guowei Chen <icgw@outlook.com>
- *
- * Distributed under terms of the GPL license.
- */
-
 package cn.ac.amss.semanticweb.text;
 
 import java.util.regex.Pattern;
 import java.text.Normalizer;
 
-/**
- * Transform a text string into a normal style
- *
- * @author Guowei Chen (icgw@outlook.com)
- */
 public class Normalize
 {
   private static final String RE_CAMEL_OR_SNAKE_DELIMITER = "(?<!^|[A-Z_\\-])(?=[A-Z])|(?<!^|[_\\-])(?=[A-Z][a-z])|_";

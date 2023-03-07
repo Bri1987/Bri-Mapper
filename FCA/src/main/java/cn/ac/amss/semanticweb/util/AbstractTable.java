@@ -37,6 +37,14 @@ public abstract class AbstractTable <K, V> {
     return s.add(v);
   }
 
+  public boolean put_replace(K k,V v_before,V v_after)
+  {
+    Set<V> set = map.get(k);
+    set.remove(v_before);
+
+    return set.add(v_after);
+  }
+
   public boolean put(K k, Set<V> sv) {
     Set<V> s = map.get(k);
     if (null != s) return s.addAll(sv);

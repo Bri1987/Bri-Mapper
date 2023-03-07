@@ -1,9 +1,3 @@
-/*
- * SimpleStemmer.java
- * Copyright (C) 2019 Guowei Chen <icgw@outlook.com>
- *
- * Distributed under terms of the GPL license.
- */
 
 package cn.ac.amss.semanticweb.linguistics.stemming;
 
@@ -13,7 +7,6 @@ import cn.ac.amss.semanticweb.linguistics.lemmatization.SimpleLemmatizer.ENDING;
 /**
  * Simple stemming class
  *
- * @author Guowei Chen (icgw@outlook.com)
  */
 public class SimpleStemmer implements Stemmer
 {
