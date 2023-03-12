@@ -19,31 +19,62 @@ import static com.bri.inputData.deal_data.bean2Map.metadata2map;
 import static com.bri.inputData.deal_data.csv2Bean.readMetadataField;
 
 public class Main {
-    public static Map<MetadataField,MetadataField> mapping2map(Mapping lexi_map,Map<String,MetadataField> map_meta,Map<String,MetadataField> map_source){
+    public static Map<Set<MetadataField>,Set<MetadataField>> mapping2map(Mapping lexi_map,Map<String,Set<MetadataField>> map_meta,Map<String,Set<MetadataField>> map_source){
         Set<MappingCell> map_cell = lexi_map.getM_mapping();
-        Map<MetadataField,MetadataField> exchange_map=new HashMap<MetadataField,MetadataField>();
-        Map<MetadataField,MetadataField> final_map=new HashMap<MetadataField,MetadataField>();
-        Map<MetadataField,Object> confi=new HashMap<>();
+        Map<Set<MetadataField>,Set<MetadataField>> exchange_map=new HashMap<Set<MetadataField>,Set<MetadataField>>();
+        Map<Set<MetadataField>,Set<MetadataField>> final_map=new HashMap<Set<MetadataField>,Set<MetadataField>>();
+        Map<Set<MetadataField>,Object> confi=new HashMap<>();
         for (MappingCell cell : map_cell) {
             String entity1 = cell.getEntity1().split("#")[1];            //第一个是元数据
             String entity2 = cell.getEntity2().split("#")[1];              //第二个是有误数据
-            MetadataField meta = map_meta.get(entity1);
-            MetadataField source = map_source.get(entity2);
+            Set<MetadataField> meta = map_meta.get(entity1);
+            Set<MetadataField> source = map_source.get(entity2);
 
-            if(source!=null && final_map.get(source)==null)
+            if(source!=null && exchange_map.get(source)==null)
             {
                 exchange_map.put(source,meta);
                 confi.put(source,cell.getSelf_confidence());
             }
-            else if(source!=null){
+            else if(exchange_map.get(source)!=null){
                 BigDecimal bigDecimal = new BigDecimal(confi.get(source).toString());
-                long result = bigDecimal.longValue();
+                Double result = bigDecimal.doubleValue();
                 //如果原先的可信度比现在的小，就替换映射内容
                 if(result<cell.getSelf_confidence())
                 {
                     exchange_map.put(source,meta);
+                    //并更新可信度
+                    confi.put(source,cell.getSelf_confidence());
                 }
             }
+        }
+
+        //test
+        Set<String> test_set1=new HashSet<>();
+        exchange_map.forEach((source,meta)->{
+            source.forEach((s)->{
+                test_set1.add(s.getNameZH());
+            });
+            if(Double.parseDouble(String.valueOf((Double) confi.get(source)))<0.8)
+            {
+                source.forEach((s)->{
+                    //test_set1.add(s.getNameZH());
+                    System.out.print(s.getNameZH()+" ");
+                });
+                meta.forEach((m)->{
+                    System.out.print(m.getNameZH()+" ");
+                });
+                System.out.println(confi.get(source));
+            }
+        });
+        System.out.println("\n");
+        Set<String> test_set2=new HashSet<>();
+        map_source.forEach((key,value)->{
+            test_set2.add(key.split("！")[0]);
+        });
+        for(String s:test_set2)
+        {
+            if(!test_set1.contains(s))
+                System.out.println(s);
         }
 
         //将exchange_map的key,value内容互换
@@ -54,18 +85,19 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException, TransformerException, ParserConfigurationException, SAXException {
-        ArrayList<MetadataField> metadataFields = readMetadataField("./handle-data/src/main/resources/test/metadata-tech.csv");
-        ArrayList<MetadataField> sourceDataFields = readMetadataField("./handle-data/src/main/resources/test/wrong-tech.csv");
+        ArrayList<MetadataField> metadataFields = readMetadataField("./handle-data/src/main/resources/【公开】fianl_610.csv");
+        ArrayList<MetadataField> sourceDataFields = readMetadataField("./handle-data/src/main/resources/final_300.csv");
 
-        Map<String,MetadataField> map_meta=metadata2map(metadataFields);
-        Map<String,MetadataField> map_source=metadata2map(sourceDataFields);
+        Map<String,Set<MetadataField>> map_meta=metadata2map(metadataFields);
+        Map<String,Set<MetadataField>> map_source=metadata2map(sourceDataFields);
 
+//
         Mapping lexi_map =map_lexi();
-       Map<MetadataField,MetadataField> final_map= mapping2map(lexi_map,map_meta,map_source);
-
-        //将结果写入xml文件
-        File file=new File("./result.xml");
-        map2xml final_xml=new map2xml(final_map);
-        final_xml.writeXML(file);
+       Map<Set<MetadataField>,Set<MetadataField>> final_map= mapping2map(lexi_map,map_meta,map_source);
+//
+//        //将结果写入xml文件
+//        File file=new File("./result.xml");
+//        map2xml final_xml=new map2xml(final_map);
+//        final_xml.writeXML(file);
     }
 }

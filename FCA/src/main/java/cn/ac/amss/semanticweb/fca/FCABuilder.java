@@ -306,10 +306,10 @@ public class FCABuilder <O, A>
       objects.add(k);
       attributes.addAll(v);
 
-      String s="clever";
+      String s="最高学历";
       for (A a : v) {
         //TODO 加个近义词判断，如果inverseContext中已有存在的a的近义词，就put到同一个地方，加value
-        if(a.toString().equals("intellig") && map_sa.containsKey(s))
+        if(a.toString().equals("最大学历") && map_sa.containsKey(s))
         {
             inverseContext.put(map_sa.get(s),k);
             //将attributes中移除intellig
@@ -353,7 +353,10 @@ public class FCABuilder <O, A>
                                         inverseContext.values(), -1, -1)
                 );
 
-    t1.start(); t2.start(); t3.start(); t4.start();
+    t1.start();
+    t2.start();
+    t3.start();
+    t4.start();
 
     try {
       t3.join(); t4.join();

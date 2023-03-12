@@ -23,30 +23,21 @@
 
     <!-- http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-15#信息资源 -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-15#info_information"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-15#info_informations"/>
     
 
 
     <!-- http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-15#信息资源名称 -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-15#has_name">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-15#info_information"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-15#科技平台服务资源标识符">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-15#info_informations"/>
     </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-15#信息资源类目名称 -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-15#Information_resource_category_name">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-15#info_information"/>
-    </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-15#信息资源责任者 -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-15#responsible_person">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-15#info_information"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-15#intelligent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-15#info_informations"/>
     </owl:Class>
 </rdf:RDF>
 

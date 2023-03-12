@@ -41,6 +41,8 @@ public class MetadataField {
     private int minLength;
     // 最小长度
     private int maxLength;
+    //固定长度
+    private float fixLength;
     // 日期格式
     private String format;
     // 最小值

@@ -29,7 +29,7 @@
 
     <!-- http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-16#信息资源类目 -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-16#Information_resource_category">
+    <owl:Class rdf:about="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-16#科技平台服务资源标识">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-16#info_information"/>
     </owl:Class>
     
@@ -37,7 +37,7 @@
 
     <!-- http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-16#信息资源责任者 -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-16#responsible_person">
+    <owl:Class rdf:about="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-16#clever">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/12167/ontologies/2023/1/untitled-ontology-16#info_information"/>
     </owl:Class>
 </rdf:RDF>

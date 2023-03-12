@@ -16,6 +16,7 @@ import cn.ac.amss.stringsimilarity.StringMetricFactory;
 import cn.ac.amss.stringsimilarity.StringSimilarity;
 
 import com.huaban.analysis.jieba.JiebaSegmenter;
+import com.huaban.analysis.jieba.WordDictionary;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.Property;
@@ -28,11 +29,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apdplat.word.WordSegmenter;
 import org.apdplat.word.segmentation.Word;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.List;
-import java.util.Set;
-import java.util.HashSet;
-import java.util.Arrays;
+import java.net.URI;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
 
 /**
  * The implement of lexical matcher based on formal concept analysis.
@@ -200,6 +203,9 @@ public class LexicalMatcherImpl extends AbstractMatcherByFCA implements LexicalM
     if (null == labelsOrNames) return labelOrName2tokensContext;
 
     for (String ln : labelsOrNames) {
+      if(ln.contains("(管理项的)指称！注册！一个管理项在一个语境中的指称"))
+        System.out.println("[");
+      Set<String> ss=getAllTokens(ln);
       labelOrName2tokensContext.put(ln, getAllTokens(ln));
     }
 
@@ -282,10 +288,12 @@ public class LexicalMatcherImpl extends AbstractMatcherByFCA implements LexicalM
     labelsOrNames.addAll(getAllLiteralString(resource, SKOS.hiddenLabel));
 
     if (labelsOrNames.isEmpty()) {
-      String localName = resource.getLocalName();
-      if (null != localName && !localName.equals("")) {
-        labelsOrNames.add(localName);
-      }
+     String defaultName=resource.getURI().split("#")[1];
+     labelsOrNames.add(defaultName);
+//      String localName = resource.getLocalName();
+//      if (null != localName && !localName.equals("")) {
+//        labelsOrNames.add(localName);
+//      }
     }
 
     if (labelsOrNames.isEmpty()) {
@@ -331,28 +339,46 @@ public class LexicalMatcherImpl extends AbstractMatcherByFCA implements LexicalM
   private Set<String> getAllTokens(String labelOrName) {
     Set<String> tokens = new HashSet<>();
     Set<String> tokensBuffer;
+
+    //加载自定义词典
+    Path path = FileSystems.getDefault().getPath("D:\\A39\\Bri-Mapper\\FCA\\src\\main\\java\\cn\\ac\\amss\\semanticweb\\matching\\impl\\resources", "dict.txt");
+    WordDictionary.getInstance().loadUserDict(path);
     JiebaSegmenter segmenter = new JiebaSegmenter();
+
+    labelOrName=labelOrName.replaceAll("\\(","");
+    labelOrName=labelOrName.replaceAll("\\)","");
+    if(labelOrName.startsWith("-"))
+    {
+      labelOrName=labelOrName.replaceFirst("-","");
+      labelOrName=labelOrName.replaceFirst("！","");
+    }
+
     //中文
-    String regex="([\\u4e00-\\u9fa5])+";
+    String regex="^([\\u4e00-\\u9fa5])(.)*";
     if(labelOrName.matches(regex))
     {
-      //调库分词
-      /*
-      List<Word> words = WordSegmenter.segWithStopWords(labelOrName);
-      for(Word word:words)
+      if(labelOrName.contains(" "))
       {
-        tokens.add(word.getText());
-      }*/
+        labelOrName=labelOrName.replaceAll(" ","");
+      }
+
+      //处理近音错别字
+      labelOrName=CHPreprocessing.fixCHString(labelOrName);
       List<String> words =segmenter.sentenceProcess(labelOrName);
+      //System.out.println(labelOrName);
+
       tokens.addAll(words);
       //单词处理
       //比如将标识符处理成标识
       tokens=CHPreprocessing.removeCHStopWords(tokens);
+      //删除不必要的token
+      tokens=CHPreprocessing.removeToken(tokens);
     }
     else
     {
       //英文
       tokensBuffer= new HashSet<>(Arrays.asList(Preprocessing.stringTokenize(labelOrName)));
+
 
       if (Preprocessing.isStopWordsEnabled()) {
         Preprocessing.removeStopWords(tokensBuffer);

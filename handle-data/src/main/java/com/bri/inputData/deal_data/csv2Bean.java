@@ -58,9 +58,12 @@ public class csv2Bean
                 if (length.contains("..")) {
                     field.setMinLength(Integer.parseInt(length.substring(0, length.indexOf(".."))));
                     field.setMaxLength(Integer.parseInt(length.substring(length.indexOf("..") + 2)));
-                } else {
+                }
+                else if(length.equals("-") || length.equals("数值"))
+                    ;
+                else {
                     try {
-                        field.setMinLength(Integer.parseInt(length));
+                        field.setFixLength(Float.parseFloat(length));
                     } catch (NumberFormatException ex) {
                         ex.printStackTrace();
                     }
