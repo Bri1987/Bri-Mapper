@@ -17,11 +17,7 @@ import cn.ac.amss.stringsimilarity.StringSimilarity;
 
 import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.huaban.analysis.jieba.WordDictionary;
-import org.apache.jena.rdf.model.RDFNode;
-import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.Statement;
-import org.apache.jena.rdf.model.StmtIterator;
+import org.apache.jena.rdf.model.*;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.SKOS;
 import org.apache.logging.log4j.Logger;
@@ -203,9 +199,6 @@ public class LexicalMatcherImpl extends AbstractMatcherByFCA implements LexicalM
     if (null == labelsOrNames) return labelOrName2tokensContext;
 
     for (String ln : labelsOrNames) {
-      if(ln.contains("(管理项的)指称！注册！一个管理项在一个语境中的指称"))
-        System.out.println("[");
-      Set<String> ss=getAllTokens(ln);
       labelOrName2tokensContext.put(ln, getAllTokens(ln));
     }
 

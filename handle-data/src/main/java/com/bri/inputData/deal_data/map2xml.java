@@ -14,13 +14,15 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 public class map2xml
 {
-    private Map<MetadataField,MetadataField> map;
+    private Map<Set<MetadataField>, Set<MetadataField>> map;
 
-    public map2xml(Map<MetadataField, MetadataField> map) {
+    public map2xml(Map<Set<MetadataField>, Set<MetadataField>> map) {
         this.map = map;
     }
 
@@ -29,11 +31,23 @@ public class map2xml
         <root>
             <map metadata="科技平台名称">
                 <meta>
-                     <name>...</name>
+                     <instance>
+                          <name>...</name>
+                     </instance>
+
+                     <instance>
+                          <name>...</name>
+                     </instance>
                 </meta>
 
                 <source>
-                    <name>...</name>
+                    <instance>
+                          <name>...</name>
+                     </instance>
+
+                     <instance>
+                          <name>...</name>
+                     </instance>
                 </source>
             </map>
         </root>
@@ -52,141 +66,173 @@ public class map2xml
         //创建根结点
         Element element= doc.createElement("root");
 
-        map.forEach((meta,source)->{
+        map.forEach((metas,sources)->{
             //创建map
+            //这个map节点的名字
+            String map_name;
+            Iterator<MetadataField> it= metas.iterator();
+            map_name=it.next().getNameZH();
+
             Element element_map_child = doc.createElement("map");
-            element_map_child.setAttribute("metadata",meta.getNameZH());
+            element_map_child.setAttribute("metadata",map_name);
             element.appendChild(element_map_child);
 
             //创建map的第一个子结点meta
             Element child_meta=doc.createElement("meta");
             element_map_child.appendChild(child_meta);
-            //将meta对象的内容加入xml文件
-            Element child_zh= doc.createElement("value");
-            child_zh.setAttribute("name","中文名称");
-            child_zh.setTextContent(meta.getNameZH());
-            child_meta.appendChild(child_zh);
 
-            Element child_data_type= doc.createElement("value");
-            child_data_type.setAttribute("name","数据类型");
-            child_data_type.setTextContent(meta.getDataType().name());
-            child_meta.appendChild(child_data_type);
+            //创建各个instance
+            metas.forEach((meta)->{
+                //创建instance节点
+                Element instance=doc.createElement("instance");
+                child_meta.appendChild(instance);
 
-            Element child_type= doc.createElement("value");
-            child_type.setAttribute("name","类词");
-            child_type.setTextContent(meta.getFieldType());
-            child_meta.appendChild(child_type);
+                //将meta对象的内容加入xml文件
+                Element child_zh= doc.createElement("value");
+                child_zh.setAttribute("name","中文名称");
+                child_zh.setTextContent(meta.getNameZH());
 
-            Element child_length= doc.createElement("value");
-            child_length.setAttribute("name","长度");
-            //最小长度与最大长度
-            Element length_min=doc.createElement("min");
-            length_min.setTextContent(Integer.toString(meta.getMinLength()));
-            child_length.appendChild(length_min);
-            Element length_max=doc.createElement("max");
-            length_max.setTextContent(Integer.toString(meta.getMaxLength()));
-            child_length.appendChild(length_max);
+                instance.appendChild(child_zh);
 
-            child_meta.appendChild(child_length);
+                Element child_data_type= doc.createElement("value");
+                child_data_type.setAttribute("name","数据类型");
+                //System.out.println("1:"+meta.getDataType().name());
+                child_data_type.setTextContent(meta.getDataType().name());
+                instance.appendChild(child_data_type);
 
-            // TODO 值域未做
+                Element child_type= doc.createElement("value");
+                child_type.setAttribute("name","类词");
+                child_type.setTextContent(meta.getFieldType());
+                instance.appendChild(child_type);
 
+                Element child_length= doc.createElement("value");
+                child_length.setAttribute("name","长度");
+                //最小长度与最大长度
+                Element length_min=doc.createElement("min");
+                length_min.setTextContent(Integer.toString(meta.getMinLength()));
+                child_length.appendChild(length_min);
+                Element length_max=doc.createElement("max");
+                length_max.setTextContent(Integer.toString(meta.getMaxLength()));
+                child_length.appendChild(length_max);
+                Element length_fix=doc.createElement("fix");
+                length_fix.setTextContent(Float.toString(meta.getFixLength()));
+                child_length.appendChild(length_fix);
 
-            Element child_unit= doc.createElement("value");
-            child_unit.setAttribute("name","计量单位");
-            child_unit.setTextContent(meta.getUnit());
-            child_meta.appendChild(child_unit);
+                instance.appendChild(child_length);
 
-            Element child_description= doc.createElement("value");
-            child_description.setAttribute("name","定义");
-            child_description.setTextContent(meta.getUnit());
-            child_meta.appendChild(child_description);
+                Element child_value= doc.createElement("value");
+                child_value.setAttribute("name","值域");
+                child_value.setTextContent(meta.getValue());
+                instance.appendChild(child_value);
 
-            Element child_reference= doc.createElement("value");
-            child_reference.setAttribute("name","参考来源");
-            child_reference.setTextContent(meta.getReference());
-            child_meta.appendChild(child_reference);
+                Element child_unit= doc.createElement("value");
+                child_unit.setAttribute("name","计量单位");
+                child_unit.setTextContent(meta.getUnit());
+                instance.appendChild(child_unit);
 
-            Element child_reference_mj= doc.createElement("value");
-            child_reference_mj.setAttribute("name","参考来源MJ");
-            child_reference_mj.setTextContent(meta.getReferenceMJ());
-            child_meta.appendChild(child_reference_mj);
+                Element child_description= doc.createElement("value");
+                child_description.setAttribute("name","定义");
+                child_description.setTextContent(meta.getUnit());
+                instance.appendChild(child_description);
 
-            Element child_object= doc.createElement("value");
-            child_object.setAttribute("name","描述对象");
-            child_object.setTextContent(meta.getObject());
-            child_meta.appendChild(child_object);
+                Element child_reference= doc.createElement("value");
+                child_reference.setAttribute("name","参考来源");
+                child_reference.setTextContent(meta.getReference());
+                instance.appendChild(child_reference);
 
-            Element child_category= doc.createElement("value");
-            child_category.setAttribute("name","所属分类");
-            child_category.setTextContent(meta.getCategory());
-            child_meta.appendChild(child_category);
+                Element child_reference_mj= doc.createElement("value");
+                child_reference_mj.setAttribute("name","参考来源MJ");
+                child_reference_mj.setTextContent(meta.getReferenceMJ());
+                instance.appendChild(child_reference_mj);
 
+                Element child_object= doc.createElement("value");
+                child_object.setAttribute("name","描述对象");
+                child_object.setTextContent(meta.getObject());
+                instance.appendChild(child_object);
+
+                Element child_category= doc.createElement("value");
+                child_category.setAttribute("name","所属分类");
+                child_category.setTextContent(meta.getCategory());
+                instance.appendChild(child_category);
+            });
 
             //创建map的第二个子结点source
             Element child_source=doc.createElement("source");
             element_map_child.appendChild(child_source);
 
-            //将source对象的内容加入xml文件
-            Element child_zh2= doc.createElement("value");
-            child_zh2.setAttribute("name","中文名称");
-            child_zh2.setTextContent(source.getNameZH());
-            child_source.appendChild(child_zh2);
+            sources.forEach((source)->{
+                //创建instance节点
+                Element instance=doc.createElement("instance");
+                child_source.appendChild(instance);
 
-            Element child_data_type2= doc.createElement("value");
-            child_data_type2.setAttribute("name","数据类型");
-            child_data_type2.setTextContent(source.getDataType().name());
-            child_source.appendChild(child_data_type2);
+                //将source对象的内容加入xml文件
+                Element child_zh2= doc.createElement("value");
+                child_zh2.setAttribute("name","中文名称");
+                child_zh2.setTextContent(source.getNameZH());
+                instance.appendChild(child_zh2);
 
-            Element child_type2= doc.createElement("value");
-            child_type2.setAttribute("name","类词");
-            child_type2.setTextContent(source.getFieldType());
-            child_source.appendChild(child_type2);
+                Element child_data_type2= doc.createElement("value");
+                child_data_type2.setAttribute("name","数据类型");
+                //System.out.println("2:"+source.getDataType().name());
+                child_data_type2.setTextContent(source.getDataType().name());
+                instance.appendChild(child_data_type2);
 
-            Element child_length2= doc.createElement("value");
-            child_length2.setAttribute("name","长度");
-            //最小长度与最大长度
-            Element length_min2=doc.createElement("min");
-            length_min2.setTextContent(Integer.toString(source.getMinLength()));
-            child_length2.appendChild(length_min2);
-            Element length_max2=doc.createElement("max");
-            length_max2.setTextContent(Integer.toString(source.getMaxLength()));
-            child_length2.appendChild(length_max2);
+                Element child_type2= doc.createElement("value");
+                child_type2.setAttribute("name","类词");
+                child_type2.setTextContent(source.getFieldType());
+                instance.appendChild(child_type2);
 
-            child_source.appendChild(child_length2);
+                Element child_length2= doc.createElement("value");
+                child_length2.setAttribute("name","长度");
+                //最小长度与最大长度
+                Element length_min2=doc.createElement("min");
+                length_min2.setTextContent(Integer.toString(source.getMinLength()));
+                child_length2.appendChild(length_min2);
+                Element length_max2=doc.createElement("max");
+                length_max2.setTextContent(Integer.toString(source.getMaxLength()));
+                child_length2.appendChild(length_max2);
+                Element length_fix2=doc.createElement("fix");
+                length_fix2.setTextContent(Float.toString(source.getFixLength()));
+                child_length2.appendChild(length_fix2);
 
-            //值域未做
+                instance.appendChild(child_length2);
 
+                Element child_value2= doc.createElement("value");
+                child_value2.setAttribute("name","值域");
+                child_value2.setTextContent(source.getValue());
+                instance.appendChild(child_value2);
 
-            Element child_unit2= doc.createElement("value");
-            child_unit2.setAttribute("name","计量单位");
-            child_unit2.setTextContent(source.getUnit());
-            child_source.appendChild(child_unit2);
+                Element child_unit2= doc.createElement("value");
+                child_unit2.setAttribute("name","计量单位");
+                child_unit2.setTextContent(source.getUnit());
+                instance.appendChild(child_unit2);
 
-            Element child_description2= doc.createElement("value");
-            child_description2.setAttribute("name","定义");
-            child_description2.setTextContent(source.getUnit());
-            child_source.appendChild(child_description2);
+                Element child_description2= doc.createElement("value");
+                child_description2.setAttribute("name","定义");
+                child_description2.setTextContent(source.getUnit());
+                instance.appendChild(child_description2);
 
-            Element child_reference2= doc.createElement("value");
-            child_reference2.setAttribute("name","参考来源");
-            child_reference2.setTextContent(source.getReference());
-            child_source.appendChild(child_reference2);
+                Element child_reference2= doc.createElement("value");
+                child_reference2.setAttribute("name","参考来源");
+                child_reference2.setTextContent(source.getReference());
+                instance.appendChild(child_reference2);
 
-            Element child_reference_mj2= doc.createElement("value");
-            child_reference_mj2.setAttribute("name","参考来源MJ");
-            child_reference_mj2.setTextContent(source.getReferenceMJ());
-            child_source.appendChild(child_reference_mj2);
+                Element child_reference_mj2= doc.createElement("value");
+                child_reference_mj2.setAttribute("name","参考来源MJ");
+                child_reference_mj2.setTextContent(source.getReferenceMJ());
+                instance.appendChild(child_reference_mj2);
 
-            Element child_object2= doc.createElement("value");
-            child_object2.setAttribute("name","描述对象");
-            child_object2.setTextContent(source.getObject());
-            child_source.appendChild(child_object2);
+                Element child_object2= doc.createElement("value");
+                child_object2.setAttribute("name","描述对象");
+                child_object2.setTextContent(source.getObject());
+                instance.appendChild(child_object2);
 
-            Element child_category2= doc.createElement("value");
-            child_category2.setAttribute("name","所属分类");
-            child_category2.setTextContent(source.getCategory());
-            child_source.appendChild(child_category2);
+                Element child_category2= doc.createElement("value");
+                child_category2.setAttribute("name","所属分类");
+                child_category2.setTextContent(source.getCategory());
+                instance.appendChild(child_category2);
+            });
+
         });
 
         //添加根结点

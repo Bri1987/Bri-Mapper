@@ -20,6 +20,8 @@ import static com.bri.inputData.deal_data.csv2Bean.readMetadataField;
 
 public class Main {
     public static Map<Set<MetadataField>,Set<MetadataField>> mapping2map(Mapping lexi_map,Map<String,Set<MetadataField>> map_meta,Map<String,Set<MetadataField>> map_source){
+
+
         Set<MappingCell> map_cell = lexi_map.getM_mapping();
         Map<Set<MetadataField>,Set<MetadataField>> exchange_map=new HashMap<Set<MetadataField>,Set<MetadataField>>();
         Map<Set<MetadataField>,Set<MetadataField>> final_map=new HashMap<Set<MetadataField>,Set<MetadataField>>();
@@ -85,19 +87,20 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException, TransformerException, ParserConfigurationException, SAXException {
-        ArrayList<MetadataField> metadataFields = readMetadataField("./handle-data/src/main/resources/【公开】fianl_610.csv");
-        ArrayList<MetadataField> sourceDataFields = readMetadataField("./handle-data/src/main/resources/final_300.csv");
+        File file1=new File("./handle-data/src/main/resources/【公开】fianl_610.csv");
+        ArrayList<MetadataField> metadataFields = readMetadataField(file1);
+        File file2=new File("./handle-data/src/main/resources/final_300.csv");
+        ArrayList<MetadataField> sourceDataFields = readMetadataField(file2);
 
         Map<String,Set<MetadataField>> map_meta=metadata2map(metadataFields);
         Map<String,Set<MetadataField>> map_source=metadata2map(sourceDataFields);
 
-//
         Mapping lexi_map =map_lexi();
-       Map<Set<MetadataField>,Set<MetadataField>> final_map= mapping2map(lexi_map,map_meta,map_source);
-//
-//        //将结果写入xml文件
-//        File file=new File("./result.xml");
-//        map2xml final_xml=new map2xml(final_map);
-//        final_xml.writeXML(file);
+        Map<Set<MetadataField>,Set<MetadataField>> final_map= mapping2map(lexi_map,map_meta,map_source);
+
+        //将结果写入xml文件
+        File file=new File("./result.xml");
+        map2xml final_xml=new map2xml(final_map);
+        final_xml.writeXML(file);
     }
 }

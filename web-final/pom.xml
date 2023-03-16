@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.bri</groupId>
-    <artifactId>web-demo</artifactId>
+    <artifactId>web-final</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>web-demo</name>
-    <description>web-demo</description>
+    <name>web-final</name>
+    <description>web-final</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -86,6 +86,16 @@
             <artifactId>antlr4-runtime</artifactId>
             <version>4.12.0</version>
         </dependency>
-    </dependencies>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.4</version>
+        </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+
+    </dependencies>
 </project>

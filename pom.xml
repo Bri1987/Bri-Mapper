@@ -11,6 +11,7 @@
     <modules>
         <module>handle-data</module>
         <module>FCA</module>
+        <module>web-final</module>
     </modules>
 
     <properties>

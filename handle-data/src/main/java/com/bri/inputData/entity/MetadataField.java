@@ -44,11 +44,9 @@ public class MetadataField {
     //固定长度
     private float fixLength;
     // 日期格式
-    private String format;
-    // 最小值
-    private BigDecimal minValue;
-    // 最大值
-    private BigDecimal maxValue;
+    //private String format;
+    // 值域
+    private String value;
 
 }
 

@@ -18,10 +18,10 @@ public class csv2Bean
 {
     private static final String APP_ID = "20230211001557557";
     private static final String SECURITY_KEY = "AH2maRs1ZpNspudnmXrG";
-    public static ArrayList<MetadataField> readMetadataField(String file) throws IOException {
+    public static ArrayList<MetadataField> readMetadataField(File file) throws IOException {
         ArrayList<MetadataField> fieldList = new ArrayList<>();
         CSVFormat format = CSVFormat.EXCEL.builder().setHeader().setSkipHeaderRecord(false).build();
-        try (CSVParser csvParser = CSVParser.parse(new File(file), Charset.forName("gb2312"), format)) {
+        try (CSVParser csvParser = CSVParser.parse(file, Charset.forName("gb2312"), format)) {
             for (CSVRecord record : csvParser) {
                 MetadataField field = new MetadataField();
                 //field.setFieldId(record.get("数据元字段ID"));
@@ -31,6 +31,7 @@ public class csv2Bean
                 field.setSynonym(record.get("表达符号"));
                 field.setFieldType(record.get("类词"));
                 field.setUnit(record.get("计量单位"));
+                field.setValue(record.get("值域"));
                 field.setDescription(record.get("定义"));
                 field.setReference(record.get("参考来源"));
                 field.setReferenceMJ(record.get("参考来源MJ"));
@@ -53,6 +54,28 @@ public class csv2Bean
                     case "字符串型":
                         field.setDataType(MetadataFieldDataType.TEXT);
                         break;
+                    case "字符串":
+                        field.setDataType(MetadataFieldDataType.STR);
+                        break;
+                    case "日期型":
+                        field.setDataType(MetadataFieldDataType.DATE);
+                        break;
+                    case "时间型":
+                        field.setDataType(MetadataFieldDataType.TIME);
+                        break;
+                    case "自由文本":
+                        field.setDataType(MetadataFieldDataType.FREE);
+                        break;
+                    case "日期":
+                        field.setDataType(MetadataFieldDataType.DT);
+                        break;
+                    case "述职":
+                        field.setDataType(MetadataFieldDataType.WORK);
+                        break;
+                    case "第三方型":
+                        field.setDataType(MetadataFieldDataType.THIRD);
+                        break;
+                    default:field.setDataType(MetadataFieldDataType.FAULT);
                 }
                 String length = record.get("长度");
                 if (length.contains("..")) {
