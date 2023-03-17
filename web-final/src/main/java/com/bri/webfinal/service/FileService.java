@@ -15,6 +15,6 @@ public interface FileService {
     String uploadXML(MultipartFile file);
     Map<MetadataField,MetadataField> readXML(String objectName) throws IOException, SAXException, ParserConfigurationException;
     File multipartFileToFile(MultipartFile file) throws IOException;
-    String getName();
+    //String getName();
     void download(String file_Id, HttpServletResponse response) throws IOException;
 }

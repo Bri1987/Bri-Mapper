@@ -56,28 +56,28 @@ public class Main {
             source.forEach((s)->{
                 test_set1.add(s.getNameZH());
             });
-            if(Double.parseDouble(String.valueOf((Double) confi.get(source)))<0.8)
-            {
-                source.forEach((s)->{
-                    //test_set1.add(s.getNameZH());
-                    System.out.print(s.getNameZH()+" ");
-                });
-                meta.forEach((m)->{
-                    System.out.print(m.getNameZH()+" ");
-                });
-                System.out.println(confi.get(source));
-            }
+//            if(Double.parseDouble(String.valueOf((Double) confi.get(source)))<0.8)
+//            {
+//                source.forEach((s)->{
+//                    //test_set1.add(s.getNameZH());
+//                    System.out.print(s.getNameZH()+" ");
+//                });
+//                meta.forEach((m)->{
+//                    System.out.print(m.getNameZH()+" ");
+//                });
+//                System.out.println(confi.get(source));
+//            }
         });
-        System.out.println("\n");
+        //System.out.println("\n");
         Set<String> test_set2=new HashSet<>();
         map_source.forEach((key,value)->{
             test_set2.add(key.split("！")[0]);
         });
-        for(String s:test_set2)
-        {
-            if(!test_set1.contains(s))
-                System.out.println(s);
-        }
+//        for(String s:test_set2)
+//        {
+//            if(!test_set1.contains(s))
+//                System.out.println(s);
+//        }
 
         //将exchange_map的key,value内容互换
         exchange_map.forEach((source,meta)->{

@@ -4,6 +4,7 @@ import cn.ac.amss.semanticweb.alignment.Mapping;
 import com.bri.inputData.deal_data.map2xml;
 import com.bri.inputData.entity.MetadataField;
 import com.bri.webfinal.service.impl.FileServiceImpl;
+import com.bri.webfinal.service.impl.SessionServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.Callable;
 
 import static cn.ac.amss.Demo.map_lexi;
 import static com.bri.inputData.Main.mapping2map;
@@ -36,14 +38,15 @@ public class MappingTask implements Runnable
 
     //文件上传
     private FileServiceImpl impl;
+    private String file_name;
 
-   // public static int j=0;
 
-    public MappingTask(File file_meta, File file_wrong,FileServiceImpl impl,String sessionId){
+    public MappingTask(File file_meta, File file_wrong,FileServiceImpl impl,String sessionId,String file_name){
         this.file_meta=file_meta;
         this.file_wrong=file_wrong;
         this.impl=impl;
         this.sessionId=sessionId;
+        this.file_name=file_name;
     }
 
     public static MultipartFile toMultipartFile(File file) throws IOException {
@@ -87,7 +90,7 @@ public class MappingTask implements Runnable
         Map<Set<MetadataField>,Set<MetadataField>> final_map= mapping2map(lexi_map,map_meta,map_source);
 
         //将结果写入xml文件
-        File file=new File("./"+"result"+(FileServiceImpl.i-1)+".xml");
+        File file=new File("./"+this.file_name+".xml");
         map2xml final_xml=new map2xml(final_map);
         try {
             final_xml.writeXML(file);

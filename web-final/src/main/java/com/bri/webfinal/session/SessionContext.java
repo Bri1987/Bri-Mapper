@@ -32,7 +32,9 @@ public class SessionContext
     //转换成功后："file_id: 具体file名字"
     public void notify_message(String map_source_id) throws IOException {
         //TextMessage后是要发送的具体内容
-        session.sendMessage(new TextMessage(objectMapper.writeValueAsString(new Message("file_id",map_source_id))));
+        synchronized (session){
+            session.sendMessage(new TextMessage(objectMapper.writeValueAsString(new Message("file_id",map_source_id))));
+        }
     }
 
     //增加task

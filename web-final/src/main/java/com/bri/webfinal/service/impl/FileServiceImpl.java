@@ -23,12 +23,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 @Slf4j
 public class FileServiceImpl implements FileService
 {
-    public static int i=0;
     @Autowired
     private OSSConfig ossConfig;
 
@@ -56,12 +56,10 @@ public class FileServiceImpl implements FileService
         return toFile;
     }
 
-    @Override
-    public String getName() {
-        String result="result"+i;
-        i++;
-        return result;
-    }
+//    @Override
+//    public String getName() {
+//        return UUID.randomUUID().toString();
+//    }
 
     @Override
     public void download(String file_Id, HttpServletResponse response) throws IOException {

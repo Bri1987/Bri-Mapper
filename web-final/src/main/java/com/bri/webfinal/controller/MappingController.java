@@ -4,6 +4,7 @@ import com.bri.webfinal.controller.request.MappingRequest;
 import com.bri.webfinal.service.MappingService;
 import com.bri.webfinal.service.MappingTask;
 import com.bri.webfinal.service.SessionService;
+import com.bri.webfinal.service.WebSocketClientSyncCallback;
 import com.bri.webfinal.service.impl.FileServiceImpl;
 import com.bri.webfinal.util.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,20 +33,20 @@ public class MappingController
     private SessionService sessionService;
 
     @PostMapping("/map")
-    public JsonData mapToXML(@RequestParam("sessionId") String sessionId,@RequestParam("file")MultipartFile file,@RequestParam("file_lists")List<MultipartFile> file_lists) throws IOException {
+    public JsonData mapToXML(@RequestParam("sessionId") String sessionId,@RequestParam("file")MultipartFile file,@RequestParam("file_lists")List<MultipartFile> file_lists) throws Exception {
 
         FileServiceImpl impl=new FileServiceImpl();
+
         Map<String,String> map=new HashMap<>();
         for(MultipartFile f:file_lists)
         {
             //1.分一个xml文件名字
             String fileId=fileService.giveFileName(f);
-            //得到到时候oss的名字
-            String file_name=fileService.getName();
             //2.转换并上传到oss
-            mappingService.submit(new MappingTask(fileService.multipartFileToFile(file),fileService.multipartFileToFile(f),impl,sessionId));
-            sessionService.notify_message(sessionId,file_name);
-            map.put(fileId,file_name);        //文件id(result)与文件名(...result.xml)
+            mappingService.submit(new MappingTask(fileService.multipartFileToFile(file), fileService.multipartFileToFile(f), impl, sessionId, fileId),
+                    () -> sessionService.notify_message(sessionId,fileId));
+
+            map.put(fileId,fileId);        //文件id(result)与文件名(w88:w88)
         }
         return JsonData.buildSuccess(map);
     }
