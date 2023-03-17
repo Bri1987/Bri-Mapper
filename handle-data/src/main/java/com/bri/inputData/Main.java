@@ -4,6 +4,9 @@ import cn.ac.amss.semanticweb.alignment.Mapping;
 import cn.ac.amss.semanticweb.alignment.MappingCell;
 import com.bri.inputData.deal_data.map2xml;
 import com.bri.inputData.entity.MetadataField;
+import com.huaban.analysis.jieba.JiebaSegmenter;
+import me.xiaosheng.util.Segment;
+import me.xiaosheng.word2vec.Word2Vec;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -87,9 +90,9 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException, TransformerException, ParserConfigurationException, SAXException {
-        File file1=new File("./handle-data/src/main/resources/【公开】fianl_610.csv");
+        File file1=new File("./handle-data/src/main/resources/m88.csv");
         ArrayList<MetadataField> metadataFields = readMetadataField(file1);
-        File file2=new File("./handle-data/src/main/resources/final_300.csv");
+        File file2=new File("./handle-data/src/main/resources/w88.csv");
         ArrayList<MetadataField> sourceDataFields = readMetadataField(file2);
 
         Map<String,Set<MetadataField>> map_meta=metadata2map(metadataFields);
@@ -102,5 +105,19 @@ public class Main {
         File file=new File("./result.xml");
         map2xml final_xml=new map2xml(final_map);
         final_xml.writeXML(file);
+
+        //Word2Vec vec=new Word2Vec();
+        //Word2Vec.trainJavaModel("./handle-data/src/main/java/com/bri/inputData/lib/zhwiki_210720_preprocessed.simplied.txt","./handle-data/src/main/java/com/bri/inputData/lib/test.model");
+//        vec.loadGoogleModel("");
+//        System.out.println("最大学历|最高学历"+vec.wordSimilarity("最大学历","最高学历"));
+//
+//        JiebaSegmenter segmenter = new JiebaSegmenter();
+//
+//        List<String> wordList1= segmenter.sentenceProcess("科技报告!元素及其修饰词！科技报告的内容说明");
+//        List<String> wordList2=segmenter.sentenceProcess("科技报告描述!元素及其修饰词！科技报告的内容说明");
+//        List<String> wordList3=segmenter.sentenceProcess("定义文本数！注册！定义的文本");
+//        List<String> wordList4=segmenter.sentenceProcess("定义文本！注册！定义的文本");
+//        System.out.println("s1|s2: " + vec.fastSentenceSimilarity(wordList1, wordList2));
+//        System.out.println("s3|s4: " + vec.fastSentenceSimilarity(wordList3, wordList4));
     }
 }
