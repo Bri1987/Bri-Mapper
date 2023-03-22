@@ -1,194 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?><root>
     <map metadata="科技平台服务最近发布日期">
         <meta>
-            <value name="中文名称">科技平台服务最近发布日期</value>
-            <value name="数据类型">DATETIME</value>
-            <value name="类词">日期</value>
-            <value name="长度">
-                <min>8</min>
-                <max>0</max>
-            </value>
-            <value name="计量单位">无</value>
-            <value name="定义">无</value>
-            <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
-            <value name="参考来源MJ">公开</value>
-            <value name="描述对象">科技平台</value>
-            <value name="所属分类">通用元数据</value>
+            <instance>
+                <value name="中文名称">科技平台服务最近发布日期</value>
+                <value name="数据类型">DATETIME</value>
+                <value name="类词">日期</value>
+                <value name="长度">
+                    <min>8</min>
+                    <max>0</max>
+                </value>
+                <value name="计量单位">无</value>
+                <value name="定义">无</value>
+                <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
+                <value name="参考来源MJ">公开</value>
+                <value name="描述对象">科技平台</value>
+                <value name="所属分类">通用元数据</value>
+            </instance>
         </meta>
         <source>
-            <value name="中文名称">科技平台服务最近发布日期</value>
-            <value name="数据类型">DATETIME</value>
-            <value name="类词">日期</value>
-            <value name="长度">
-                <min>8</min>
-                <max>0</max>
-            </value>
-            <value name="计量单位">无</value>
-            <value name="定义">无</value>
-            <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
-            <value name="参考来源MJ">公开</value>
-            <value name="描述对象">科技平台</value>
-            <value name="所属分类">通用元数据</value>
+            <instance>
+                <value name="中文名称">科技平台服务最近发布日期</value>
+                <value name="数据类型">TEXT</value>
+                <value name="类词">日期</value>
+                <value name="长度">
+                    <min>8</min>
+                    <max>0</max>
+                </value>
+                <value name="计量单位">无</value>
+                <value name="定义">无</value>
+                <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
+                <value name="参考来源MJ">公开</value>
+                <value name="描述对象">科技平台</value>
+                <value name="所属分类">通用元数据</value>
+            </instance>
         </source>
     </map>
     <map metadata="科技平台服务内容描述">
         <meta>
-            <value name="中文名称">科技平台服务内容描述</value>
-            <value name="数据类型">TEXT</value>
-            <value name="类词">文本</value>
-            <value name="长度">
-                <min>0</min>
-                <max>255</max>
-            </value>
-            <value name="计量单位">无</value>
-            <value name="定义">无</value>
-            <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
-            <value name="参考来源MJ">公开</value>
-            <value name="描述对象">科技平台</value>
-            <value name="所属分类">通用元数据</value>
+            <instance>
+                <value name="中文名称">科技平台服务内容描述</value>
+                <value name="数据类型">TEXT</value>
+                <value name="类词">文本</value>
+                <value name="长度">
+                    <min>0</min>
+                    <max>255</max>
+                </value>
+                <value name="计量单位">无</value>
+                <value name="定义">无</value>
+                <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
+                <value name="参考来源MJ">公开</value>
+                <value name="描述对象">科技平台</value>
+                <value name="所属分类">通用元数据</value>
+            </instance>
         </meta>
         <source>
-            <value name="中文名称">科技平台服务内容</value>
-            <value name="数据类型">TEXT</value>
-            <value name="类词">文本</value>
-            <value name="长度">
-                <min>0</min>
-                <max>255</max>
-            </value>
-            <value name="计量单位">无</value>
-            <value name="定义">无</value>
-            <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
-            <value name="参考来源MJ">公开</value>
-            <value name="描述对象">科技平台</value>
-            <value name="所属分类">通用元数据</value>
+            <instance>
+                <value name="中文名称">科技平台服务内容</value>
+                <value name="数据类型">TEXT</value>
+                <value name="类词">文本</value>
+                <value name="长度">
+                    <min>0</min>
+                    <max>255</max>
+                </value>
+                <value name="计量单位">无</value>
+                <value name="定义">无</value>
+                <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
+                <value name="参考来源MJ">公开</value>
+                <value name="描述对象">科技平台</value>
+                <value name="所属分类">通用元数据</value>
+            </instance>
         </source>
     </map>
     <map metadata="科技平台服务资源名称">
         <meta>
-            <value name="中文名称">科技平台服务资源名称</value>
-            <value name="数据类型">TEXT</value>
-            <value name="类词">名称</value>
-            <value name="长度">
-                <min>0</min>
-                <max>20</max>
-            </value>
-            <value name="计量单位">无</value>
-            <value name="定义">无</value>
-            <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
-            <value name="参考来源MJ">公开</value>
-            <value name="描述对象">科技平台</value>
-            <value name="所属分类">通用元数据</value>
+            <instance>
+                <value name="中文名称">科技平台服务资源名称</value>
+                <value name="数据类型">TEXT</value>
+                <value name="类词">名称</value>
+                <value name="长度">
+                    <min>0</min>
+                    <max>20</max>
+                </value>
+                <value name="计量单位">无</value>
+                <value name="定义">无</value>
+                <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
+                <value name="参考来源MJ">公开</value>
+                <value name="描述对象">科技平台</value>
+                <value name="所属分类">通用元数据</value>
+            </instance>
         </meta>
         <source>
-            <value name="中文名称">科技平台服务资源名称</value>
-            <value name="数据类型">TEXT</value>
-            <value name="类词">名称</value>
-            <value name="长度">
-                <min>0</min>
-                <max>20</max>
-            </value>
-            <value name="计量单位">无</value>
-            <value name="定义">无</value>
-            <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
-            <value name="参考来源MJ">公开</value>
-            <value name="描述对象">科技平台</value>
-            <value name="所属分类">通用元数据</value>
+            <instance>
+                <value name="中文名称">科技平台服务资源名称</value>
+                <value name="数据类型">TEXT</value>
+                <value name="类词">名称</value>
+                <value name="长度">
+                    <min>0</min>
+                    <max>20</max>
+                </value>
+                <value name="计量单位">无</value>
+                <value name="定义">无</value>
+                <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
+                <value name="参考来源MJ">公开</value>
+                <value name="描述对象">科技平台</value>
+                <value name="所属分类">通用元数据</value>
+            </instance>
         </source>
     </map>
     <map metadata="科技平台服务访问限制">
         <meta>
-            <value name="中文名称">科技平台服务访问限制</value>
-            <value name="数据类型">TEXT</value>
-            <value name="类词">文本</value>
-            <value name="长度">
-                <min>0</min>
-                <max>255</max>
-            </value>
-            <value name="计量单位">无</value>
-            <value name="定义">无</value>
-            <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
-            <value name="参考来源MJ">公开</value>
-            <value name="描述对象">科技平台</value>
-            <value name="所属分类">通用元数据</value>
+            <instance>
+                <value name="中文名称">科技平台服务访问限制</value>
+                <value name="数据类型">NUMBER</value>
+                <value name="类词">文本</value>
+                <value name="长度">
+                    <min>0</min>
+                    <max>255</max>
+                </value>
+                <value name="计量单位">无</value>
+                <value name="定义">无</value>
+                <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
+                <value name="参考来源MJ">公开</value>
+                <value name="描述对象">科技平台</value>
+                <value name="所属分类">通用元数据</value>
+            </instance>
         </meta>
         <source>
-            <value name="中文名称">科技平台服务访问限制</value>
-            <value name="数据类型">TEXT</value>
-            <value name="类词">文本</value>
-            <value name="长度">
-                <min>0</min>
-                <max>255</max>
-            </value>
-            <value name="计量单位">无</value>
-            <value name="定义">无</value>
-            <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
-            <value name="参考来源MJ">公开</value>
-            <value name="描述对象">科技平台</value>
-            <value name="所属分类">通用元数据</value>
+            <instance>
+                <value name="中文名称">科技平台服务访问限制</value>
+                <value name="数据类型">TEXT</value>
+                <value name="类词">文本</value>
+                <value name="长度">
+                    <min>0</min>
+                    <max>255</max>
+                </value>
+                <value name="计量单位">无</value>
+                <value name="定义">无</value>
+                <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
+                <value name="参考来源MJ">公开</value>
+                <value name="描述对象">科技平台</value>
+                <value name="所属分类">通用元数据</value>
+            </instance>
         </source>
     </map>
     <map metadata="科技平台服务资源标识代码">
         <meta>
-            <value name="中文名称">科技平台服务资源标识代码</value>
-            <value name="数据类型">TEXT</value>
-            <value name="类词">代码</value>
-            <value name="长度">
-                <min>0</min>
-                <max>20</max>
-            </value>
-            <value name="计量单位">无</value>
-            <value name="定义">无</value>
-            <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
-            <value name="参考来源MJ">公开</value>
-            <value name="描述对象">科技平台</value>
-            <value name="所属分类">通用元数据</value>
+            <instance>
+                <value name="中文名称">科技平台服务资源标识代码</value>
+                <value name="数据类型">TEXT</value>
+                <value name="类词">代码</value>
+                <value name="长度">
+                    <min>0</min>
+                    <max>20</max>
+                </value>
+                <value name="计量单位">无</value>
+                <value name="定义">无</value>
+                <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
+                <value name="参考来源MJ">公开</value>
+                <value name="描述对象">科技平台</value>
+                <value name="所属分类">通用元数据</value>
+            </instance>
         </meta>
         <source>
-            <value name="中文名称">科技平台服务资源标识</value>
-            <value name="数据类型">TEXT</value>
-            <value name="类词">代码</value>
-            <value name="长度">
-                <min>0</min>
-                <max>20</max>
-            </value>
-            <value name="计量单位">无</value>
-            <value name="定义">无</value>
-            <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
-            <value name="参考来源MJ">公开</value>
-            <value name="描述对象">科技平台</value>
-            <value name="所属分类">通用元数据</value>
+            <instance>
+                <value name="中文名称">科技平台服务资源标识</value>
+                <value name="数据类型">TEXT</value>
+                <value name="类词">代码</value>
+                <value name="长度">
+                    <min>0</min>
+                    <max>20</max>
+                </value>
+                <value name="计量单位">无</value>
+                <value name="定义">无</value>
+                <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
+                <value name="参考来源MJ">公开</value>
+                <value name="描述对象">科技平台</value>
+                <value name="所属分类">通用元数据</value>
+            </instance>
         </source>
     </map>
     <map metadata="科技平台服务服务方信息">
         <meta>
-            <value name="中文名称">科技平台服务服务方信息</value>
-            <value name="数据类型">TEXT</value>
-            <value name="类词">文本</value>
-            <value name="长度">
-                <min>0</min>
-                <max>255</max>
-            </value>
-            <value name="计量单位">无</value>
-            <value name="定义">无</value>
-            <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
-            <value name="参考来源MJ">公开</value>
-            <value name="描述对象">科技平台</value>
-            <value name="所属分类">通用元数据</value>
+            <instance>
+                <value name="中文名称">科技平台服务服务方信息</value>
+                <value name="数据类型">TEXT</value>
+                <value name="类词">文本</value>
+                <value name="长度">
+                    <min>0</min>
+                    <max>255</max>
+                </value>
+                <value name="计量单位">无</value>
+                <value name="定义">无</value>
+                <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
+                <value name="参考来源MJ">公开</value>
+                <value name="描述对象">科技平台</value>
+                <value name="所属分类">通用元数据</value>
+            </instance>
         </meta>
         <source>
-            <value name="中文名称">科技平台服务服务方信息</value>
-            <value name="数据类型">NUMBER</value>
-            <value name="类词">文本</value>
-            <value name="长度">
-                <min>0</min>
-                <max>255</max>
-            </value>
-            <value name="计量单位">条数</value>
-            <value name="定义">条数</value>
-            <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
-            <value name="参考来源MJ">公开</value>
-            <value name="描述对象">科技平台</value>
-            <value name="所属分类">通用元数据</value>
+            <instance>
+                <value name="中文名称">科技平台服务服务方信息</value>
+                <value name="数据类型">NUMBER</value>
+                <value name="类词">文本</value>
+                <value name="长度">
+                    <min>0</min>
+                    <max>255</max>
+                </value>
+                <value name="计量单位">条数</value>
+                <value name="定义">条数</value>
+                <value name="参考来源">GB_T31073-2014 科技平台服务核心元数据</value>
+                <value name="参考来源MJ">公开</value>
+                <value name="描述对象">科技平台</value>
+                <value name="所属分类">通用元数据</value>
+            </instance>
         </source>
     </map>
 </root>

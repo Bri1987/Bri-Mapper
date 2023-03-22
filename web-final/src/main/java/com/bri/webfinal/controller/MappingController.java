@@ -9,6 +9,7 @@ import com.bri.webfinal.service.impl.FileServiceImpl;
 import com.bri.webfinal.util.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
@@ -31,6 +32,7 @@ public class MappingController
 
     @Autowired
     private SessionService sessionService;
+
 
     @PostMapping("/map")
     public JsonData mapToXML(@RequestParam("sessionId") String sessionId,@RequestParam("file")MultipartFile file,@RequestParam("file_lists")List<MultipartFile> file_lists) throws Exception {

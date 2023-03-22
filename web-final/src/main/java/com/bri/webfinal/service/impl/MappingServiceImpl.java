@@ -31,9 +31,8 @@ public class MappingServiceImpl implements MappingService
         new Thread(()->{
             while (!future.isDone())
             {
-
                 try {
-                    TimeUnit.MILLISECONDS.sleep(5000);
+                    TimeUnit.MILLISECONDS.sleep(1000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }

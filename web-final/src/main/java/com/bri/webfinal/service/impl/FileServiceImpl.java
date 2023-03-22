@@ -10,9 +10,12 @@ import com.bri.webfinal.config.OSSConfig;
 import com.bri.webfinal.service.FileService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.w3c.dom.*;
+import org.xml.sax.SAXException;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilder;
@@ -21,9 +24,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -31,6 +32,9 @@ public class FileServiceImpl implements FileService
 {
     @Autowired
     private OSSConfig ossConfig;
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     public String giveFileName(MultipartFile file)
     {
@@ -158,7 +162,7 @@ public class FileServiceImpl implements FileService
         return null;
     }
 
-    public static MetadataField setValue(Node value, Attr attr, MetadataField field1)
+    public static MetadataField setValue(Node value, Attr attr,MetadataField field1)
     {
         if(field1==null)
             field1=new MetadataField();
@@ -209,15 +213,17 @@ public class FileServiceImpl implements FileService
         return field1;
     }
     //进来的是root节点
-    public static Map<MetadataField, MetadataField> parseElement(Element element)
+    public static Map<Set<MetadataField>, Set<MetadataField>> parseElement(Element element)
     {
-        Map<MetadataField,MetadataField> map=new HashMap<>();
+        Map<Set<MetadataField>,Set<MetadataField>> map=new HashMap<>();
 
         //节点
         //是所有map节点
         NodeList nodeList=element.getChildNodes();
-        Node childNode;
+        Node childNode;Node instance;Node instance2;
         MetadataField field1=null,field2=null;
+        Set<MetadataField> set_first=new HashSet<>();
+        Set<MetadataField> set_first2=new HashSet<>();
         for(int i=0;i<nodeList.getLength();i++)
         {
             childNode=nodeList.item(i);              //childNode是每一个map节点
@@ -229,19 +235,34 @@ public class FileServiceImpl implements FileService
                 //meta
                 if(map_child.getNodeName().equals("meta"))
                 {
-                    NodeList meta_list=map_child.getChildNodes();
-                    //是各个属性了
-                    for(int j=0;j<meta_list.getLength();j++)
+                    //再走一层是instance的集合
+                    NodeList list_instance= map_child.getChildNodes();
+                    for(int oo=0;oo<list_instance.getLength();oo++)
                     {
-                        Node value=meta_list.item(j);
-                        NamedNodeMap attris = value.getAttributes();
-                        if(attris!=null)
+                        instance=list_instance.item(oo);            //第一个Instance
+
+                        if(instance.getNodeName().equals("instance"))
                         {
-                            for (int o = 0; o < attris.getLength(); o++) {
-                                //只会有一个attr
-                                Attr attr = (Attr) attris.item(o);
-                                if(attr!=null)
-                                    field1=setValue(value,attr,field1);
+                            NodeList meta_list=instance.getChildNodes();
+                            //是各个属性了
+                            for(int j=0;j<meta_list.getLength();j++)
+                            {
+                                Node value=meta_list.item(j);
+                                NamedNodeMap attris = value.getAttributes();
+                                if(attris!=null)
+                                {
+                                    for (int o = 0; o < attris.getLength(); o++) {
+                                        //只会有一个attr
+                                        Attr attr = (Attr) attris.item(o);
+                                        if(attr!=null)
+                                            field1=setValue(value,attr,field1);
+                                    }
+                                }
+                            }
+                            if(field1!=null)
+                            {
+                                set_first.add(field1);
+                                field1=null;
                             }
                         }
                     }
@@ -249,66 +270,68 @@ public class FileServiceImpl implements FileService
                 //source
                 else if(map_child.getNodeName().equals("source"))
                 {
-                    NodeList source_list=map_child.getChildNodes();
-                    //是各个属性了
-                    for(int j=0;j<source_list.getLength();j++)
+                    //再走一层是instance的集合
+                    NodeList list_instance2= map_child.getChildNodes();
+
+                    for(int ooo=0;ooo<list_instance2.getLength();ooo++)
                     {
-                        Node value=source_list.item(j);
-                        NamedNodeMap attris = value.getAttributes();
-                        if(attris!=null)
+                        instance2=list_instance2.item(ooo);
+
+                        if(instance2.getNodeName().equals("instance"))
                         {
-                            for (int o = 0; o < attris.getLength(); o++) {
-                                //只会有一个attr
-                                Attr attr = (Attr) attris.item(o);
-                                if(attr!=null)
-                                    field2=setValue(value,attr,field2);
+                            NodeList source_list=instance2.getChildNodes();
+                            //是各个属性了
+                            for(int j=0;j<source_list.getLength();j++)
+                            {
+                                Node value=source_list.item(j);
+                                NamedNodeMap attris = value.getAttributes();
+                                if(attris!=null)
+                                {
+                                    for (int o = 0; o < attris.getLength(); o++) {
+                                        //只会有一个attr
+                                        Attr attr = (Attr) attris.item(o);
+                                        if(attr!=null)
+                                            field2=setValue(value,attr,field2);
+                                    }
+                                }
+                            }
+                            if(field2!=null)
+                            {
+                                set_first2.add(field2);
+                                field2=null;
                             }
                         }
                     }
                 }
             }
-            if(field1!=null && field2!=null)
+
+            if(set_first.size()!=0 && set_first2.size()!=0)
             {
+                Set<MetadataField> sss1=new HashSet<>();
+                sss1.addAll(set_first);
+                Set<MetadataField> sss2=new HashSet<>();
+                sss2.addAll(set_first2);
                 //加入map
-                map.put(field1,field2);
-                field1=null;
-                field2=null;
+                map.put(sss1,sss2);
+                set_first.clear();
+                set_first2.clear();
             }
         }
         return map;
     }
 
-    public Map<MetadataField,MetadataField> readXML(String objectName) {
-        Map<MetadataField,MetadataField> map=new HashMap<>();
-
-        //获取相关配置
-        String bucketname =ossConfig.getBucketname();
-        String endpoint = ossConfig.getEndpoint();
-        String accessKeyId =ossConfig.getAccessKeyId();
-        String accessKeySecret =ossConfig.getAccessKeySecret();
-
-        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
-        OSSObject ossObject = ossClient.getObject(bucketname, objectName);
-        InputStream content = ossObject.getObjectContent();
+    @Override
+    public Map<Set<MetadataField>,Set<MetadataField>> readXML(File file) throws IOException, SAXException, ParserConfigurationException {
+        Map<Set<MetadataField>,Set<MetadataField>> map=new HashMap<>();
 
         // 初始化一个XML解析工厂
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
         // 创建一个DocumentBuilder实例
-        DocumentBuilder builder = null;
-        try {
-            builder = factory.newDocumentBuilder();
-        } catch (ParserConfigurationException e) {
-            log.info("创建DocumentBuilder实例失败");
-        }
+        DocumentBuilder builder = factory.newDocumentBuilder();
 
         // 创建一个解析XML的Document实例
-        Document doc = null;
-        try {
-            doc = builder.parse(content);
-        } catch (Exception e) {
-            log.info("创建Document实例失败");
-        }
+        Document doc = builder.parse(file);
 
         //递归解析element
         //第一个节点,是root节点
@@ -316,8 +339,6 @@ public class FileServiceImpl implements FileService
 
         map=parseElement(element);
 
-        // 关闭OSSClient。
-        ossClient.shutdown();
         return map;
     }
 }
