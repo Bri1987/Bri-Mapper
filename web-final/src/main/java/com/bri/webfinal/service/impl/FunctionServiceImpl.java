@@ -10,11 +10,9 @@ import com.bri.webfinal.language.sqlLikeLexer;
 import com.bri.webfinal.language.sqlLikeParser;
 import com.bri.webfinal.model.DatasourcesDO;
 import com.bri.webfinal.model.EventMessage;
+import com.bri.webfinal.model.HeteroTech;
 import com.bri.webfinal.model.科技平台DO;
-import com.bri.webfinal.service.DatasourcesService;
-import com.bri.webfinal.service.FileService;
-import com.bri.webfinal.service.FunctionService;
-import com.bri.webfinal.service.科技平台Service;
+import com.bri.webfinal.service.*;
 import com.bri.webfinal.util.CommonUtil;
 import com.bri.webfinal.util.JsonData;
 import com.bri.webfinal.util.JsonUtil;
@@ -52,6 +50,7 @@ public class FunctionServiceImpl implements FunctionService {
 
     @Autowired
     private RabbitMQConfig rabbitMQConfig;
+
     //连接数据库
     public Connection getConn(String url, String user, String password) {
         try {
@@ -78,7 +77,7 @@ public class FunctionServiceImpl implements FunctionService {
         return getConn(url1,user1,password1);
     }
 
-    public void data_exchange(ResultSet rs, Connection conn2, String table2, Map<Set<MetadataField>,Set<MetadataField>> map) throws SQLException {
+    public List<HeteroTech> data_exchange(ResultSet rs, Connection conn2, String table2, Map<Set<MetadataField>,Set<MetadataField>> map) throws SQLException {
         //map2的元数据都在
         //先拿出map2所有列,即拿出所有的metaData
         Set<MetadataField> set_source=new HashSet<>();
@@ -186,12 +185,30 @@ public class FunctionServiceImpl implements FunctionService {
         }
         ps.executeBatch();
         ps.clearBatch();
+
+        List<HeteroTech> list=new ArrayList<>();
+
+        //rowset遍历一下conn2
+        String selectSql="select * from 科技平台";
+        PreparedStatement ps2=conn2.prepareStatement(selectSql);
+        ResultSet rs2=ps2.executeQuery();
+        while (rs2.next())
+        {
+            String time=rs2.getString("科技平台服务最近发布日期");
+            String code=rs2.getString("科技平台服务资源标识");
+            String name=rs2.getString("科技平台服务资源名称");
+            int information=rs2.getInt("科技平台服务服务方信息");
+            String content=rs2.getString("科技平台服务内容");
+            String res=rs2.getString("科技平台服务访问限制");
+            list.add(new HeteroTech(time,code,name,information,content,res));
+        }
+        return list;
     }
 
     @Override
-    @Async("threadPoolTaskExecutor")
+    //@Async("threadPoolTaskExecutor")
     //2转1
-    public void exchange(int id1, int id2, File xml1,File xml2,String table_name) throws SQLException, IOException, ParserConfigurationException, SAXException {
+    public List<HeteroTech> exchange(int id1, int id2, File xml1,File xml2,String table_name) throws SQLException, IOException, ParserConfigurationException, SAXException {
         //先根据两个id读到数据源信息
         DatasourcesDO dataSourceDO1 = datasourcesService.detailDataSource(id1);
         DatasourcesDO dataSourceDO2 = datasourcesService.detailDataSource(id2);
@@ -221,10 +238,11 @@ public class FunctionServiceImpl implements FunctionService {
             }
         });
 
-        data_exchange(rs,conn2,table_name,final_map);
+        List<HeteroTech> list=data_exchange(rs,conn2,table_name,final_map);
         conn1.close();
         conn2.close();
         log.info("数据交换完毕");
+        return list;
     }
 
     public List<科技平台DO> add_list(Map<Set<MetadataField>,Set<MetadataField>> map1,List<科技平台DO> list,ResultSet rs1) throws SQLException, ParseException {
@@ -349,12 +367,6 @@ public class FunctionServiceImpl implements FunctionService {
         return list;
     }
 
-    public static MetadataField get_meta_value(Map<Set<MetadataField>,Set<MetadataField>> map,Set<MetadataField> key)
-    {
-        for(MetadataField m:key)
-            return m;
-        return null;
-    }
     public static MetadataField get_value(Map<Set<MetadataField>,Set<MetadataField>> map,Set<MetadataField> key)
     {
         Set<MetadataField> value=map.get(key);

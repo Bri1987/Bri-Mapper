@@ -1,5 +1,6 @@
 package com.bri.webfinal.controller;
 
+import com.bri.webfinal.model.HeteroTech;
 import com.bri.webfinal.model.科技平台DO;
 import com.bri.webfinal.service.FileService;
 import com.bri.webfinal.service.FunctionService;
@@ -37,15 +38,11 @@ public class FunctionController
 
     @PostMapping("/exchange")
     //数据交换
-    public JsonData exchange(@RequestParam("id1") int id1,@RequestParam("id2") int id2,@RequestParam("file1")MultipartFile file1,@RequestParam("file2")MultipartFile file2,@RequestParam("table_name")String table_name) throws IOException {
+    public JsonData exchange(@RequestParam("id1") int id1,@RequestParam("id2") int id2,@RequestParam("file1")MultipartFile file1,@RequestParam("file2")MultipartFile file2,@RequestParam("table_name")String table_name) throws IOException, SQLException, ParserConfigurationException, SAXException {
         File file_1=fileService.multipartFileToFile(file1);
         File file_2=fileService.multipartFileToFile(file2);
-        try {
-            functionService.exchange(id1, id2, file_1, file_2,table_name);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        return JsonData.buildSuccess();
+        List<HeteroTech> list=functionService.exchange(id1, id2, file_1, file_2,table_name);
+        return JsonData.buildSuccess(list);
     }
 
     @PostMapping("/sync/select")
