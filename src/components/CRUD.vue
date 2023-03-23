@@ -1,107 +1,86 @@
 <template>
-    <div>
-        <a-table :columns="columns" :data-source="dataSource" bordered>
-            <template #bodyCell="{ column, text, record }">
-                <template v-if="[ 'ip', 'username'].includes(column.dataIndex)">
-                    <div>
-                    <a-input
-                        v-if="editableData[record.key]"
-                        v-model:value="editableData[record.key][column.dataIndex]"
-                        style="margin: -5px 0"
-                    />
-                    <template v-else>
-                        {{ text }}
-                    </template>
-                    </div>
-                </template>
-                <template v-else-if="column.dataIndex === 'operation'">
-                    <div class="editable-row-operations">
-                    <span v-if="editableData[record.key]">
-                        <a-typography-link @click="save(record.key)">Save</a-typography-link>
-                        <a-popconfirm title="Sure to cancel?" @confirm="cancel(record.key)">
-                        <a>Cancel</a>
-                        </a-popconfirm>
-                    </span>
-                    <span v-else>
-                        <a @click="edit(record.key)">Edit</a>
-                    </span>
-                    </div>
-                </template>
-            </template>
-        </a-table>
+    <a-layout style="position:fixed;right: 0;left:0;bottom: 0%;height:92%;">   
+      <a-layout-content style="padding: 0 50px;">
+        <a-breadcrumb style="margin: 16px 0">
+          <a-breadcrumb-item>CRUD</a-breadcrumb-item>
+          <a-breadcrumb-item>{{ itemname }}</a-breadcrumb-item>
+        </a-breadcrumb>
+        <a-layout style="padding: 24px 0; background: #fff;height: 86%;">
+          <a-layout-sider width="200" style="background: #fff">
+            <a-menu
+              v-model:selectedKeys="selectedKeys2"
+              v-model:openKeys="openKeys"
+              mode="inline"
+              style="height: 100%"
+            >
+                <a-menu-item key="1" @click="gotoSelectAll">查看所有数据源</a-menu-item>
+                <a-menu-item key="2">option2</a-menu-item>
+                <a-menu-item key="3">option3</a-menu-item>
+                <a-menu-item key="4">option4</a-menu-item>
+            </a-menu>
+          </a-layout-sider>
+          <a-layout-content :style="{ padding: '0 24px', minHeight: '280px' }">
+            <router-view></router-view>
+          </a-layout-content>
+        </a-layout>
+      </a-layout-content>
+      <a-layout-footer style="text-align: center;">
+        ##计设项目小组
+      </a-layout-footer>
+    </a-layout>
+  </template>
+  <script>
+import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons-vue';
+import { defineComponent, ref } from 'vue';
+export default defineComponent({
+    components: {
+        UserOutlined,
+        LaptopOutlined,
+        NotificationOutlined,
+    },
+    setup() {
+        //============================================================================
+        const ws=new WebSocket('ws://localhost:8119/datasource/list')
+        ws.onopen=function(){
+            console.log('连接成功')
+        }
+        ws.onerror=function(){
+            console.log('连接失败')
+        }
+        ws.onmessage=function(e){
+            data=JSON.parse(e.data)
+        }
+        //============================================================================
+
         
-    </div>
-</template>
-
-<script>
-import { cloneDeep } from 'lodash-es';
-import { defineComponent, reactive, ref } from 'vue';
-//-----------------------------------------------------------------------------------------------------------
-//table初始化配置
-const columns = [{
-        title: 'id',
-        dataIndex: 'id',
-        width: '5%',
-        }, {
-        title: 'ip地址',
-        dataIndex: 'ip',
-        width: '15%',
-        }, {
-        title: '用户名',
-        dataIndex: 'username',
-        width: '40%',
-        }, {
-        title: 'operation',
-        dataIndex: 'operation',
-    }];
-// const data = [{id:'1',ip:'0',username:"lily"},{id:'1',ip:'0',username:"lily"}];
-export default ({
-  setup() {
-    const data=[]
-    const ws=new WebSocket('ws://localhost:8119/datasource/list')
-    ws.onopen=function(){
-        console.log('连接成功')
+        return {
+        selectedKeys1: ref(['2']),
+        selectedKeys2: ref(['1']),
+        openKeys: ref(['sub1']),
+        };
+    },
+    methods:{
+        gotoSelectAll(){
+            this.$router.push('/CRUD/selectAll')
+        }
     }
-    ws.onerror=function(){
-        console.log('连接失败')
-    }
-    ws.onmessage=function(e){
-        data=JSON.parse(e.data)
-    }
-//=============table=================================================================
-    const dataSource = ref(data);
-    const editableData = reactive({});
-    const edit = key => {
-      editableData[key] = cloneDeep(dataSource.value.filter(item => key === item.key)[0]);
-    };
-    const save = key => {
-      Object.assign(dataSource.value.filter(item => key === item.key)[0], editableData[key]);
-      delete editableData[key];
-    };
-    const cancel = key => {
-      delete editableData[key];
-    };
-    return {
-      dataSource,
-      columns,
-      editingKey: '',
-      editableData,
-      edit,
-      save,
-      cancel,
-    };
-  },
 });
-
-//------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
 </script>
+<style>
+#components-layout-demo-top-side .logo {
+float: left;
+width: 120px;
+height: 31px;
+margin: 16px 24px 16px 0;
+background: rgba(255, 255, 255, 0.3);
+}
 
-<style scoped>
-.editable-row-operations a {
-  margin-right: 8px;
+.ant-row-rtl #components-layout-demo-top-side .logo {
+float: right;
+margin: 16px 0 16px 24px;
+}
+
+.site-layout-background {
+background: #fff;
 }
 </style>
