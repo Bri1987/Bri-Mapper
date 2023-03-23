@@ -11,6 +11,13 @@ public class MySqlVisitor extends sqlLikeBaseVisitor<Object>{
     public static List<String> list_meta=new ArrayList<>();
     public static List<List<String>> line_content=new ArrayList<>();     //TODO 静态的line_content，一次启动只能跑一次
 
+    //select
+    public static String comparison="";
+    public static String select_content="";
+    public static String line_name="";
+    public static String line_content_select="";
+    public static String select_table="";
+
     @Override
     public Object visitInsert(sqlLikeParser.InsertContext ctx) {
         table=ctx.IDent().getText();
@@ -18,6 +25,33 @@ public class MySqlVisitor extends sqlLikeBaseVisitor<Object>{
         for(sqlLikeParser.ContentContext c: ctx.content())
         {
             visit(c);
+        }
+        return null;
+    }
+
+    @Override
+    public Object visitSelectData(sqlLikeParser.SelectDataContext ctx) {
+        boolean flag_allcols=false;
+        if(ctx.ALLCOLS().getText().equals("*"))
+        {
+            select_content=ctx.ALLCOLS().getText();
+        }
+        else
+        {
+            flag_allcols=true;
+            select_content=ctx.IDent(0).getText();
+        }
+        if(flag_allcols)
+        {
+            select_table=ctx.IDent(1).getText();
+            line_name=ctx.IDent(2).getText();
+            line_content_select=ctx.IDent(3).getText();
+        }
+        else
+        {
+            select_table=ctx.IDent(0).getText();
+            line_name=ctx.IDent(1).getText();
+            line_content_select=ctx.IDent(2).getText();
         }
         return null;
     }
@@ -41,6 +75,12 @@ public class MySqlVisitor extends sqlLikeBaseVisitor<Object>{
             one_list.add(id.getText());
         }
         line_content.add(one_list);
+        return null;
+    }
+
+    @Override
+    public Object visitComparison(sqlLikeParser.ComparisonContext ctx) {
+        comparison=ctx.getText();
         return null;
     }
 }

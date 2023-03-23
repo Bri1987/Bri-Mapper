@@ -1,5 +1,5 @@
-// Generated from sqlLike.g4 by ANTLR 4.12.0
 package com.bri.webfinal.language;
+// Generated from sqlLike.g4 by ANTLR 4.12.0
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -18,6 +18,12 @@ public interface sqlLikeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitInsert(sqlLikeParser.InsertContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link sqlLikeParser#selectData}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSelectData(sqlLikeParser.SelectDataContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code meta_line}
 	 * labeled alternative in {@link sqlLikeParser#line}.
 	 * @param ctx the parse tree
@@ -31,4 +37,10 @@ public interface sqlLikeVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitLine_content(sqlLikeParser.Line_contentContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link sqlLikeParser#comparison}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparison(sqlLikeParser.ComparisonContext ctx);
 }

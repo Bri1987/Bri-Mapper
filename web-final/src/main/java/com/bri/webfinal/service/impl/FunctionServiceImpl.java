@@ -10,9 +10,11 @@ import com.bri.webfinal.language.sqlLikeLexer;
 import com.bri.webfinal.language.sqlLikeParser;
 import com.bri.webfinal.model.DatasourcesDO;
 import com.bri.webfinal.model.EventMessage;
+import com.bri.webfinal.model.科技平台DO;
 import com.bri.webfinal.service.DatasourcesService;
 import com.bri.webfinal.service.FileService;
 import com.bri.webfinal.service.FunctionService;
+import com.bri.webfinal.service.科技平台Service;
 import com.bri.webfinal.util.CommonUtil;
 import com.bri.webfinal.util.JsonData;
 import com.bri.webfinal.util.JsonUtil;
@@ -21,6 +23,7 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CodePointCharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.apache.kafka.common.protocol.types.Field;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
@@ -222,6 +225,144 @@ public class FunctionServiceImpl implements FunctionService {
         conn1.close();
         conn2.close();
         log.info("数据交换完毕");
+    }
+
+    public List<科技平台DO> add_list(Map<Set<MetadataField>,Set<MetadataField>> map1,List<科技平台DO> list,ResultSet rs1) throws SQLException, ParseException {
+        Set<MetadataField> set1;MetadataField m;
+        String service_name=null,key_word=null,category=null,description=null,name=null,code=null;Date time=null;int restrain=0,information=0;
+        while(rs1.next())
+        {
+            if((set1=contain_key_nameZH("科技平台服务名称",map1))!=null)
+            {
+                //取出映射的line_name
+                m=get_value(map1,set1);
+                if(m.getDataType().equals(MetadataFieldDataType.TEXT))
+                    service_name=rs1.getString(m.getNameZH());
+                else if(m.getDataType().equals(MetadataFieldDataType.NUMBER))
+                    service_name=String.valueOf(rs1.getInt(m.getNameZH()));
+            }
+            if((set1=contain_key_nameZH("科技平台服务关键词",map1))!=null)
+            {
+                m=get_value(map1,set1);
+                if(m.getDataType().equals(MetadataFieldDataType.TEXT))
+                    key_word=rs1.getString(m.getNameZH());
+                else if(m.getDataType().equals(MetadataFieldDataType.NUMBER))
+                    key_word=String.valueOf(rs1.getInt(m.getNameZH()));
+            }
+            if((set1=contain_key_nameZH("科技平台服务分类",map1))!=null)
+            {
+                m=get_value(map1,set1);
+                if(m.getDataType().equals(MetadataFieldDataType.TEXT))
+                    category=rs1.getString(m.getNameZH());
+                else if(m.getDataType().equals(MetadataFieldDataType.NUMBER))
+                    category=String.valueOf(rs1.getInt(m.getNameZH()));
+            }
+            if((set1=contain_key_nameZH("科技平台服务最近发布日期",map1))!=null)
+            {
+                m=get_value(map1,set1);
+                if(m.getDataType().equals(MetadataFieldDataType.DATETIME))
+                    time=rs1.getDate(m.getNameZH());
+                else if(m.getDataType().equals(MetadataFieldDataType.TEXT))
+                {
+                    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+                    time=sdf.parse(rs1.getString(m.getNameZH()));
+                }
+            }
+            if((set1=contain_key_nameZH("科技平台服务内容描述",map1))!=null)
+            {
+                m=get_value(map1,set1);
+                if(m.getDataType().equals(MetadataFieldDataType.TEXT))
+                    description=rs1.getString(m.getNameZH());
+                else if(m.getDataType().equals(MetadataFieldDataType.NUMBER))
+                    description=String.valueOf(rs1.getInt(m.getNameZH()));
+            }
+            if((set1=contain_key_nameZH("科技平台服务访问限制",map1))!=null)
+            {
+                m=get_value(map1,set1);
+                if(m.getDataType().equals(MetadataFieldDataType.NUMBER))
+                    restrain=rs1.getInt(m.getNameZH());
+                else if(m.getDataType().equals(MetadataFieldDataType.TEXT))
+                    restrain=Integer.parseInt(rs1.getString(m.getNameZH()));
+            }
+            if((set1=contain_key_nameZH("科技平台服务资源名称",map1))!=null)
+            {
+                m=get_value(map1,set1);
+                if(m.getDataType().equals(MetadataFieldDataType.TEXT))
+                    name=rs1.getString(m.getNameZH());
+                else if(m.getDataType().equals(MetadataFieldDataType.NUMBER))
+                    name=String.valueOf(rs1.getInt(m.getNameZH()));
+            }
+            if((set1=contain_key_nameZH("科技平台服务资源标识代码",map1))!=null)
+            {
+                m=get_value(map1,set1);
+                if(m.getDataType().equals(MetadataFieldDataType.TEXT))
+                    code=rs1.getString(m.getNameZH());
+                else if(m.getDataType().equals(MetadataFieldDataType.NUMBER))
+                    code=String.valueOf(rs1.getInt(m.getNameZH()));
+            }
+            if((set1=contain_key_nameZH("科技平台服务服务方信息",map1))!=null)
+            {
+                m=get_value(map1,set1);
+                if(m.getDataType().equals(MetadataFieldDataType.NUMBER))
+                    information=rs1.getInt(m.getNameZH());
+                else if(m.getDataType().equals(MetadataFieldDataType.TEXT))
+                    information=Integer.parseInt(rs1.getString(m.getNameZH()));
+            }
+            list.add(new 科技平台DO(time,code,name,information,description,restrain,key_word,service_name,category));
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<科技平台DO> syncSelect(int id1, int id2, File file1, File file2, String selectSql) throws SQLException, IOException, ParserConfigurationException, SAXException, ParseException {
+        //默认先只处理select * from Ident
+        String table=MySqlVisitor.select_table;
+//        String comparison=MySqlVisitor.comparison;
+//        String line=MySqlVisitor.line_name;
+//        String line_content=MySqlVisitor.select_content;
+        //先根据两个id读到数据源信息
+        DatasourcesDO dataSourceDO1 = datasourcesService.detailDataSource(id1);
+        DatasourcesDO dataSourceDO2 = datasourcesService.detailDataSource(id2);
+
+        Connection conn1=getConnByDO(dataSourceDO1);
+        Connection conn2=getConnByDO(dataSourceDO2);
+
+        //根据id1和file1找一下它的全部数据，并转成标准
+//        String part1="select * from ";
+//        String sql=part1+table;
+        PreparedStatement ps=conn1.prepareStatement(selectSql);
+        ResultSet rs1=ps.executeQuery();
+
+        //根据xmlName拿到表的元数据map
+        Map<Set<MetadataField>,Set<MetadataField>> map1=fileService.readXML(file1);
+        Map<Set<MetadataField>,Set<MetadataField>> map2=fileService.readXML(file2);
+        //TODO 咱目前就直接写死是科技平台
+        List<科技平台DO> list=new ArrayList<>();
+
+        add_list(map1,list,rs1);
+
+        //根据id2和file2找一下它的全部数据
+        PreparedStatement ps2=conn2.prepareStatement(selectSql);
+        ResultSet rs2=ps2.executeQuery();
+        add_list(map2,list,rs2);
+        return list;
+    }
+
+    public static MetadataField get_meta_value(Map<Set<MetadataField>,Set<MetadataField>> map,Set<MetadataField> key)
+    {
+        for(MetadataField m:key)
+            return m;
+        return null;
+    }
+    public static MetadataField get_value(Map<Set<MetadataField>,Set<MetadataField>> map,Set<MetadataField> key)
+    {
+        Set<MetadataField> value=map.get(key);
+        for(MetadataField m:value)
+        {
+            return m;
+        }
+        return null;
     }
 
     public static Set<MetadataField> contain_key_nameZH(String name,Map<Set<MetadataField>,Set<MetadataField>> map)

@@ -1,6 +1,5 @@
 // Generated from sqlLike.g4 by ANTLR 4.12.0
 package com.bri.webfinal.language;
-
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -26,6 +25,13 @@ public class sqlLikeBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitSelectData(sqlLikeParser.SelectDataContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitMeta_line(sqlLikeParser.Meta_lineContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
@@ -34,4 +40,11 @@ public class sqlLikeBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitLine_content(sqlLikeParser.Line_contentContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitComparison(sqlLikeParser.ComparisonContext ctx) { return visitChildren(ctx); }
 }
