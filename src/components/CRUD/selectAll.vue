@@ -1,5 +1,5 @@
 <template>
-    <a-table :columns="columns" :data-source="dataSource" bordered>
+    <a-table :columns="columns" :data-source="data" :scroll="{ x: 1500, y: 300 }" bordered>
             <template #bodyCell="{ column, text, record }">
                 <template v-if="[ 'ip', 'username'].includes(column.dataIndex)">
                     <div>
@@ -36,16 +36,29 @@ import { defineComponent, reactive, ref } from 'vue';
 const columns = [{
         title: 'id',
         dataIndex: 'id',
-        width: '5%',
+        width: 50,
+        fixed:'left'
         }, {
         title: 'ip地址',
         dataIndex: 'ip',
-        width: '15%',
+        width: 80,
         }, {
         title: '用户名',
         dataIndex: 'username',
+        width: 80,
+        }, {
+        title: '用户密码',
+        dataIndex: 'password',
         width: '40%',
         }, {
+        title: '数据库名称',
+        dataIndex: 'dbname',
+        width: '40%',
+        },  {
+        title: '数据类型',
+        dataIndex: 'datasourceType',
+        width: '40%',
+        },{
         title: 'operation',
         dataIndex: 'operation',
     }];
