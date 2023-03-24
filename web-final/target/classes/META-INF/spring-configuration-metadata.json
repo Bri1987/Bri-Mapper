@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "aliyun.oss",
+      "type": "com.bri.webfinal.config.OSSConfig",
+      "sourceType": "com.bri.webfinal.config.OSSConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "aliyun.oss.access-key-id",
+      "type": "java.lang.String",
+      "sourceType": "com.bri.webfinal.config.OSSConfig"
+    },
+    {
+      "name": "aliyun.oss.access-key-secret",
+      "type": "java.lang.String",
+      "sourceType": "com.bri.webfinal.config.OSSConfig"
+    },
+    {
+      "name": "aliyun.oss.bucketname",
+      "type": "java.lang.String",
+      "sourceType": "com.bri.webfinal.config.OSSConfig"
+    },
+    {
+      "name": "aliyun.oss.endpoint",
+      "type": "java.lang.String",
+      "sourceType": "com.bri.webfinal.config.OSSConfig"
+    }
+  ],
+  "hints": []
+}
