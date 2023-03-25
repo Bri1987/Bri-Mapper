@@ -2,6 +2,7 @@ package com.bri.webfinal.controller;
 
 import com.bri.webfinal.model.HeteroTech;
 import com.bri.webfinal.model.科技平台DO;
+import com.bri.webfinal.service.ElasticSearchService;
 import com.bri.webfinal.service.FileService;
 import com.bri.webfinal.service.FunctionService;
 import com.bri.webfinal.util.JsonData;
@@ -28,6 +29,9 @@ public class FunctionController
     @Autowired
     private FunctionService functionService;
 
+    @Autowired
+    private ElasticSearchService elasticSearchService;
+
     //增量同步
     @PostMapping("/sync/add")
     public JsonData syncAdd(@RequestParam("id1") int id1, @RequestParam("id2")int id2, @RequestParam("file1") MultipartFile file1, @RequestParam("file2")MultipartFile file2, @RequestParam("insert_sql")String insert_sql) throws IOException {
@@ -51,5 +55,25 @@ public class FunctionController
         File file_2=fileService.multipartFileToFile(file2);
         List<科技平台DO> list=functionService.syncSelect(id1,id2,file_1,file_2,select_sql);
         return JsonData.buildSuccess(list);
+    }
+
+    @PostMapping("/import")
+    public JsonData importAll(@RequestParam("id1")int id1,@RequestParam("id2")int id2,@RequestParam("file1")MultipartFile file1,@RequestParam("file2")MultipartFile file2,@RequestParam("select_sql")String select_sql) throws IOException, SQLException, ParserConfigurationException, ParseException, SAXException {
+        File file_1=fileService.multipartFileToFile(file1);
+        File file_2=fileService.multipartFileToFile(file2);
+        elasticSearchService.importAll(id1,id2,file_1,file_2,select_sql);
+        return JsonData.buildSuccess();
+    }
+
+    @PostMapping("/select")
+    public JsonData searchAll(@RequestParam("select_sql")String select_sql) throws IOException {
+        List<科技平台DO> list=elasticSearchService.searchAll();
+        return JsonData.buildSuccess(list);
+    }
+
+    @GetMapping("/delete")
+    public JsonData delete() throws IOException {
+        elasticSearchService.deleteAllTech();
+        return JsonData.buildSuccess();
     }
 }

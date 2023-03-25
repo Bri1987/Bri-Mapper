@@ -44,3 +44,7 @@ aliyun:
     access-key-id: LTAI5tHwfZJfbPs633xJH148
     access-key-secret: 3Snf2eIasYpN6g45RL5X1FR7yf1H58
     bucketname: a39
+
+elasticsearch:
+  host: 123.60.171.50
+  port: 9200
