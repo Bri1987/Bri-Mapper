@@ -103,7 +103,7 @@ export default{
     methods:{
         onSubmit(){
             // this.visiable=false
-            console.log('submit!', toRaw(this.zSubmit));//这里写表单的上传方法    
+            // console.log('submit!', toRaw(this.zSubmit));//这里写表单的上传方法    
             axios.post('http://localhost:8121/function/sync/add',this.zSubmit)
             .then(res=>{
                 console.log(res)
