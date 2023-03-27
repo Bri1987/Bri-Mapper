@@ -13,15 +13,12 @@
       <a-menu-item key="HDC" @click="gotoHDC">
         异构数据功能
       </a-menu-item>
-      <a-menu-item key="HDB" @click="gotoHDBHDB">
+      <a-menu-item key="HDB" @click="gotoHDB">
         异构数据库
       </a-menu-item>
     </a-menu>
     <router-view class="routerview1"></router-view>
-    <!-- <canvas ref="canvas" width="700" height="700"></canvas> -->
   </div>
-  
-  
 </template>
 
 <script>

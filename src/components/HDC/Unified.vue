@@ -15,14 +15,14 @@
                 placeholder="input select_sql"
                 enter-button="Search"
                 size="large"
-                @search="onSearch" 
+                @search="showCards" 
                 bordered="false"
                 />
             <a-layout-content style="position:absolute;height: 70%;top:22%;bottom: 0%;width: 72%;overflow: hidden;">
                 <div v-show="visiable" style="position: absolute;height:100%;left:0;right: -17px;top:0;bottom: 0;overflow-x: hidden;overflow-y: scroll;">
                 <a-row :gutter="[24,48]" style="margin-bottom: 32px;" >
                     <a-col :span="8" v-for="(data,index) in datas" :key="index">
-                        <a-card  :bordered="false" hoverable="true" @click="showdetails(data)">
+                        <a-card class="wholecards" :bordered="false" hoverable="true" @click="showdetails(data)" style="">
                             <template #title>
                                 <heat-map-outlined />
                                 {{ data.科技平台服务资源名称 }}
@@ -222,5 +222,8 @@ p{
 .exit:hover{
    color: green;
    font-size: larger;
+}
+.wholecards:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 </style>

@@ -7,6 +7,7 @@ import IncreSync from './components/HDC/IncreSync.vue'
 import FullSync from './components/HDC/FullSync.vue'
 import Unified from './components/HDC/Unified.vue'
 import FirstTime from './components/HDC/FirstTime.vue'
+import HDB from './components/HDB.vue'
 // import addData from './components/bcg1.vue'
 //创建路由实例对象
 const router=createRouter({
@@ -60,7 +61,11 @@ const router=createRouter({
         },
         {
             path:'/HDC',
-            redirect:'/HDC/incre'
+            redirect:'/HDC/full'
+        },
+        {
+            path:'/HDB',
+            component:HDB
         }
     ]
 })

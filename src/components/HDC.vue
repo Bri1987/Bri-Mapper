@@ -18,13 +18,12 @@
               >
                   <a-menu-item key="1" @click="gotoIncre">增量同步</a-menu-item>
                   <a-menu-item key="2" @click="gotoFull">全量同步</a-menu-item>
-                    <a-popconfirm placement="right" ok-text="Yes" cancel-text="No" @confirm="firstSelect" @cancel="notfirstSelect">
-                        <template #title>
-                          <p>是否为第一次搜索</p>
-                        </template>
-                      <a-menu-item key="3" @click="gotoUnified">统一搜索</a-menu-item>
-                    </a-popconfirm> 
-                  
+                  <a-popconfirm placement="right" ok-text="Yes" cancel-text="No" @confirm="firstSelect" @cancel="notfirstSelect">
+                    <template #title>
+                      <p>是否为第一次搜索</p>
+                    </template>
+                    <a-menu-item key="3" @click="gotoUnified">统一搜索</a-menu-item>
+                  </a-popconfirm> 
               </a-menu>
             </a-layout-sider>
             <a-layout-content :style="{ padding: '0 24px', minHeight: '280px' }">
@@ -35,10 +34,9 @@
         <a-layout-footer style="text-align: center;">
           ##计设项目小组
         </a-layout-footer>
-      
-      </a-layout>
-    </template>
-    <script>
+    </a-layout>
+</template>
+<script>
 import canvass from './bcg1.vue'
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons-vue';
 import { defineComponent, ref } from 'vue';
@@ -94,7 +92,7 @@ export default defineComponent({
       }
   });
   </script>
-  <style>
+  <style scoped>
   #components-layout-demo-top-side .logo {
   float: left;
   width: 120px;

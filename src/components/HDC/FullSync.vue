@@ -1,5 +1,6 @@
 <template>
     <a-layout style="background: rgba(255, 255, 255, 0);">
+        <div class="greycover" v-show="grey"></div>
         <a-layout-header style="background: rgba(255, 255, 255, 0);">
             <a-typography-title :level="3" style="text-align: left;color:#1da57a">· 全量同步</a-typography-title>
             <a-divider style="border-color: #7cb305" dashed />
@@ -12,91 +13,69 @@
                     <a-input v-model:value="newSubmit.table_name"/>
                 </a-form-item>
                 <a-row :gutter="48">
-                <a-col :span="100">
-                    <a-form-item label="第一个文件id：" >
-                    <a-input v-model:value="newSubmit.id1"/>
-                </a-form-item>
-                <a-form-item label="上传第一个文件">
-                    <a-upload 
-                        :file-list="filelist1"
-                        name="first"
-                        list-type="picture-card"
-                        class="first"   
-                        @change="handleChange1"
-                        :show-upload-list="false"
-                        :customRequest="file=>uploadForm1(file)"
-                        maxCount="1"
-                       >
-                        <div>
-                            <LoadingOutlined v-if="loading"></LoadingOutlined>
-                            <plus-outlined v-else>+</plus-outlined>
-                            <div class="ant-upload-text">Upload</div>
-                        </div>
-                    </a-upload>
-                    <vertical-align-top-outlined v-if="done1"/>{{ newSubmit.file1.name}}
-                </a-form-item>
-                </a-col>
-                <a-col>
-                    <a-form-item label="第二个文件id：">
-                    <a-input v-model:value="newSubmit.id2"/>
-                </a-form-item>
-                <a-form-item label="上传第二个文件">
-                    <a-upload 
-                        v-model:file-list="filelist2"
-                        name="second"
-                        list-type="picture-card"
-                        class="second"
-                        @change="handleChange2"
-                        :show-upload-list="false"
-                        :customRequest="uploadForm2"
+                    <a-col :span="100">
+                        <a-form-item label="第一个文件id：" >
+                        <a-input v-model:value="newSubmit.id1"/>
+                    </a-form-item>
+                    <a-form-item label="上传第一个文件">
+                        <a-upload 
+                            :file-list="filelist1"
+                            name="first"
+                            list-type="picture-card"
+                            class="first"   
+                            @change="handleChange1"
+                            :show-upload-list="false"
+                            :customRequest="file=>uploadForm1(file)"
+                            maxCount="1"
                         >
-                        <!-- <img v-if="imgeUrl" :src="imgeUrl" alt="second"/> -->
-                        <div>
-                            <loading-outlined v-if="loading"></loading-outlined>
-                            <PlusOutlined v-else></PlusOutlined>
-                            <div class="ant-upload-text">Upload</div>
-                        </div>
-                    </a-upload>
-                    <vertical-align-top-outlined v-if="done2"/>{{ newSubmit.file2.name}}
-                </a-form-item>
-                </a-col>
-            </a-row>
+                            <div>
+                                <LoadingOutlined v-if="loading"></LoadingOutlined>
+                                <plus-outlined v-else>+</plus-outlined>
+                                <div class="ant-upload-text">Upload</div>
+                            </div>
+                        </a-upload>
+                        <vertical-align-top-outlined v-if="done1"/>{{ newSubmit.file1.name}}
+                    </a-form-item>
+                    </a-col>
+                    <a-col>
+                        <a-form-item label="第二个文件id：">
+                        <a-input v-model:value="newSubmit.id2"/>
+                    </a-form-item>
+                    <a-form-item label="上传第二个文件">
+                        <a-upload 
+                            v-model:file-list="filelist2"
+                            name="second"
+                            list-type="picture-card"
+                            class="second"
+                            @change="handleChange2"
+                            :show-upload-list="false"
+                            :customRequest="uploadForm2"
+                            >
+                            <!-- <img v-if="imgeUrl" :src="imgeUrl" alt="second"/> -->
+                            <div>
+                                <loading-outlined v-if="loading"></loading-outlined>
+                                <PlusOutlined v-else></PlusOutlined>
+                                <div class="ant-upload-text">Upload</div>
+                            </div>
+                        </a-upload>
+                        <vertical-align-top-outlined v-if="done2"/>{{ newSubmit.file2.name}}
+                    </a-form-item>
+                    </a-col>
+                </a-row>
                 <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;bottom: 15%;right:20%">
                     <a-button type="primary" @click="onSubmit">Submit</a-button>
                 </a-form-item>
             </a-form>
             
         </a-layout-content>
-        <div v-show="visible">
-            <a-card title="数据详情" hoverable="true" style=";position: absolute;left:40%;top:15%;background-color: #fff;">
-                <a-row :gutter="180">
-                    <a-col :span="30">
-                        <p>card content</p>
-                        <p>card content</p>
-                        <p>card content</p>
-                        <p>card content</p>
-                        <p>card content</p>
-                        <p>card content</p>
-                        <p>card content</p>
-                        <p>card content</p>
-                        <p>card content</p>
-                    </a-col>
-                    <a-col>
-                        <p>card content</p>
-                        <p>card content</p>
-                        <p>card content</p>
-                        <p>card content</p>
-                        <p>card content</p>
-                        <p>card content</p>
-                        <p>card content</p>
-                        <p>card content</p>
-                        <p>card content</p>
-                    </a-col>
-                </a-row>
-                
-                <a-button ghost style="position: absolute;right: 5%;bottom: 1%;" @click="handleOk">确定</a-button>
-            </a-card>
-        </div>
+            <a-card title="详细信息" :bordered="false" class="details" v-show="visible">
+            <close-circle-outlined class="exit" @click="exit_details"/>
+            <a-list>
+                <a-list-item v-for="(value,key,index) in detailInfo" :key="index">
+                    {{ key }} : {{ value }}
+                </a-list-item>
+            </a-list>
+        </a-card>
     </a-layout>
 </template>
   
@@ -122,16 +101,19 @@ export default{
             loading:false,
             done1:false,
             done2:false,
-            visible:false
+            visible:false,
+            detailInfo:{}
         }
     },
     methods:{
         onSubmit(){
-            this.showModal()
+            
             console.log('submit!', toRaw(this.newSubmit));//这里写表单的上传方法    
             axios.post('http://localhost:8121/function/exchange',this.newSubmit).then(res=>{
                 console.log(res)
                 if(res.status==200){
+                    this.detailInfo=res.data
+                    this.showModal()
                     //显示一个小卡片
                     //!!!治理是不是该返回一个什么数据
                     // this.showModal()
@@ -165,9 +147,43 @@ export default{
             if(info.file.status==='uploading') {
                 this.done2=true
             }
+        },
+        exit_details(){
+            this.visible=false
+            this.grey=false
+            this.detailInfo={}
         }
     },
 };
 </script>
 <style scoped>
+.greycover{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(187, 187, 187, 0.5);
+    z-index: 9;
+}
+.details{
+    z-index: 999;
+    width: 600px;
+    position: fixed;
+    top:19%;
+    left:36%
+}
+.exit{
+    position: absolute;
+    height: 2em;
+    width: 2em;
+    right: 25px;
+    top:25px
+}
+.exit:hover{
+   color: green;
+   font-size: larger;
+}
 </style>
