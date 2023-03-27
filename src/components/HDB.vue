@@ -77,16 +77,35 @@
                     sub-title="查询结果"
                 />
                 <!--展示一堆小卡片-->
+                <a-layout-content style="position:absolute;height: 80%;top:18%;bottom: 0%;width: 90%;left:5%;overflow: hidden;">
+                    <div style="position: absolute;height:100%;left:0;right: -17px;top:0;bottom: 0;overflow-x: hidden;overflow-y: scroll;">
+                        <a-row :gutter="[32,48]" style="margin-bottom: 32px;" >
+                            <a-col :span="8" v-for="(data,index) in resp" :key="index">
+                                <a-card class="wholecards" :bordered="false" hoverable="true">
+                                    <template #title>
+                                        <database-outlined/>&nbsp;&nbsp;
+                                        {{ data.科技平台服务资源名称 }}
+                                    </template>
+                                    <p>内容描述: {{ data.科技平台服务内容 }}</p>
+                                    <p>资源标识代码: {{ data.科技平台服务资源标识}}</p>
+                                    <p>最近发布日期:{{data.科技平台服务最近发布日期 }}</p>
+                                    <p>服务方信息:{{ data.科技平台服务服务方信息 }}</p>
+                                    <p>访问限制:{{ data.科技平台服务访问限制 }}</p>
+                                </a-card>
+                            </a-col>
+                        </a-row>
+                    </div>
+                </a-layout-content>
             </a-layout-content>
         </a-layout-content>
     </a-layout>
 </template>
 <script>
-import { LoadingOutlined,PlusOutlined,VerticalAlignTopOutlined} from '@ant-design/icons-vue';
+import { LoadingOutlined,PlusOutlined,VerticalAlignTopOutlined,DatabaseOutlined} from '@ant-design/icons-vue';
 import canvass from './bcg1.vue'
 export default{
     components:{
-        canvass,LoadingOutlined,PlusOutlined,VerticalAlignTopOutlined
+        canvass,LoadingOutlined,PlusOutlined,VerticalAlignTopOutlined,DatabaseOutlined
     },
     data(){
         return {
@@ -100,30 +119,70 @@ export default{
             loading:false,
             done1:false,
             done2:false,
-            resp:{},
-            shift:false
+            resp:[
+                {
+                    "科技平台服务最近发布日期": "2022-10-25",
+                    "科技平台服务资源标识": "bri",
+                    "科技平台服务资源名称": "欧拉",
+                    "科技平台服务服务方信息": 1,
+                    "科技平台服务内容": "中国最好的科技平台",
+                    "科技平台服务访问限制": "1"
+                },
+                {
+                    "科技平台服务最近发布日期": "2021-10-25",
+                    "科技平台服务资源标识": "gl",
+                    "科技平台服务资源名称": "工作室",
+                    "科技平台服务服务方信息": 1,
+                    "科技平台服务内容": "闪闪发亮的科技平台",
+                    "科技平台服务访问限制": "0"
+                },
+                {
+                    "科技平台服务最近发布日期": "2021-10-25",
+                    "科技平台服务资源标识": "gl",
+                    "科技平台服务资源名称": "工作室",
+                    "科技平台服务服务方信息": 1,
+                    "科技平台服务内容": "闪闪发亮的科技平台",
+                    "科技平台服务访问限制": "0"
+                },
+                {
+                    "科技平台服务最近发布日期": "2021-10-25",
+                    "科技平台服务资源标识": "gl",
+                    "科技平台服务资源名称": "工作室",
+                    "科技平台服务服务方信息": 1,
+                    "科技平台服务内容": "闪闪发亮的科技平台",
+                    "科技平台服务访问限制": "0"
+                },
+                {
+                    "科技平台服务最近发布日期": "2021-10-25",
+                    "科技平台服务资源标识": "gl",
+                    "科技平台服务资源名称": "工作室",
+                    "科技平台服务服务方信息": 1,
+                    "科技平台服务内容": "闪闪发亮的科技平台",
+                    "科技平台服务访问限制": "0"
+                }
+            ],
+            shift:true
         }
     },
     methods:{
         onSubmit(){
-            console.log('submit!', toRaw(this.newSubmit));//这里写表单的上传方法    
-            axios.post('http://localhost:8121/heterogeneous/postgresql/exchange',this.newSubmit).then(res=>{
-                console.log(res)
-                if(res.status==200){
-                    this.resp=res.data
-                    this.showResults()
-                }
-            }).catch(err=>{
-                console.log(err)
-            })
+            this.showResults()//测试
+            // console.log('submit!', toRaw(this.newSubmit));//这里写表单的上传方法    
+            // axios.post('http://localhost:8121/heterogeneous/postgresql/exchange',this.newSubmit).then(res=>{
+            //     console.log(res)
+            //     if(res.status==200){
+            //         this.resp=res.data
+            //         this.showResults()
+            //     }
+            // }).catch(err=>{
+            //     console.log(err)
+            // })
         },
         uploadForm1(filelist1){
             this.newSubmit.file1=filelist1.file
-            // console.log(filelist1.file)
         },
         uploadForm2(filelist2){
             this.newSubmit.file2=filelist2.file
-            // console.log(filelist2.file)
         },
         handleChange1(info){
             console.log("handleChange1",info.file.name)
@@ -141,6 +200,16 @@ export default{
             this.shift=false
         }
     }
-
 }
 </script>
+<style scoped>
+.wholecards{
+    border-radius: 5%;
+}
+.wholecards:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+p{
+    text-align: left;
+}
+</style>

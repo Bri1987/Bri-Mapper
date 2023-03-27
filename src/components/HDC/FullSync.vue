@@ -2,19 +2,22 @@
     <a-layout style="background: rgba(255, 255, 255, 0);">
         <div class="greycover" v-show="grey"></div>
         <a-layout-header style="background: rgba(255, 255, 255, 0);">
-            <a-typography-title :level="3" style="text-align: left;color:#1da57a">· 全量同步</a-typography-title>
+            <a-typography-title :level="3" style="text-align: left;color:#1da57a">
+                <cloud-sync-outlined />
+                全量同步
+            </a-typography-title>
             <a-divider style="border-color: #7cb305" dashed />
         </a-layout-header>
         <a-layout-content style="position:fixed;left:400px;top:200px;font-size: larger;font-weight: 550;">
             <br>
             <br>
             <a-form :model="newSubmit">
-                <a-form-item label="table_name" style="width: 600px;">
+                <a-form-item label="table_name" style="width: 600px;margin-bottom: 60px;">
                     <a-input v-model:value="newSubmit.table_name"/>
                 </a-form-item>
                 <a-row :gutter="48">
                     <a-col :span="100">
-                        <a-form-item label="第一个文件id：" >
+                        <a-form-item label="第一个文件id：" style="margin-bottom: 60px;">
                         <a-input v-model:value="newSubmit.id1"/>
                     </a-form-item>
                     <a-form-item label="上传第一个文件">
@@ -38,7 +41,7 @@
                     </a-form-item>
                     </a-col>
                     <a-col>
-                        <a-form-item label="第二个文件id：">
+                        <a-form-item label="第二个文件id：" style="margin-bottom: 60px;">
                         <a-input v-model:value="newSubmit.id2"/>
                     </a-form-item>
                     <a-form-item label="上传第二个文件">
@@ -80,14 +83,12 @@
 </template>
   
 <script>
-import { LoadingOutlined,PlusOutlined,VerticalAlignTopOutlined} from '@ant-design/icons-vue';
+import { LoadingOutlined,PlusOutlined,VerticalAlignTopOutlined,CloudSyncOutlined} from '@ant-design/icons-vue';
 import { defineComponent, reactive, toRaw } from 'vue';
 import axios from 'axios'
 export default{
     components:{
-        PlusOutlined,
-        LoadingOutlined,
-        VerticalAlignTopOutlined
+        PlusOutlined,LoadingOutlined,VerticalAlignTopOutlined,CloudSyncOutlined
     },
     data(){
         return {

@@ -10,7 +10,7 @@
             <a-form :model="config">
                 <a-row :gutter="48">
                     <a-col :span="100">
-                        <a-form-item label="第一个文件id">
+                        <a-form-item label="第一个文件id" style="margin-bottom: 60px;">
                             <a-input v-medol:value="config.id1"/>
                         </a-form-item>
                         <br><br>
@@ -36,7 +36,7 @@
                         </a-form-item>
                     </a-col>
                     <a-col :span="100">
-                        <a-form-item label="第二个文件id">
+                        <a-form-item label="第二个文件id" style="margin-bottom: 60px;">
                             <a-input v-medol:value="config.id2"/>
                         </a-form-item>
                         <br><br>

@@ -57,11 +57,11 @@ const router=createRouter({
                     path:'form',
                     component:FirstTime
                 },  
+                {
+                    path:'/HDC',
+                    redirect:'/HDC/full'
+                },
             ]
-        },
-        {
-            path:'/HDC',
-            redirect:'/HDC/full'
         },
         {
             path:'/HDB',

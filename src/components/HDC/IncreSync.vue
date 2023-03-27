@@ -1,21 +1,24 @@
 <template>
     <div>
         <a-layout-header style="background: rgba(255, 255, 255, 0);">
-                <a-typography-title :level="3" style="text-align: left;color:#1da57a">· 增量同步</a-typography-title>
+                <a-typography-title :level="3" style="text-align: left;color:#1da57a">
+                    <build-outlined />
+                    增量同步
+                </a-typography-title>
                 <a-divider style="border-color: #7cb305" dashed />
         </a-layout-header>
         <a-layout-content style="position:fixed;left:400px;top:200px;font-size: larger;font-weight: 550;" v-if="visiable">
             <br><br>
             <a-form :model="zSubmit">
-                <a-form-item label="table_name" style="width: 600px;">
+                <a-form-item label="table_name" style="width: 600px;margin-bottom: 60px;">
                     <a-input v-model:value="zSubmit.insert_sql"/>
                 </a-form-item>
                 <a-row :gutter="48">
                     <a-col :span="100">
-                        <a-form-item label="第一个文件id">
+                        <a-form-item label="第一个文件id" style="margin-bottom: 60px;">
                             <a-input v-medol:value="zSubmit.id1"/>
                         </a-form-item>
-                        <a-form-item label="上传的第一个文件">
+                        <a-form-item label="上传第一个文件">
                             <a-upload
                             :file-list="filelist1"
                             name="first"
@@ -37,10 +40,10 @@
                         </a-form-item>
                     </a-col>
                     <a-col :span="100">
-                        <a-form-item label="第二个文件id">
+                        <a-form-item label="第二个文件id" style="margin-bottom: 60px;">
                             <a-input v-medol:value="zSubmit.id2"/>
                         </a-form-item>
-                        <a-form-item label="上传的第二个文件">
+                        <a-form-item label="上传第二个文件">
                             <a-upload
                             :file-list="filelist2"
                             name="second"
@@ -77,7 +80,7 @@
     </div>
 </template>
 <script>
-import { LoadingOutlined,PlusOutlined,VerticalAlignTopOutlined} from '@ant-design/icons-vue';
+import { LoadingOutlined,PlusOutlined,VerticalAlignTopOutlined,BuildOutlined,EditOutlined} from '@ant-design/icons-vue';
 
 export default{
     data(){
@@ -96,14 +99,11 @@ export default{
         }
     },
     components:{
-        PlusOutlined,
-        LoadingOutlined,
-        VerticalAlignTopOutlined
+        PlusOutlined,LoadingOutlined,VerticalAlignTopOutlined,BuildOutlined,EditOutlined
     },
     methods:{
         onSubmit(){
-            // this.visiable=false
-            // console.log('submit!', toRaw(this.zSubmit));//这里写表单的上传方法    
+            // this.visiable=false 
             axios.post('http://localhost:8121/function/sync/add',this.zSubmit)
             .then(res=>{
                 console.log(res)
@@ -117,11 +117,9 @@ export default{
         },
         uploadForm1(filelist1){
             this.zSubmit.file1=filelist1.file
-            // console.log(filelist1.file)
         },
         uploadForm2(filelist2){
             this.zSubmit.file2=filelist2.file
-            // console.log(filelist2.file)
         },
         handleChange1(info){
             console.log("handleChange1",info.file.name)
