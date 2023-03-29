@@ -15,8 +15,8 @@ import java.util.List;
 
 public interface FunctionService {
     JsonData syncAdd(int id1, int id2, File file1, File file2, String insertSql);
-    boolean handleAddData(EventMessage eventMessage) throws IOException, ParserConfigurationException, SAXException, SQLException, ParseException;
-    List<HeteroTech> exchange(int id1, int id2, File xml1, File xml2, String table_name) throws SQLException, IOException, ParserConfigurationException, SAXException;
+    boolean handleAddData(EventMessage eventMessage) throws Exception;
+    List<HeteroTech> exchange(int id1, int id2, File xml1, File xml2, String table_name) throws Exception;
 
-    List<科技平台DO> syncSelect(int id1, int id2, File file1, File file2, String selectSql) throws SQLException, IOException, ParserConfigurationException, SAXException, ParseException;
+    List<科技平台DO> syncSelect(int id1, int id2, File file1, File file2, String selectSql) throws Exception;
 }

@@ -5,6 +5,7 @@ import com.bri.webfinal.model.科技平台DO;
 import com.bri.webfinal.service.ElasticSearchService;
 import com.bri.webfinal.service.FunctionService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.lucene.queryparser.surround.query.SrndTermQuery;
 import org.elasticsearch.action.delete.DeleteRequest;
 import org.elasticsearch.action.get.GetRequest;
 import org.elasticsearch.action.get.GetResponse;
@@ -72,7 +73,8 @@ public class ElasticSearchServiceImpl implements ElasticSearchService {
     }
 
     @Override
-    public boolean importAll(int id1, int id2, File file1,File file2,String select_sql) throws SQLException, IOException, ParserConfigurationException, SAXException, ParseException {
+    public boolean importAll(int id1, int id2, File file1,File file2) throws Exception {
+        String select_sql="select * from 科技平台";
         List<科技平台DO> list=functionService.syncSelect(id1,id2,file1,file2,select_sql);
         Random random=new Random();
         for(科技平台DO tech:list)

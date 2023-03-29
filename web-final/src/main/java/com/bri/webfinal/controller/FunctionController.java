@@ -42,7 +42,7 @@ public class FunctionController
 
     @PostMapping("/exchange")
     //数据交换
-    public JsonData exchange(@RequestParam("id1") int id1,@RequestParam("id2") int id2,@RequestParam("file1")MultipartFile file1,@RequestParam("file2")MultipartFile file2,@RequestParam("table_name")String table_name) throws IOException, SQLException, ParserConfigurationException, SAXException {
+    public JsonData exchange(@RequestParam("id1") int id1,@RequestParam("id2") int id2,@RequestParam("file1")MultipartFile file1,@RequestParam("file2")MultipartFile file2,@RequestParam("table_name")String table_name) throws Exception {
         File file_1=fileService.multipartFileToFile(file1);
         File file_2=fileService.multipartFileToFile(file2);
         List<HeteroTech> list=functionService.exchange(id1, id2, file_1, file_2,table_name);
@@ -50,7 +50,7 @@ public class FunctionController
     }
 
     @PostMapping("/sync/select")
-    public JsonData syncSelect(@RequestParam("id1")int id1,@RequestParam("id2")int id2,@RequestParam("file1")MultipartFile file1,@RequestParam("file2")MultipartFile file2,@RequestParam("select_sql")String select_sql) throws IOException, SQLException, ParserConfigurationException, ParseException, SAXException {
+    public JsonData syncSelect(@RequestParam("id1")int id1,@RequestParam("id2")int id2,@RequestParam("file1")MultipartFile file1,@RequestParam("file2")MultipartFile file2,@RequestParam("select_sql")String select_sql) throws Exception {
         File file_1=fileService.multipartFileToFile(file1);
         File file_2=fileService.multipartFileToFile(file2);
         List<科技平台DO> list=functionService.syncSelect(id1,id2,file_1,file_2,select_sql);
@@ -58,10 +58,10 @@ public class FunctionController
     }
 
     @PostMapping("/import")
-    public JsonData importAll(@RequestParam("id1")int id1,@RequestParam("id2")int id2,@RequestParam("file1")MultipartFile file1,@RequestParam("file2")MultipartFile file2,@RequestParam("select_sql")String select_sql) throws IOException, SQLException, ParserConfigurationException, ParseException, SAXException {
+    public JsonData importAll(@RequestParam("id1")int id1,@RequestParam("id2")int id2,@RequestParam("file1")MultipartFile file1,@RequestParam("file2")MultipartFile file2) throws Exception {
         File file_1=fileService.multipartFileToFile(file1);
         File file_2=fileService.multipartFileToFile(file2);
-        elasticSearchService.importAll(id1,id2,file_1,file_2,select_sql);
+        elasticSearchService.importAll(id1,id2,file_1,file_2);
         return JsonData.buildSuccess();
     }
 

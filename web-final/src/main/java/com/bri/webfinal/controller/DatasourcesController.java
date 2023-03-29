@@ -29,8 +29,7 @@ public class DatasourcesController {
 
     //新增数据源
     @PostMapping("/add")
-    public JsonData createDataSource(@RequestBody AddDataSourceRequest addDataSourceRequest)
-    {
+    public JsonData createDataSource(@RequestBody AddDataSourceRequest addDataSourceRequest) throws Exception {
         int rows = dataSourceService.createDataSource(addDataSourceRequest);
         return rows==1? JsonData.buildSuccess():JsonData.buildResult(BizCodeEnum.ADD_DATASOURCE_FAIL);
     }

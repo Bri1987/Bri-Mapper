@@ -7,9 +7,12 @@ import com.bri.webfinal.model.DatasourcesDO;
 import com.bri.webfinal.mapper.DatasourcesMapper;
 import com.bri.webfinal.service.DatasourcesService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.bri.webfinal.util.SM4Util;
+import org.bouncycastle.util.encoders.Hex;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 /**
@@ -26,11 +29,12 @@ public class DatasourcesServiceImpl implements DatasourcesService {
     private DatasourcesMapper datasourcesMapper;
 
     @Override
-    public int createDataSource(AddDataSourceRequest addDataSourceRequest) {
+    public int createDataSource(AddDataSourceRequest addDataSourceRequest) throws Exception {
         DatasourcesDO dataSourceDO=new DatasourcesDO();
         dataSourceDO.setUser(addDataSourceRequest.getUser());
         dataSourceDO.setDatasourceType(addDataSourceRequest.getDatasource_type());
-        dataSourceDO.setPassword(addDataSourceRequest.getPassword());
+        //密码加密
+        dataSourceDO.setPassword(SM4Util.encryptSm4(addDataSourceRequest.getPassword()));
         dataSourceDO.setIp(addDataSourceRequest.getIp());
         dataSourceDO.setDbname(addDataSourceRequest.getDbname());
         return datasourcesMapper.insert(dataSourceDO);

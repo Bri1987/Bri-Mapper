@@ -26,7 +26,7 @@ public class DataAddMQFirstListener
     @Autowired
     private FunctionService functionService;
     @RabbitHandler
-    public void dataAddFirstHanlder(EventMessage eventMessage, Message message, Channel channel) throws SQLException, IOException, ParserConfigurationException, ParseException, SAXException {
+    public void dataAddFirstHanlder(EventMessage eventMessage, Message message, Channel channel) throws Exception {
         log.info("监听到消息 : "+message);
         eventMessage.setEventMessageType(EventMessageType.DATA_ADD_FIRST.name());
         functionService.handleAddData(eventMessage);

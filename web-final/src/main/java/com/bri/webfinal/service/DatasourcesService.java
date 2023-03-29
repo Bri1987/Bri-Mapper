@@ -16,7 +16,7 @@ import java.util.List;
  * @since 2023-03-15
  */
 public interface DatasourcesService {
-    int createDataSource(AddDataSourceRequest addDataSourceRequest);
+    int createDataSource(AddDataSourceRequest addDataSourceRequest) throws Exception;
     int delDataSource(int id);
 
     int updateById(UpdateDataSourceRequest request);

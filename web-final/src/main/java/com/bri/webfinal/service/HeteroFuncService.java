@@ -13,6 +13,6 @@ import java.util.List;
 
 public interface HeteroFuncService
 {
-    List<HeteroTech> exchange(int id1, int id2, File file1, File file2, String table_name) throws SQLException, IOException, ParserConfigurationException, SAXException;
+    List<HeteroTech> exchange(int id1, int id2, File file1, File file2, String table_name) throws Exception;
     //JsonData syncAdd(int id1, int id2, File file1, File file2, String insertSql);
 }

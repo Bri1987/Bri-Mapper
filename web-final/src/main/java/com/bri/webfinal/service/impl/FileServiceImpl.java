@@ -147,7 +147,6 @@ public class FileServiceImpl implements FileService
 
         try {
             PutObjectResult putObjectResult = ossClient.putObject(bucketname, newFileName, file.getInputStream());
-            System.out.println("hhhhhhhhhhhhhhhh");
             //拼装返回路径
             if (putObjectResult != null) {
                 String xmlUrl = "https://" + bucketname + "." + endpoint + "/" + newFileName;

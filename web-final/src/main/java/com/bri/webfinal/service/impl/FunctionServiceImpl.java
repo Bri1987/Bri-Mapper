@@ -16,12 +16,14 @@ import com.bri.webfinal.service.*;
 import com.bri.webfinal.util.CommonUtil;
 import com.bri.webfinal.util.JsonData;
 import com.bri.webfinal.util.JsonUtil;
+import com.bri.webfinal.util.SM4Util;
 import lombok.extern.slf4j.Slf4j;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CodePointCharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.apache.kafka.common.protocol.types.Field;
+import org.bouncycastle.util.encoders.Hex;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
@@ -67,12 +69,12 @@ public class FunctionServiceImpl implements FunctionService {
         return conn;
     }
 
-    public Connection getConnByDO(DatasourcesDO d)
-    {
+    public Connection getConnByDO(DatasourcesDO d) throws Exception {
         String ip=d.getIp();
         String db=d.getDbname();
         String user1 = d.getUser();
-        String password1=d.getPassword();
+        //密码解密
+        String password1=SM4Util.decryptSm4(d.getPassword());
         String url1="jdbc:mysql://"+ip+":3306/"+db+"?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true";
         return getConn(url1,user1,password1);
     }
@@ -208,7 +210,7 @@ public class FunctionServiceImpl implements FunctionService {
     @Override
     //@Async("threadPoolTaskExecutor")
     //2转1
-    public List<HeteroTech> exchange(int id1, int id2, File xml1,File xml2,String table_name) throws SQLException, IOException, ParserConfigurationException, SAXException {
+    public List<HeteroTech> exchange(int id1, int id2, File xml1,File xml2,String table_name) throws Exception {
         //先根据两个id读到数据源信息
         DatasourcesDO dataSourceDO1 = datasourcesService.detailDataSource(id1);
         DatasourcesDO dataSourceDO2 = datasourcesService.detailDataSource(id2);
@@ -333,7 +335,7 @@ public class FunctionServiceImpl implements FunctionService {
     }
 
     @Override
-    public List<科技平台DO> syncSelect(int id1, int id2, File file1, File file2, String selectSql) throws SQLException, IOException, ParserConfigurationException, SAXException, ParseException {
+    public List<科技平台DO> syncSelect(int id1, int id2, File file1, File file2, String selectSql) throws Exception {
         //默认先只处理select * from Ident
         String table=MySqlVisitor.select_table;
 //        String comparison=MySqlVisitor.comparison;
@@ -409,7 +411,7 @@ public class FunctionServiceImpl implements FunctionService {
         return JsonData.buildSuccess();
     }
 
-    public boolean handleAddData(EventMessage eventMessage) throws IOException, ParserConfigurationException, SAXException, SQLException, ParseException {
+    public boolean handleAddData(EventMessage eventMessage) throws Exception {
         SyncAddRequest request=JsonUtil.json2Obj(eventMessage.getContent(),SyncAddRequest.class);
         String messageType= eventMessage.getEventMessageType();
         String sql = new String(request.getInsert_sql().getBytes(), StandardCharsets.UTF_8);
