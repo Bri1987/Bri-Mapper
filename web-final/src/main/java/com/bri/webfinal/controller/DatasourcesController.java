@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -63,6 +64,14 @@ public class DatasourcesController {
     public JsonData listAll()
     {
         List<DatasourcesDO> list=dataSourceService.listAll();
+        return JsonData.buildSuccess(list);
+    }
+
+    //分页查找数据源
+    @GetMapping("/listpage")
+    public JsonData listByPage(@RequestParam(required = false) int pagenum,@RequestParam(required = false) int pagesize)
+    {
+        List<DatasourcesDO> list=dataSourceService.listByPage(pagenum,pagesize);
         return JsonData.buildSuccess(list);
     }
 }

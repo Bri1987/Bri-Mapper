@@ -6,6 +6,7 @@ import com.bri.webfinal.model.DatasourcesDO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -22,4 +23,6 @@ public interface DatasourcesService {
     int updateById(UpdateDataSourceRequest request);
     DatasourcesDO detailDataSource(int id);
     List<DatasourcesDO> listAll();
+
+    List<DatasourcesDO> listByPage(int page,int size);
 }

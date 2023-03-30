@@ -1,6 +1,8 @@
 package com.bri.webfinal.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.bri.webfinal.controller.request.AddDataSourceRequest;
 import com.bri.webfinal.controller.request.UpdateDataSourceRequest;
 import com.bri.webfinal.model.DatasourcesDO;
@@ -9,11 +11,15 @@ import com.bri.webfinal.service.DatasourcesService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.bri.webfinal.util.SM4Util;
 import org.bouncycastle.util.encoders.Hex;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -66,5 +72,14 @@ public class DatasourcesServiceImpl implements DatasourcesService {
     @Override
     public List<DatasourcesDO> listAll() {
         return datasourcesMapper.selectList(new QueryWrapper<DatasourcesDO>());
+    }
+
+    @Override
+    public List<DatasourcesDO> listByPage(int page,int size) {
+        Page<DatasourcesDO> pageInfo=new Page<>(page,size);
+        // 执行分页查询
+        IPage<DatasourcesDO> userPage = datasourcesMapper.selectPage(pageInfo,new QueryWrapper<DatasourcesDO>());
+        // 获取分页查询结果的数据集合
+        return userPage.getRecords();
     }
 }
