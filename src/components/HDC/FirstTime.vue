@@ -11,7 +11,7 @@
                 <a-row :gutter="48">
                     <a-col :span="100">
                         <a-form-item label="第一个文件id" style="margin-bottom: 60px;">
-                            <a-input v-medol:value="config.id1"/>
+                            <a-input v-model:value="config.id1"/>
                         </a-form-item>
                         <br><br>
                         <a-form-item label="上传的第一个文件">
@@ -37,7 +37,7 @@
                     </a-col>
                     <a-col :span="100">
                         <a-form-item label="第二个文件id" style="margin-bottom: 60px;">
-                            <a-input v-medol:value="config.id2"/>
+                            <a-input v-model:value="config.id2"/>
                         </a-form-item>
                         <br><br>
                         <a-form-item label="上传的第二个文件">
@@ -92,8 +92,8 @@ export default{
         return{
             visiable:true,
             config:{
-                id1:null,
-                id2:null,
+                id1:16,
+                id2:17,
                 file1:{},
                 file2:{}
             },
@@ -110,17 +110,24 @@ export default{
     methods:{
         onSubmit(){
             // this.visiable=false
-            console.log('submit!', toRaw(this.config));//这里写表单的上传方法    
-            axios.post('http://localhost:8121/function/sync/add',this.config)
-            .then(res=>{
-                console.log(res)
-                if(res.status==200){
-                    //这里翻个烟花？？？
-                    this.visiable=false
-                }
-            }).catch(err=>{
-                console.log(err)
-            })
+            // console.log('submit!', toRaw(this.config));//这里写表单的上传方法    
+            console.log(this.config)
+            var submitParams=new FormData()
+            submitParams.append("id1","16")
+            submitParams.append("id2",this.config.id2)
+            submitParams.append('file1',this.config.file1)
+            submitParams.append('file2',this.config.file1)
+            console.log(submitParams)
+            // this.$axios.post('http://localhost:8121/function/sync/add',this.config)
+            // .then(res=>{
+            //     console.log(res)
+            //     if(res.status==200){
+            //         //这里翻个烟花？？？
+            //         this.visiable=false
+            //     }
+            // }).catch(err=>{
+            //     console.log(err)
+            // })
         },
         uploadForm1(filelist1){
             this.config.file1=filelist1.file

@@ -168,7 +168,7 @@ export default{
         onSubmit(){
             // this.showResults()//测试
             // console.log('submit!', toRaw(this.newSubmit));//这里写表单的上传方法    
-            axios.post('http://localhost:8121/heterogeneous/postgresql/exchange',this.newSubmit).then(res=>{
+            this.$axios.post('http://localhost:8121/heterogeneous/postgresql/exchange',this.newSubmit).then(res=>{
                 console.log(res)
                 if(res.status==200){
                     this.resp=res.data

@@ -149,7 +149,7 @@ export default{
     methods:{
         onSearch(){
             // this.showCards
-            axios.post('http://localhost:8121/function/select',this.select_sql)
+            this.$axios.post('http://localhost:8121/function/select',this.select_sql)
             .then(res=>{
                 console.log(res)
                 if(res.status==200)
