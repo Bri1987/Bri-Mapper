@@ -5,7 +5,7 @@
                 <a-typography-title :level="3" style="text-align: left;color:#1da57a;text-align: center;">请先进行搜索前配置</a-typography-title>
                 <a-divider style="border-color: #7cb305"/>
             </a-layout-header>
-            <a-layout-content style="position:fixed;left:400px;top:200px;font-size: larger;font-weight: 550;" v-if="visiable">
+            <a-layout-content style="position:fixed;left:420px;top:200px;font-size: larger;font-weight: 550;" v-if="visiable">
             <br><br>
             <a-form :model="config">
                 <a-row :gutter="48">

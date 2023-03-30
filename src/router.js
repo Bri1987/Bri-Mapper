@@ -8,6 +8,8 @@ import FullSync from './components/HDC/FullSync.vue'
 import Unified from './components/HDC/Unified.vue'
 import FirstTime from './components/HDC/FirstTime.vue'
 import HDB from './components/HDB.vue'
+import User from './view/users/Users.vue'
+import Map from './components/MAP/MAP.vue'
 // import addData from './components/bcg1.vue'
 //创建路由实例对象
 const router=createRouter({
@@ -20,14 +22,7 @@ const router=createRouter({
         },
         {
             path:'/CRUD',
-            name:'CRUD',
-            component:CRUD,
-            children:[
-                {
-                    path:'selectAll',
-                    component:selectAll
-                }
-            ]
+            component:User,
         },
         {
             path:'/',
@@ -66,6 +61,10 @@ const router=createRouter({
         {
             path:'/HDB',
             component:HDB
+        },
+        {
+            path:'/MAP',
+            component:Map
         }
     ]
 })

@@ -8,15 +8,15 @@
             </a-typography-title>
             <a-divider style="border-color: #7cb305" dashed />
         </a-layout-header>
-        <a-layout-content style="position:fixed;left:400px;top:200px;font-size: larger;font-weight: 550;">
+        <a-layout-content style="position:fixed;left:420px;top:200px;font-size: larger;font-weight: 550;">
             <br>
             <br>
             <a-form :model="newSubmit">
                 <a-form-item label="table_name" style="width: 600px;margin-bottom: 60px;">
                     <a-input v-model:value="newSubmit.table_name"/>
                 </a-form-item>
-                <a-row :gutter="48">
-                    <a-col :span="100">
+                <a-row :gutter="[48,48]">
+                    <a-col :span="96" style="width: 400px;">
                         <a-form-item label="第一个文件id：" style="margin-bottom: 60px;">
                         <a-input v-model:value="newSubmit.id1"/>
                     </a-form-item>
@@ -40,7 +40,7 @@
                         <vertical-align-top-outlined v-if="done1"/>{{ newSubmit.file1.name}}
                     </a-form-item>
                     </a-col>
-                    <a-col>
+                    <a-col :span="96" style="width: 400px;">
                         <a-form-item label="第二个文件id：" style="margin-bottom: 60px;">
                         <a-input v-model:value="newSubmit.id2"/>
                     </a-form-item>
@@ -83,12 +83,12 @@
 </template>
   
 <script>
-import { LoadingOutlined,PlusOutlined,VerticalAlignTopOutlined,CloudSyncOutlined} from '@ant-design/icons-vue';
+import { LoadingOutlined,PlusOutlined,VerticalAlignTopOutlined,CloudSyncOutlined,CloseCircleOutlined} from '@ant-design/icons-vue';
 import { defineComponent, reactive, toRaw } from 'vue';
 import axios from 'axios'
 export default{
     components:{
-        PlusOutlined,LoadingOutlined,VerticalAlignTopOutlined,CloudSyncOutlined
+        PlusOutlined,LoadingOutlined,VerticalAlignTopOutlined,CloudSyncOutlined,CloseCircleOutlined
     },
     data(){
         return {
@@ -103,13 +103,14 @@ export default{
             done1:false,
             done2:false,
             visible:false,
-            detailInfo:{}
+            detailInfo:{},
+            grey:false
         }
     },
     methods:{
         onSubmit(){
-            
-            console.log('submit!', toRaw(this.newSubmit));//这里写表单的上传方法    
+            // this.showModal()//测试
+            // console.log('submit!', toRaw(this.newSubmit));//这里写表单的上传方法    
             axios.post('http://localhost:8121/function/exchange',this.newSubmit).then(res=>{
                 console.log(res)
                 if(res.status==200){
@@ -125,6 +126,7 @@ export default{
         },
         showModal(){
             this.visible=true
+            this.grey=true
         },
         handleOk(){
             this.visible=false

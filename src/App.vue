@@ -1,13 +1,13 @@
 <template>
   <div>
-    <a-menu v-model:selectedKeys="current" mode="horizontal">
+    <a-menu v-model:selectedKeys="current" mode="horizontal" theme="dark">
       <a-menu-item key="home" @click="gotoHome">
         首页
       </a-menu-item>
       <a-menu-item key="crud" @click="gotoCRUD">
         数据源增删查改
       </a-menu-item>
-      <a-menu-item key="excg" @click="gotoEXCG">
+      <a-menu-item key="excg" @click="gotoMAP">
         映射
       </a-menu-item>
       <a-menu-item key="HDC" @click="gotoHDC">
@@ -34,8 +34,8 @@ export default {
     gotoCRUD(){
       this.$router.push('/CRUD')
     },
-    gotoCRUD(){
-      this.$router.push('/CRUD') //!
+    gotoMAP(){
+      this.$router.push('/MAP') //!
     },
     gotoHDC(){
       this.$router.push('/HDC') //!

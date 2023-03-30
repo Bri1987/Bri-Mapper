@@ -8,7 +8,7 @@
             <a-breadcrumb-item>{{ itemname1 }}</a-breadcrumb-item>
 
           </a-breadcrumb>
-          <a-layout style="padding: 24px 0; background: rgba(255, 255, 255,0.6);height: 86%;">
+          <a-layout style="padding: 24px 0; background: rgba(255, 255, 255,0.6);height: 86%;width: 80%;left: 10%;position: absolute;">
             <a-layout-sider width="200" style="background: rgba(255, 255, 255,0.3)">
               <a-menu
                 v-model:selectedKeys="selectedKeys2"

@@ -1,103 +1,86 @@
 <template>
-    <a-table :columns="columns" :data-source="data" :scroll="{ x: 1500, y: 300 }" bordered>
-            <template #bodyCell="{ column, text, record }">
-                <template v-if="[ 'ip', 'username'].includes(column.dataIndex)">
-                    <div>
-                    <a-input
-                        v-if="editableData[record.key]"
-                        v-model:value="editableData[record.key][column.dataIndex]"
-                        style="margin: -5px 0"
-                    />
-                    <template v-else>
-                        {{ text }}
-                    </template>
-                    </div>
-                </template>
-                <template v-else-if="column.dataIndex === 'operation'">
-                    <div class="editable-row-operations">
-                    <span v-if="editableData[record.key]">
-                        <a-typography-link @click="save(record.key)">Save</a-typography-link>
-                        <a-popconfirm title="Sure to cancel?" @confirm="cancel(record.key)">
-                        <a>Cancel</a>
-                        </a-popconfirm>
-                    </span>
-                    <span v-else>
-                        <a @click="edit(record.key)">Edit</a>
-                    </span>
-                    </div>
-                </template>
-            </template>
-        </a-table>
+  <a-table :columns="columns" :data-source="data" :scroll="{ x: 1500, y: 300 }">
+    <template #bodyCell="{ column }">
+      <template v-if="column.key === 'operation'">
+        <a>action</a>
+      </template>
+    </template>
+  </a-table>
 </template>
-
 <script>
-import { cloneDeep } from 'lodash-es';
-import { defineComponent, reactive, ref } from 'vue';
+import { defineComponent } from 'vue';
 const columns = [{
-        title: 'id',
-        dataIndex: 'id',
-        width: 50,
-        fixed:'left'
-        }, {
-        title: 'ip地址',
-        dataIndex: 'ip',
-        width: 80,
-        }, {
-        title: '用户名',
-        dataIndex: 'username',
-        width: 80,
-        }, {
-        title: '用户密码',
-        dataIndex: 'password',
-        width: '40%',
-        }, {
-        title: '数据库名称',
-        dataIndex: 'dbname',
-        width: '40%',
-        },  {
-        title: '数据类型',
-        dataIndex: 'datasourceType',
-        width: '40%',
-        },{
-        title: 'operation',
-        dataIndex: 'operation',
-    }];
-// const data = [{id:'1',ip:'0',username:"lily"},{id:'1',ip:'0',username:"lily"}];
+  title: 'Full Name',
+  width: 100,
+  dataIndex: 'name',
+  key: 'name',
+  fixed: 'left',
+}, {
+  title: 'Age',
+  width: 100,
+  dataIndex: 'age',
+  key: 'age',
+  fixed: 'left',
+}, {
+  title: 'Column 1',
+  dataIndex: 'address',
+  key: '1',
+  width: 150,
+}, {
+  title: 'Column 2',
+  dataIndex: 'address',
+  key: '2',
+  width: 150,
+}, {
+  title: 'Column 3',
+  dataIndex: 'address',
+  key: '3',
+  width: 150,
+}, {
+  title: 'Column 4',
+  dataIndex: 'address',
+  key: '4',
+  width: 150,
+}, {
+  title: 'Column 5',
+  dataIndex: 'address',
+  key: '5',
+  width: 150,
+}, {
+  title: 'Column 6',
+  dataIndex: 'address',
+  key: '6',
+  width: 150,
+}, {
+  title: 'Column 7',
+  dataIndex: 'address',
+  key: '7',
+  width: 150,
+}, {
+  title: 'Column 8',
+  dataIndex: 'address',
+  key: '8',
+}, {
+  title: 'Action',
+  key: 'operation',
+  fixed: 'right',
+  width: 100,
+}];
+const data = [];
+for (let i = 0; i < 100; i++) {
+  data.push({
+    key: i,
+    name: `Edrward ${i}`,
+    age: 32,
+    address: `London Park no. ${i}`,
+  });
+}
 export default defineComponent({
-  setup() {
-    const data=[]
-    
-//=============table=================================================================
-    const dataSource = ref(data);
-    const editableData = reactive({});
-    const edit = key => {
-      editableData[key] = cloneDeep(dataSource.value.filter(item => key === item.key)[0]);
-    };
-    const save = key => {
-      Object.assign(dataSource.value.filter(item => key === item.key)[0], editableData[key]);
-      delete editableData[key];
-    };
-    const cancel = key => {
-      delete editableData[key];
-    };
+  data() {
     return {
-      dataSource,
+      data,
       columns,
-      editingKey: '',
-      editableData,
-      edit,
-      save,
-      cancel,
     };
   },
 });
-
-//------------------------------------------------------------------------------------------------------------------------------------
-
-
 </script>
-<style>
-.editable-row-operations a {
-  margin-right: 8px;
-}
-</style>

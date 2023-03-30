@@ -1,18 +1,18 @@
 <template>
-    <a-layout class="top" style="position:fixed;right: 0;left:0;bottom: 0%;height:94%;z-index: 999;">
+    <a-layout class="top">
         <canvass></canvass>
         <a-layout-content style="padding: 0 50px; position:fixed;left:5%;right: 5%;bottom: 5%;top:10%;">
             <a-breadcrumb style="margin: 16px 0">
                 <a-breadcrumb-item>HDB</a-breadcrumb-item>
             </a-breadcrumb>
-            <a-layout-content v-if="shift" style="padding: 24px 0; background: rgba(255, 255, 255,0.6);height: 86%;width: 80%;left: 10%;position: absolute;">
+            <a-layout-content class="precfg" v-if="shift">
                 <a-page-header
                     style="text-align: center;border: 1px solid rgb(235, 237, 240);top:0%;position: absolute;width: 100%;"
                     title=">异构数据库"
                     sub-title="请先填写并提交表单"
                 />
                 <br><br><br><br>
-                <a-form :model="newSubmit" style="position: absolute;width: 80%;left: 20%;font-weight: 600;">
+                <a-form :model="newSubmit" style="position: absolute;width: 80%;left: 15%;font-weight:bold;">
                     <a-form-item label="table_name" style="width: 600px;row-gap: 400px;margin-bottom: 60px;">
                         <a-input v-model:value="newSubmit.table_name"/>
                     </a-form-item>
@@ -70,14 +70,14 @@
                     </a-form-item>
                 </a-form>
             </a-layout-content>
-            <a-layout-content v-else  style="padding: 24px 0; background: rgba(255, 255, 255,0.6);height: 86%;width: 80%;left: 10%;position: absolute;">
+            <a-layout-content class="aftercfg" v-else  style="">
                 <a-page-header
                     style="text-align: center;border: 1px solid rgb(235, 237, 240);top:0%;position: absolute;width: 100%;"
                     title=">异构数据库"
                     sub-title="查询结果"
                 />
                 <!--展示一堆小卡片-->
-                <a-layout-content style="position:absolute;height: 80%;top:18%;bottom: 0%;width: 90%;left:5%;overflow: hidden;">
+                <a-layout-content class="results">
                     <div style="position: absolute;height:100%;left:0;right: -17px;top:0;bottom: 0;overflow-x: hidden;overflow-y: scroll;">
                         <a-row :gutter="[32,48]" style="margin-bottom: 32px;" >
                             <a-col :span="8" v-for="(data,index) in resp" :key="index">
@@ -166,17 +166,17 @@ export default{
     },
     methods:{
         onSubmit(){
-            this.showResults()//测试
+            // this.showResults()//测试
             // console.log('submit!', toRaw(this.newSubmit));//这里写表单的上传方法    
-            // axios.post('http://localhost:8121/heterogeneous/postgresql/exchange',this.newSubmit).then(res=>{
-            //     console.log(res)
-            //     if(res.status==200){
-            //         this.resp=res.data
-            //         this.showResults()
-            //     }
-            // }).catch(err=>{
-            //     console.log(err)
-            // })
+            axios.post('http://localhost:8121/heterogeneous/postgresql/exchange',this.newSubmit).then(res=>{
+                console.log(res)
+                if(res.status==200){
+                    this.resp=res.data
+                    this.showResults()
+                }
+            }).catch(err=>{
+                console.log(err)
+            })
         },
         uploadForm1(filelist1){
             this.newSubmit.file1=filelist1.file
@@ -203,13 +203,36 @@ export default{
 }
 </script>
 <style scoped>
+.top{
+    position:fixed;
+    right: 0;
+    left:0;
+    bottom: 0%;
+    height:94%;
+    z-index: 999;
+}
 .wholecards{
     border-radius: 5%;
 }
 .wholecards:hover{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
+
 p{
     text-align: left;
+}
+.precfg{
+    padding: 24px 0; 
+    background: rgba(255, 255, 255,0.6);
+    /* background:rgba(255, 255, 255,0.6) linear-gradient(90deg, #488cba, #8391dd, #9966bb); */
+    height: 86%;width: 80%;left: 10%;position: absolute;
+}
+.results{
+    position:absolute;height: 80%;top:18%;bottom: 0%;width: 90%;left:5%;overflow: hidden; 
+}
+.aftercfg{
+    padding: 24px 0; 
+    background: rgba(255, 255, 255,0.6) linear-gradient(90deg, #488cba, #909ff3, #b375dc);
+    height: 86%;width: 80%;left: 10%;position: absolute;
 }
 </style>
