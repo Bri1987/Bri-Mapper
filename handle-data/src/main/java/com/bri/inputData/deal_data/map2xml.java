@@ -1,6 +1,7 @@
 package com.bri.inputData.deal_data;
 
 import com.bri.inputData.entity.MetadataField;
+import com.bri.inputData.entity.MetadataFieldDataType;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
@@ -13,10 +14,7 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class map2xml
 {
@@ -161,6 +159,7 @@ public class map2xml
             element_map_child.appendChild(child_source);
 
             sources.forEach((source)->{
+
                 //创建instance节点
                 Element instance=doc.createElement("instance");
                 child_source.appendChild(instance);
@@ -251,134 +250,182 @@ public class map2xml
         System.out.println("success");
     }
 
-    /*
-    public static MetadataField setValue(Node value, Attr attr,MetadataField field1)
-    {
-        if(field1==null)
-            field1=new MetadataField();
-        String content= value.getTextContent();
-
-        if(attr.getValue().equals("中文名称")) {
-            field1.setNameZH(content);
-        }
-        //TODO 数据类型
-        //else if(attr.getValue().equals("数据类型"))
-        //field1.setDataType(value.getNodeValue());
-        else if(attr.getValue().equals("类词"))
-            field1.setFieldType(content);
-        else if(attr.getValue().equals("计量单位"))
-            field1.setUnit(content);
-        else if(attr.getValue().equals("定义"))
-            field1.setDescription(content);
-        else if(attr.getValue().equals("参考来源"))
-            field1.setReference(content);
-        else if(attr.getValue().equals("参考来源MJ"))
-            field1.setReferenceMJ(content);
-        else if(attr.getValue().equals("描述对象"))
-            field1.setObject(content);
-        else if(attr.getValue().equals("所属分类"))
-            field1.setCategory(content);
-        else if(attr.getValue().equals("长度")) {
-            NodeList length_list=value.getChildNodes();
-            for(int tmp=0;tmp<length_list.getLength();tmp++)
-            {
-                Node min_max=length_list.item(tmp);
-                if(min_max.getNodeName().equals("min"))
-                    field1.setMinLength(Integer.parseInt(min_max.getTextContent()));
-                else if(min_max.getNodeName().equals("max"))
-                    field1.setMaxLength(Integer.parseInt(min_max.getTextContent()));
-            }
-        }
-        return field1;
-    }
-    //进来的是root节点
-    public static Map<MetadataField, MetadataField> parseElement(Element element)
-    {
-        Map<MetadataField,MetadataField> map=new HashMap<>();
-
-        //节点
-        //是所有map节点
-        NodeList nodeList=element.getChildNodes();
-        Node childNode;
-        MetadataField field1=null,field2=null;
-        for(int i=0;i<nodeList.getLength();i++)
-        {
-            childNode=nodeList.item(i);              //childNode是每一个map节点
-            NodeList map_list=childNode.getChildNodes();
-            //再走一层，是meta或source
-            for(int k=0;k<map_list.getLength();k++)
-            {
-                Node map_child=map_list.item(k);
-                //meta
-                if(map_child.getNodeName().equals("meta"))
-                {
-                    NodeList meta_list=map_child.getChildNodes();
-                    //是各个属性了
-                    for(int j=0;j<meta_list.getLength();j++)
-                    {
-                        Node value=meta_list.item(j);
-                        NamedNodeMap attris = value.getAttributes();
-                        if(attris!=null)
-                        {
-                            for (int o = 0; o < attris.getLength(); o++) {
-                                //只会有一个attr
-                                Attr attr = (Attr) attris.item(o);
-                                if(attr!=null)
-                                    field1=setValue(value,attr,field1);
-                            }
-                        }
-                    }
-                }
-                //source
-                else if(map_child.getNodeName().equals("source"))
-                {
-                    NodeList source_list=map_child.getChildNodes();
-                    //是各个属性了
-                    for(int j=0;j<source_list.getLength();j++)
-                    {
-                        Node value=source_list.item(j);
-                        NamedNodeMap attris = value.getAttributes();
-                        if(attris!=null)
-                        {
-                            for (int o = 0; o < attris.getLength(); o++) {
-                                //只会有一个attr
-                                Attr attr = (Attr) attris.item(o);
-                                if(attr!=null)
-                                    field2=setValue(value,attr,field2);
-                            }
-                        }
-                    }
-                }
-            }
-            if(field1!=null && field2!=null)
-            {
-                //加入map
-                map.put(field1,field2);
-                field1=null;
-                field2=null;
-            }
-        }
-        return map;
-    }
-
-    public Map<MetadataField,MetadataField> readXML(File file) throws IOException, SAXException, ParserConfigurationException {
-        Map<MetadataField,MetadataField> map=new HashMap<>();
-
-        // 初始化一个XML解析工厂
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-
-        // 创建一个DocumentBuilder实例
-        DocumentBuilder builder = factory.newDocumentBuilder();
-
-        // 创建一个解析XML的Document实例
-        Document doc = builder.parse(file);
-
-        //递归解析element
-        //第一个节点,是root节点
-        Element element = doc.getDocumentElement();
-
-        map=parseElement(element);
-
-        return map;
-    }*/
+//    public static MetadataField setValue(Node value, Attr attr,MetadataField field1)
+//    {
+//        if(field1==null)
+//            field1=new MetadataField();
+//        String content= value.getTextContent();
+//
+//        if(attr.getValue().equals("中文名称")) {
+//            field1.setNameZH(content);
+//        }
+//        //TODO 数据类型
+//        else if(attr.getValue().equals("数据类型"))
+//        {
+//            if(content.equals("TEXT"))
+//                field1.setDataType(MetadataFieldDataType.TEXT);
+//            else if(content.equals("NUMBER"))
+//                field1.setDataType(MetadataFieldDataType.NUMBER);
+//            else if(content.equals("DATETIME"))
+//                field1.setDataType(MetadataFieldDataType.DATETIME);
+//            else if(content.equals("BINARY"))
+//                field1.setDataType(MetadataFieldDataType.BINARY);
+//            else if(content.equals("BOOLEAN"))
+//                field1.setDataType(MetadataFieldDataType.BOOLEAN);
+//        }
+//        else if(attr.getValue().equals("类词"))
+//            field1.setFieldType(content);
+//        else if(attr.getValue().equals("计量单位"))
+//            field1.setUnit(content);
+//        else if(attr.getValue().equals("定义"))
+//            field1.setDescription(content);
+//        else if(attr.getValue().equals("参考来源"))
+//            field1.setReference(content);
+//        else if(attr.getValue().equals("参考来源MJ"))
+//            field1.setReferenceMJ(content);
+//        else if(attr.getValue().equals("描述对象"))
+//            field1.setObject(content);
+//        else if(attr.getValue().equals("所属分类"))
+//            field1.setCategory(content);
+//        else if(attr.getValue().equals("长度")) {
+//            NodeList length_list=value.getChildNodes();
+//            for(int tmp=0;tmp<length_list.getLength();tmp++)
+//            {
+//                Node min_max=length_list.item(tmp);
+//                if(min_max.getNodeName().equals("min"))
+//                    field1.setMinLength(Integer.parseInt(min_max.getTextContent()));
+//                else if(min_max.getNodeName().equals("max"))
+//                    field1.setMaxLength(Integer.parseInt(min_max.getTextContent()));
+//            }
+//        }
+//        return field1;
+//    }
+//    //进来的是root节点
+//    public static Map<Set<MetadataField>, Set<MetadataField>> parseElement(Element element)
+//    {
+//        Map<Set<MetadataField>,Set<MetadataField>> map=new HashMap<>();
+//
+//        //节点
+//        //是所有map节点
+//        NodeList nodeList=element.getChildNodes();
+//        Node childNode;Node instance;Node instance2;
+//        MetadataField field1=null,field2=null;
+//        Set<MetadataField> set_first=new HashSet<>();
+//        Set<MetadataField> set_first2=new HashSet<>();
+//        for(int i=0;i<nodeList.getLength();i++)
+//        {
+//            childNode=nodeList.item(i);              //childNode是每一个map节点
+//            NodeList map_list=childNode.getChildNodes();
+//            //再走一层，是meta或source
+//            for(int k=0;k<map_list.getLength();k++)
+//            {
+//                Node map_child=map_list.item(k);
+//                //meta
+//                if(map_child.getNodeName().equals("meta"))
+//                {
+//                    //再走一层是instance的集合
+//                    NodeList list_instance= map_child.getChildNodes();
+//                    for(int oo=0;oo<list_instance.getLength();oo++)
+//                    {
+//                        instance=list_instance.item(oo);            //第一个Instance
+//
+//                        if(instance.getNodeName().equals("instance"))
+//                        {
+//                            NodeList meta_list=instance.getChildNodes();
+//                            //是各个属性了
+//                            for(int j=0;j<meta_list.getLength();j++)
+//                            {
+//                                Node value=meta_list.item(j);
+//                                NamedNodeMap attris = value.getAttributes();
+//                                if(attris!=null)
+//                                {
+//                                    for (int o = 0; o < attris.getLength(); o++) {
+//                                        //只会有一个attr
+//                                        Attr attr = (Attr) attris.item(o);
+//                                        if(attr!=null)
+//                                            field1=setValue(value,attr,field1);
+//                                    }
+//                                }
+//                            }
+//                            if(field1!=null)
+//                            {
+//                                set_first.add(field1);
+//                                field1=null;
+//                            }
+//                        }
+//                    }
+//                }
+//                //source
+//                else if(map_child.getNodeName().equals("source"))
+//                {
+//                    //再走一层是instance的集合
+//                    NodeList list_instance2= map_child.getChildNodes();
+//
+//                    for(int ooo=0;ooo<list_instance2.getLength();ooo++)
+//                    {
+//                        instance2=list_instance2.item(ooo);
+//
+//                        if(instance2.getNodeName().equals("instance"))
+//                        {
+//                            NodeList source_list=instance2.getChildNodes();
+//                            //是各个属性了
+//                            for(int j=0;j<source_list.getLength();j++)
+//                            {
+//                                Node value=source_list.item(j);
+//                                NamedNodeMap attris = value.getAttributes();
+//                                if(attris!=null)
+//                                {
+//                                    for (int o = 0; o < attris.getLength(); o++) {
+//                                        //只会有一个attr
+//                                        Attr attr = (Attr) attris.item(o);
+//                                        if(attr!=null)
+//                                            field2=setValue(value,attr,field2);
+//                                    }
+//                                }
+//                            }
+//                            if(field2!=null)
+//                            {
+//                                set_first2.add(field2);
+//                                field2=null;
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//
+//            if(set_first.size()!=0 && set_first2.size()!=0)
+//            {
+//                Set<MetadataField> sss1=new HashSet<>();
+//                sss1.addAll(set_first);
+//                Set<MetadataField> sss2=new HashSet<>();
+//                sss2.addAll(set_first2);
+//                //加入map
+//                map.put(sss1,sss2);
+//                set_first.clear();
+//                set_first2.clear();
+//            }
+//        }
+//        return map;
+//    }
+//
+//    public Map<Set<MetadataField>,Set<MetadataField>> readXML(File file) throws IOException, SAXException, ParserConfigurationException {
+//        Map<Set<MetadataField>,Set<MetadataField>> map=new HashMap<>();
+//
+//        // 初始化一个XML解析工厂
+//        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//
+//        // 创建一个DocumentBuilder实例
+//        DocumentBuilder builder = factory.newDocumentBuilder();
+//
+//        // 创建一个解析XML的Document实例
+//        Document doc = builder.parse(file);
+//
+//        //递归解析element
+//        //第一个节点,是root节点
+//        Element element = doc.getDocumentElement();
+//
+//        map=parseElement(element);
+//
+//        return map;
+//    }
 }

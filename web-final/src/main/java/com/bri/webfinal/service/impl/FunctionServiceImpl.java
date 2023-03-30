@@ -8,10 +8,7 @@ import com.bri.webfinal.enums.EventMessageType;
 import com.bri.webfinal.language.MySqlVisitor;
 import com.bri.webfinal.language.sqlLikeLexer;
 import com.bri.webfinal.language.sqlLikeParser;
-import com.bri.webfinal.model.DatasourcesDO;
-import com.bri.webfinal.model.EventMessage;
-import com.bri.webfinal.model.HeteroTech;
-import com.bri.webfinal.model.科技平台DO;
+import com.bri.webfinal.model.*;
 import com.bri.webfinal.service.*;
 import com.bri.webfinal.util.CommonUtil;
 import com.bri.webfinal.util.JsonData;
@@ -22,7 +19,9 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CodePointCharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
-import org.apache.kafka.common.protocol.types.Field;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 import org.bouncycastle.util.encoders.Hex;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +32,10 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.text.ParseException;
@@ -247,11 +250,35 @@ public class FunctionServiceImpl implements FunctionService {
         return list;
     }
 
+    public boolean hasName(String name,List<科技平台DO> list){
+        for(科技平台DO d:list)
+        {
+            if(d.get科技平台服务资源名称().equals(name))
+                return true;
+        }
+        return false;
+    }
+
     public List<科技平台DO> add_list(Map<Set<MetadataField>,Set<MetadataField>> map1,List<科技平台DO> list,ResultSet rs1) throws SQLException, ParseException {
         Set<MetadataField> set1;MetadataField m;
         String service_name=null,key_word=null,category=null,description=null,name=null,code=null;Date time=null;int restrain=0,information=0;
+        boolean insert_flag=true;
         while(rs1.next())
         {
+            if((set1=contain_key_nameZH("科技平台服务资源名称",map1))!=null)
+            {
+                m=get_value(map1,set1);
+                if(hasName(rs1.getString(m.getNameZH()),list))
+                {
+                    //重名就不导入了
+                    insert_flag=false;
+                    continue;
+                }
+                if(m.getDataType().equals(MetadataFieldDataType.TEXT))
+                    name=rs1.getString(m.getNameZH());
+                else if(m.getDataType().equals(MetadataFieldDataType.NUMBER))
+                    name=String.valueOf(rs1.getInt(m.getNameZH()));
+            }
             if((set1=contain_key_nameZH("科技平台服务名称",map1))!=null)
             {
                 //取出映射的line_name
@@ -304,14 +331,6 @@ public class FunctionServiceImpl implements FunctionService {
                 else if(m.getDataType().equals(MetadataFieldDataType.TEXT))
                     restrain=Integer.parseInt(rs1.getString(m.getNameZH()));
             }
-            if((set1=contain_key_nameZH("科技平台服务资源名称",map1))!=null)
-            {
-                m=get_value(map1,set1);
-                if(m.getDataType().equals(MetadataFieldDataType.TEXT))
-                    name=rs1.getString(m.getNameZH());
-                else if(m.getDataType().equals(MetadataFieldDataType.NUMBER))
-                    name=String.valueOf(rs1.getInt(m.getNameZH()));
-            }
             if((set1=contain_key_nameZH("科技平台服务资源标识代码",map1))!=null)
             {
                 m=get_value(map1,set1);
@@ -328,7 +347,10 @@ public class FunctionServiceImpl implements FunctionService {
                 else if(m.getDataType().equals(MetadataFieldDataType.TEXT))
                     information=Integer.parseInt(rs1.getString(m.getNameZH()));
             }
-            list.add(new 科技平台DO(time,code,name,information,description,restrain,key_word,service_name,category));
+            if(insert_flag)
+                list.add(new 科技平台DO(time,code,name,information,description,restrain,key_word,service_name,category));
+            else
+                insert_flag=true;
         }
 
         return list;
@@ -367,6 +389,49 @@ public class FunctionServiceImpl implements FunctionService {
         ResultSet rs2=ps2.executeQuery();
         add_list(map2,list,rs2);
         return list;
+    }
+
+    @Override
+    public Metadata visualize(File file) {
+        Metadata metadata=new Metadata();
+        int total=0;
+        CSVFormat format = CSVFormat.EXCEL.builder().setHeader().setSkipHeaderRecord(false).build();
+        try (CSVParser csvParser = CSVParser.parse(file, Charset.forName("gb2312"), format)) {
+            for (CSVRecord record : csvParser) {
+                total++;
+                String category=record.get("描述对象");
+                if(category.contains("，"))
+                    category=category.split("，")[0];
+                Class<Metadata> clazz=Metadata.class;
+                Field field=clazz.getDeclaredField(category);
+                field.setAccessible(true);
+                int num_now=field.getInt(metadata);
+                field.setInt(metadata,num_now+1);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        metadata.setTotal(total);
+        return metadata;
+    }
+
+    @Override
+    public void visualize2(Metadata metadata) throws NoSuchFieldException, IllegalAccessException {
+        Class<Metadata> clazz=Metadata.class;
+        Field[] fields = clazz.getDeclaredFields();
+        for(Field field:fields)
+        {
+            field.setAccessible(true);
+            String field_name=field.getName();
+            if(field_name.startsWith("d_"))
+            {
+                String value_name=field_name.split("_")[1];
+                Field value_field=clazz.getDeclaredField(value_name);
+                value_field.setAccessible(true);
+                double num=(double) value_field.getInt(metadata)/(double)metadata.getTotal();
+                field.setDouble(metadata,num);
+            }
+        }
     }
 
     public static MetadataField get_value(Map<Set<MetadataField>,Set<MetadataField>> map,Set<MetadataField> key)

@@ -1,6 +1,7 @@
 package com.bri.webfinal.controller;
 
 import com.bri.webfinal.model.HeteroTech;
+import com.bri.webfinal.model.Metadata;
 import com.bri.webfinal.model.科技平台DO;
 import com.bri.webfinal.service.ElasticSearchService;
 import com.bri.webfinal.service.FileService;
@@ -75,5 +76,13 @@ public class FunctionController
     public JsonData delete() throws IOException {
         elasticSearchService.deleteAllTech();
         return JsonData.buildSuccess();
+    }
+
+    @PostMapping("/visualize")
+    public JsonData visualize(@RequestParam("file")MultipartFile file) throws IOException, NoSuchFieldException, NoSuchMethodException, IllegalAccessException {
+        File file_1=fileService.multipartFileToFile(file);
+        Metadata metadata=functionService.visualize(file_1);
+        functionService.visualize2(metadata);
+        return JsonData.buildSuccess(metadata);
     }
 }
