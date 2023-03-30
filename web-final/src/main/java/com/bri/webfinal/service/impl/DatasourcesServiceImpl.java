@@ -51,7 +51,8 @@ public class DatasourcesServiceImpl implements DatasourcesService {
         dataSourceDO.setUser(request.getUser());
         dataSourceDO.setIp(request.getIp());
         dataSourceDO.setDatasourceType(request.getDatasource_type());
-        dataSourceDO.setPassword(request.getPassword());
+        //密码加密
+        dataSourceDO.setPassword(SM4Util.encryptSm4(request.getPassword()));
         dataSourceDO.setDbname(request.getDbname());
         dataSourceDO.setId(request.getId());
         return datasourcesMapper.update(dataSourceDO,new QueryWrapper<DatasourcesDO>().eq("id",dataSourceDO.getId()));
