@@ -111,10 +111,18 @@ export default{
         onSubmit(){
             // this.showModal()//测试
             // console.log('submit!', toRaw(this.newSubmit));//这里写表单的上传方法    
-            this.$axios.post('http://localhost:8121/function/exchange',this.newSubmit).then(res=>{
+            var form = new FormData()
+            form.append('id1',this.newSubmit.id1)
+            form.append('id2',this.newSubmit.id2)
+            form.append('file1',this.newSubmit.file1)
+            form.append('file2',this.newSubmit.file2)
+            form.append('table_name',this.newSubmit.table_name)
+
+            this.$axios.post('http://localhost:8121/function/exchange',form)
+            .then(res=>{
                 console.log(res)
                 if(res.status==200){
-                    this.detailInfo=res.data
+                    this.detailInfo=res.data.data
                     this.showModal()
                     //显示一个小卡片
                     //!!!治理是不是该返回一个什么数据

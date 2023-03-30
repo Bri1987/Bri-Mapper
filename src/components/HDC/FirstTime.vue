@@ -92,8 +92,8 @@ export default{
         return{
             visiable:true,
             config:{
-                id1:16,
-                id2:17,
+                id1:null,
+                id2:null,
                 file1:{},
                 file2:{}
             },
@@ -112,22 +112,24 @@ export default{
             // this.visiable=false
             // console.log('submit!', toRaw(this.config));//这里写表单的上传方法    
             console.log(this.config)
-            var submitParams=new FormData()
-            submitParams.append("id1","16")
-            submitParams.append("id2",this.config.id2)
-            submitParams.append('file1',this.config.file1)
-            submitParams.append('file2',this.config.file1)
-            console.log(submitParams)
-            // this.$axios.post('http://localhost:8121/function/sync/add',this.config)
-            // .then(res=>{
-            //     console.log(res)
-            //     if(res.status==200){
-            //         //这里翻个烟花？？？
-            //         this.visiable=false
-            //     }
-            // }).catch(err=>{
-            //     console.log(err)
-            // })
+            var form= new FormData()
+            form.append("id1",this.config.id1)
+            form.append("id2",this.config.id2)
+            form.append("file2",this.config.file2)
+            form.append("file1",this.config.file1)
+
+            console.log(form)
+            
+            this.$axios.post('http://localhost:8121/function/import',form)
+            .then(res=>{
+                console.log(res)
+                if(res.status==200){
+                    //这里翻个烟花？？？
+                    this.visiable=false
+                }
+            }).catch(err=>{
+                console.log(err)
+            })
         },
         uploadForm1(filelist1){
             this.config.file1=filelist1.file
