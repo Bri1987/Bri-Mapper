@@ -9,11 +9,16 @@ import axios from 'axios'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import { createPinia } from 'pinia'
 
+import echarts from './utils/echarts';
+
+
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
 
 const app=createApp(App)
 app.config.globalProperties.$axios = axios
+
+app.config.globalProperties.$echarts = echarts
 // app.prototype.$axios = axios;
 // app.use(axios)
 app.use(pinia)
