@@ -38,7 +38,7 @@ public class DatasourcesServiceImpl implements DatasourcesService {
     public int createDataSource(AddDataSourceRequest addDataSourceRequest) throws Exception {
         DatasourcesDO dataSourceDO=new DatasourcesDO();
         dataSourceDO.setUser(addDataSourceRequest.getUser());
-        dataSourceDO.setDatasourceType(addDataSourceRequest.getDatasource_type());
+        dataSourceDO.setDtype(addDataSourceRequest.getDtype());
         //密码加密
         dataSourceDO.setPassword(SM4Util.encryptSm4(addDataSourceRequest.getPassword()));
         dataSourceDO.setIp(addDataSourceRequest.getIp());
@@ -56,7 +56,7 @@ public class DatasourcesServiceImpl implements DatasourcesService {
         DatasourcesDO dataSourceDO=new DatasourcesDO();
         dataSourceDO.setUser(request.getUser());
         dataSourceDO.setIp(request.getIp());
-        dataSourceDO.setDatasourceType(request.getDatasource_type());
+        dataSourceDO.setDtype(request.getDtype());
         //密码加密
         dataSourceDO.setPassword(SM4Util.encryptSm4(request.getPassword()));
         dataSourceDO.setDbname(request.getDbname());

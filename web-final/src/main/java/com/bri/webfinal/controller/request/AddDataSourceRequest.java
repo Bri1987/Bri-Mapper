@@ -17,7 +17,7 @@ public class AddDataSourceRequest
     private String user;
 
     //目前暂时用1代表mysql
-    private int datasource_type;
+    private int dtype;
 
     private String dbname;
 }

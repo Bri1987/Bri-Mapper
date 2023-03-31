@@ -16,7 +16,7 @@ public class UpdateDataSourceRequest
     private String user;
 
     //目前暂时用1代表mysql
-    private int datasource_type;
+    private int dtype;
 
     private String dbname;
     private int id;

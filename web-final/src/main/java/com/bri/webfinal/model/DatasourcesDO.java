@@ -33,7 +33,7 @@ public class DatasourcesDO implements Serializable {
 
     private String ip;
 
-    private Integer datasourceType;
+    private Integer dtype;
 
 
 }
