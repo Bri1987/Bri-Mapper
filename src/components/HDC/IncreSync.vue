@@ -104,7 +104,7 @@ export default{
     methods:{
         onSubmit(){
             // this.visiable=false //测试
-            axios.post('http://localhost:8121/function/sync/add',this.zSubmit)
+            this.$axios.post('http://localhost:8121/function/sync/add',this.zSubmit)
             .then(res=>{
                 console.log(res)
                 if(res.status==200){

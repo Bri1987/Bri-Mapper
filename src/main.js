@@ -13,7 +13,8 @@ const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
 
 const app=createApp(App)
-
+app.config.globalProperties.$axios = axios
+// app.prototype.$axios = axios;
 // app.use(axios)
 app.use(pinia)
 app.use(router)
