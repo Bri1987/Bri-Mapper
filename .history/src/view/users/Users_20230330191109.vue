@@ -133,10 +133,10 @@
 </template>
 
 <script setup lang="ts">
-import canvass from '@/components/bcg1.vue'
+import canvass from 'd:/1/Bri-Mapper/frontend/src/components/bcg1.vue'
 import { Search, Refresh, EditPen, Delete, Setting } from '@element-plus/icons-vue'
 import { reactive, ref, onMounted } from 'vue'
-import { userStore } from '@/store/user'
+import { userStore } from 'd:/1/Bri-Mapper/frontend/src/store/user'
 import { storeToRefs } from 'pinia'
 import { ElMessageBox } from 'element-plus'
 import { useAddUser } from './hooks/useAddUser'

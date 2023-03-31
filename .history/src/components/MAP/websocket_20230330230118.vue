@@ -12,7 +12,7 @@
                 </a-form-item> -->
                 <a-row :gutter="48">
                     <a-col :span="100">
-                        <a-form-item style="color:green" label="上传的第一个文件">
+                        <a-form-item label="上传的第一个文件">
                             <a-upload
                             :file-list="filelist1"
                             name="first"

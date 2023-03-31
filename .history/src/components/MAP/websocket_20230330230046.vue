@@ -7,12 +7,15 @@
         <a-layout-content style="position:fixed;left:400px;top:200px;font-size: larger;font-weight: 550;" v-if="visiable">
             <br><br>
             <a-form :model="zSubmit">
-                <!-- <a-form-item label="url" style="width: 600px;">
+                <a-form-item label="url" style="width: 600px;">
                     <a-input v-model:value="zSubmit.insert_sql"/>
-                </a-form-item> -->
+                </a-form-item>
                 <a-row :gutter="48">
                     <a-col :span="100">
-                        <a-form-item style="color:green" label="上传的第一个文件">
+                        <a-form-item label="第一个文件id">
+                            <a-input v-medol:value="zSubmit.id1"/>
+                        </a-form-item>
+                        <a-form-item label="上传的第一个文件">
                             <a-upload
                             :file-list="filelist1"
                             name="first"

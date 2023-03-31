@@ -1,4 +1,4 @@
-import { userStore } from '@/store/user'
+import { userStore } from 'd:/1/Bri-Mapper/frontend/src/store/user'
 import { reactive, ref } from 'vue'
 export function useEditUser(pageSize: number, pageNum: number) {
   const store = userStore()

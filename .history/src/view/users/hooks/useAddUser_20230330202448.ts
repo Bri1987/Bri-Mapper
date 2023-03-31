@@ -20,7 +20,7 @@ export  function useAddUser (pageSize: number, pageNum: number) {
     ],
     password: [
       { required: true, message: '请输入密码', trigger: 'blur' },
-      { min: 4, max: 10, message: '密码必须在4到10位之间', trigger: 'blur' }
+      { min: 5, max: 10, message: '密码必须在5到10位之间', trigger: 'blur' }
     ],
     datasource_type: [
       { required: true, message: '请输入数据源名称', trigger: 'blur' },

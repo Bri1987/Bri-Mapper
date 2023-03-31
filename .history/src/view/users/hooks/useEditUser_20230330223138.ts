@@ -9,8 +9,8 @@ export function useEditUser(pageSize: number, pageNum: number) {
     id: -1,
     username: '',
     datasource_type:'',
-    email: '',
-    mobile: ''
+    dbname: '',
+    ip: ''
   })
   //编辑用户表单规则
   const editUserRules = reactive({
