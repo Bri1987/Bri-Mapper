@@ -23,5 +23,5 @@ public interface FunctionService {
 
     Metadata visualize(File file) throws IOException, NoSuchMethodException, NoSuchFieldException, IllegalAccessException;
 
-    void visualize2(Metadata metadata) throws NoSuchFieldException, IllegalAccessException;
+    //void visualize2(Metadata metadata) throws NoSuchFieldException, IllegalAccessException;
 }

@@ -82,7 +82,7 @@ public class FunctionController
     public JsonData visualize(@RequestParam("file")MultipartFile file) throws IOException, NoSuchFieldException, NoSuchMethodException, IllegalAccessException {
         File file_1=fileService.multipartFileToFile(file);
         Metadata metadata=functionService.visualize(file_1);
-        functionService.visualize2(metadata);
+        //functionService.visualize2(metadata);
         return JsonData.buildSuccess(metadata);
     }
 }

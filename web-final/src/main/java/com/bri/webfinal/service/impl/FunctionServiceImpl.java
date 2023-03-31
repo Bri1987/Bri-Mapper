@@ -394,11 +394,9 @@ public class FunctionServiceImpl implements FunctionService {
     @Override
     public Metadata visualize(File file) {
         Metadata metadata=new Metadata();
-        int total=0;
         CSVFormat format = CSVFormat.EXCEL.builder().setHeader().setSkipHeaderRecord(false).build();
         try (CSVParser csvParser = CSVParser.parse(file, Charset.forName("gb2312"), format)) {
             for (CSVRecord record : csvParser) {
-                total++;
                 String category=record.get("描述对象");
                 if(category.contains("，"))
                     category=category.split("，")[0];
@@ -411,28 +409,27 @@ public class FunctionServiceImpl implements FunctionService {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        metadata.setTotal(total);
         return metadata;
     }
 
-    @Override
-    public void visualize2(Metadata metadata) throws NoSuchFieldException, IllegalAccessException {
-        Class<Metadata> clazz=Metadata.class;
-        Field[] fields = clazz.getDeclaredFields();
-        for(Field field:fields)
-        {
-            field.setAccessible(true);
-            String field_name=field.getName();
-            if(field_name.startsWith("d_"))
-            {
-                String value_name=field_name.split("_")[1];
-                Field value_field=clazz.getDeclaredField(value_name);
-                value_field.setAccessible(true);
-                double num=(double) value_field.getInt(metadata)/(double)metadata.getTotal();
-                field.setDouble(metadata,num);
-            }
-        }
-    }
+//    @Override
+//    public void visualize2(Metadata metadata) throws NoSuchFieldException, IllegalAccessException {
+//        Class<Metadata> clazz=Metadata.class;
+//        Field[] fields = clazz.getDeclaredFields();
+//        for(Field field:fields)
+//        {
+//            field.setAccessible(true);
+//            String field_name=field.getName();
+//            if(field_name.startsWith("d_"))
+//            {
+//                String value_name=field_name.split("_")[1];
+//                Field value_field=clazz.getDeclaredField(value_name);
+//                value_field.setAccessible(true);
+//                double num=(double) value_field.getInt(metadata)/(double)metadata.getTotal();
+//                field.setDouble(metadata,num);
+//            }
+//        }
+//    }
 
     public static MetadataField get_value(Map<Set<MetadataField>,Set<MetadataField>> map,Set<MetadataField> key)
     {
@@ -598,6 +595,7 @@ public class FunctionServiceImpl implements FunctionService {
             }
             i=0;location=0;
             //有完整sql了
+            System.out.println(insert_sql);
             ps.addBatch();    //打包
             batch_num++;
             if(batch_num>10)

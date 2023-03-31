@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:mysql://123.60.171.50:3306/a39_test</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="123.60.171.50p" uuid="25d4b248-95b8-4db5-b354-77f3af19b87e">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://123.60.171.50:5432/postgres</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
