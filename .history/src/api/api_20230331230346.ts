@@ -1,14 +1,20 @@
+// index.ts
 import axios from 'axios'
+import type { AxiosInstance, AxiosRequestConfig } from 'axios'
 
-const myRequest = axios.create({
-  baseURL: 'http://localhost:8121/datasource',
-  timeout: 5000,
-})
+class Request {
+  // axios 实例
+  instance: AxiosInstance
 
-export default myRequest
+  constructor(config: AxiosRequestConfig) {
+    this.instance = axios.create(config)
+  }
+  request(config: AxiosRequestConfig) {
+    return this.instance.request(config)
+  }
+}
 
-
-
+export default Request
 // import Request from './request/request'
 // import LocalCache from '../utils/cache'
 // const myRequest = new Request({

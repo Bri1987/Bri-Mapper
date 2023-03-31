@@ -1,12 +1,8 @@
-import axios from 'axios'
-
-const myRequest = axios.create({
-  baseURL: 'http://localhost:8121/datasource',
-  timeout: 5000,
-})
-
-export default myRequest
-
+// import Request from './request/request'
+// import LocalCache from '../utils/cache'
+// const myRequest = new Request({
+//   baseURL: 'http://43.143.0.76:8889/api/private/v1',
+//   timeout: 5000,
 
 
 // import Request from './request/request'

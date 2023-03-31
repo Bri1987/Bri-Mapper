@@ -195,9 +195,9 @@ const deleteUser = (id: number, user: string) => {
 }
 
 //修改数据源状态
-// const changeStatus = (uid: number, type: boolean) => {
-//   store.changeUserStatus({ uid, type })
-// }
+const changeStatus = (uid: number, type: boolean) => {
+  store.changeUserStatus({ uid, type })
+}
 //重置
 const resetForm = () => {
   query.value = ''
