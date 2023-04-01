@@ -7,34 +7,34 @@ export function useEditUser(pageSize: number, pageNum: number) {
   //编辑用户表单
   const editUserform = reactive({
     id: -1,
-    user: '',
-    dtype:0,
+    username: '',
+    datasource_type:'',
     dbname: '',
     ip: ''
   })
   //编辑用户表单规则
   const editUserRules = reactive({
-    dbname: [
+    email: [
       { required: true, message: '请输入数据库名称', trigger: 'blur' },
       { min: 1, max: 30, message: '请输入正确的数据库名称', trigger: 'blur' },
     ],
-    dtype: [
+    datasource_type: [
       { required: true, message: '请输入数据源名称', trigger: 'blur' },
       { min: 1, max: 20, message: '数据源名称必须在1到20位之间', trigger: 'blur' }
     ],
-    ip: [
+    mobile: [
       { required: true, message: '请输入ip', trigger: 'blur' },
       { min: 1, max: 15, message: '请输入ip', trigger: 'blur' },
     ],
   })
   //点击编辑按钮获得用户信息
-  const editGetUser = (user: string, dbname: string, ip: string, id: number,dtype:number) => {
+  const editGetUser = (username: string, email: string, mobile: string, id: number,datasource_type:string) => {
     editUserdialogVisible.value = true
-    editUserform.user = user
-    editUserform.dbname = dbname
-    editUserform.ip = ip
+    editUserform.username = username
+    editUserform.email = email
+    editUserform.mobile = mobile
     editUserform.id = id
-    editUserform.dtype= dtype
+    editUserform.datasource_type= datasource_type
   }
   //点击确认编修改用户信息
   const editUser = () => {

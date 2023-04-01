@@ -29,10 +29,10 @@
         </div>
         <el-table :data="users" stripe style="width: 100%" border>
           <el-table-column type="index" width="60" label="序号" />
-          <el-table-column prop="ip" label="ip" />
-          <el-table-column prop="user" label="用户名" />
-          <el-table-column prop="dtype" label="数据源类型" />
-          <el-table-column prop="dbname" label="数据库名称" />
+          <el-table-column prop="mobile" label="ip" />
+          <el-table-column prop="username" label="用户名" />
+          <el-table-column prop="datasource_type" label="数据源类型" />
+          <el-table-column prop="email" label="数据库名称" />
           
           
           <el-table-column label="操作" width="300">
@@ -43,7 +43,7 @@
                   :icon="EditPen"
                   :underline="false"
                   @click="
-                    editGetUser(scope.row.user, scope.row.dbname, scope.row.ip, scope.row.id,scope.row.dtype)
+                    editGetUser(scope.row.username, scope.row.email, scope.row.mobile, scope.row.id,scope.row.datasource_type)
                   "
                   >编辑</el-link
                 >
@@ -51,7 +51,7 @@
                   type="danger"
                   :icon="Delete"
                   :underline="false"
-                  @click="deleteUser(scope.row.id, scope.row.user)"
+                  @click="deleteUser(scope.row.id, scope.row.username)"
                 >
                   删除
                 </el-link>
@@ -75,20 +75,20 @@
       <!-- 添加数据源对话框 -->
       <el-dialog v-model="addUserdialogVisible" title="添加数据源" width="30%" @close="addDialogClose">
         <el-form :model="addUserform" label-width="80px" :rules="addUserRules" ref="addUserFormRef">
-          <el-form-item label="ip" prop="ip">
-            <el-input v-model="addUserform.ip" />
+          <el-form-item label="ip" prop="mobile">
+            <el-input v-model="addUserform.mobile" />
           </el-form-item>
-          <el-form-item label="用户名" prop="user">
-            <el-input v-model="addUserform.user" />
+          <el-form-item label="用户名" prop="username">
+            <el-input v-model="addUserform.username" />
           </el-form-item>
           <el-form-item label="密码" prop="password">
             <el-input v-model="addUserform.password" />
           </el-form-item>
-          <el-form-item label="数据源类型" prop="dtype">
-            <el-input v-model="addUserform.dtype" />
+          <el-form-item label="数据源类型" prop="datasource_type">
+            <el-input v-model="addUserform.datasource_type" />
           </el-form-item>
-          <el-form-item label="数据库名称" prop="dbname">
-            <el-input v-model="addUserform.dbname" />
+          <el-form-item label="数据库名称" prop="email">
+            <el-input v-model="addUserform.email" />
           </el-form-item>
 
         </el-form>
@@ -107,17 +107,17 @@
           :rules="editUserRules"
           ref="editUserFormRef"
         >
-        <el-form-item label="ip" prop="ip">
-          <el-input v-model="editUserform.ip" />
+        <el-form-item label="ip" prop="mobile">
+          <el-input v-model="editUserform.mobile" />
         </el-form-item>
-          <el-form-item label="用户名" prop="user">
-            <el-input v-model="editUserform.user" disabled />
+          <el-form-item label="用户名" prop="username">
+            <el-input v-model="editUserform.username" disabled />
           </el-form-item>
-          <el-form-item label="数据源类型" prop="dtype">
-            <el-input v-model="editUserform.dtype" />
+          <el-form-item label="数据源类型" prop="datasource_type">
+            <el-input v-model="editUserform.datasource_type" />
           </el-form-item>
-          <el-form-item label="数据库名称" prop="dbname">
-            <el-input v-model="editUserform.dbname" />
+          <el-form-item label="数据库名称" prop="email">
+            <el-input v-model="editUserform.email" />
           </el-form-item>
 
         </el-form>
@@ -133,10 +133,10 @@
 </template>
 
 <script setup lang="ts">
-import canvass from '@/components/bcg1.vue'
+import canvass from 'd:/1/Bri-Mapper/frontend/src/components/bcg1.vue'
 import { Search, Refresh, EditPen, Delete, Setting } from '@element-plus/icons-vue'
 import { reactive, ref, onMounted } from 'vue'
-import { userStore } from '@/store/user'
+import { userStore } from 'd:/1/Bri-Mapper/frontend/src/store/user'
 import { storeToRefs } from 'pinia'
 import { ElMessageBox } from 'element-plus'
 import { useAddUser } from './hooks/useAddUser'
@@ -182,8 +182,8 @@ const searchUser = () => {
   }
 }
 //删除数据源
-const deleteUser = (id: number, user: string) => {
-  ElMessageBox.confirm(`确认删除数据源${user}吗`, '删除数据源', {
+const deleteUser = (id: number, username: string) => {
+  ElMessageBox.confirm(`确认删除数据源${username}吗`, '删除数据源', {
     confirmButtonText: 'OK',
     cancelButtonText: 'Cancel',
     type: 'warning'
@@ -195,9 +195,9 @@ const deleteUser = (id: number, user: string) => {
 }
 
 //修改数据源状态
-// const changeStatus = (uid: number, type: boolean) => {
-//   store.changeUserStatus({ uid, type })
-// }
+const changeStatus = (uid: number, type: boolean) => {
+  store.changeUserStatus({ uid, type })
+}
 //重置
 const resetForm = () => {
   query.value = ''

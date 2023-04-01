@@ -39,12 +39,11 @@ export const userStore = defineStore('user', {
   actions: {
     async getUsers(value:userList) {
       const res: any = await getUsers(value)
-      console.log(111)
       if (res.status === 200) {
         console.log(res)
 				 ElMessage.success('获取用户列表成功')
          this.users = res.data.data
-        //  this.total = res.data.total
+         this.total = res.data.total
         
       }else {
 				ElMessage.error('获取用户列表成功失败')

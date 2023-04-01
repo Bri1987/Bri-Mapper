@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { getUsers ,getUsersFromId,addUser,deleteUsersFromId,editUsersFromId} from '../api/user'
+import { getUsers ,getUsersFromId,addUser,deleteUsersFromId,editUsersFromId,changeUserStatus,assignUserRole} from '../api/user'
 import { ElMessage } from 'element-plus'
 interface userList {
   query?:string,
@@ -7,17 +7,17 @@ interface userList {
   pagesize:number
 }
 interface addUserList {
-  user?:string,
+  username?:string,
   password:string,
-  dbname:string,
-  ip: string,
-  dtype:number
+  email:string,
+  mobile: string,
+  datasource_type:string
 }
 interface editUserList {
   id:number
-  dbname?:string,
-  ip?: string,
-  dtype?:number
+  email?:string,
+  mobile?: string,
+  datasource_type?:string
 }
 interface userStatus {
   uid:number
@@ -39,12 +39,10 @@ export const userStore = defineStore('user', {
   actions: {
     async getUsers(value:userList) {
       const res: any = await getUsers(value)
-      console.log(111)
-      if (res.status === 200) {
-        console.log(res)
+      if(res.meta.status === 200){
 				 ElMessage.success('获取用户列表成功')
-         this.users = res.data.data
-        //  this.total = res.data.total
+         this.users = res.data.users
+         this.total = res.data.total
         
       }else {
 				ElMessage.error('获取用户列表成功失败')
@@ -52,7 +50,7 @@ export const userStore = defineStore('user', {
     },
     async getUsersFromId(id:number) {
       const res: any = await getUsersFromId(id)
-      if(res.status === 200){
+      if(res.meta.status === 200){
 				 ElMessage.success('查询成功')
          this.users= []
          this.total = 1
@@ -65,7 +63,7 @@ export const userStore = defineStore('user', {
     },
     async addUser(data:addUserList){
       const res:any = await addUser(data)
-      if(res.status === 201){
+      if(res.meta.status === 201){
         ElMessage.success('创建用户成功')
      }else {
         ElMessage.error('创建用户失败')
@@ -73,35 +71,35 @@ export const userStore = defineStore('user', {
     },
     async deleteUsersFromId(id:number){
       const res:any = await deleteUsersFromId(id)
-      if(res.status === 200){
+      if(res.meta.status === 200){
         ElMessage.success('删除用户成功')
      }else {
         ElMessage.error('删除用户失败')
      }
     },
     async editUsersFromId(data:editUserList){
-      const res:any = await editUsersFromId(data.id,data.dbname,data.ip)
-      if(res.status === 200){
+      const res:any = await editUsersFromId(data.id,data.email,data.mobile)
+      if(res.meta.status === 200){
         ElMessage.success('更新用户成功')
      }else {
         ElMessage.error('更新用户失败')
      }
     },
-    // async changeUserStatus(data:userStatus){
-    //   const res:any = await changeUserStatus(data.uid,data.type)
-    //   if(res.status === 200) {
-    //     ElMessage.success('更新状态成功')
-    //  }else {
-    //     ElMessage.error('更新状态失败')
-    //  }
-    // },
-    // async assignUserRole(data:assignRole) {
-    //   const res:any = await assignUserRole(data.id,data.rid)
-    //   if(res.status === 200) {
-    //     ElMessage.success('更新角色成功')
-    //   }else {
-    //     ElMessage.error('更新角色失败')
-    //    }
-    // }
+    async changeUserStatus(data:userStatus){
+      const res:any = await changeUserStatus(data.uid,data.type)
+      if(res.meta.status === 200) {
+        ElMessage.success('更新状态成功')
+     }else {
+        ElMessage.error('更新状态失败')
+     }
+    },
+    async assignUserRole(data:assignRole) {
+      const res:any = await assignUserRole(data.id,data.rid)
+      if(res.meta.status === 200) {
+        ElMessage.success('更新角色成功')
+      }else {
+        ElMessage.error('更新角色失败')
+       }
+    }
   }
 })
