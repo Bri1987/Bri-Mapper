@@ -9,9 +9,20 @@
 
           </a-breadcrumb>
           <a-layout style="padding: 24px 0; background: rgba(255, 255, 255,0.6);height: 86%;">
-
+            <a-layout-sider width="200" style="background: rgba(255, 255, 255,0.3)">
+              <a-menu
+                v-model:selectedKeys="selectedKeys2"
+                v-model:openKeys="openKeys"
+                mode="inline"
+                style="height: 100%;background: rgba(255, 255, 255,0)"
+              >
+                <a-menu-item key="1" @click="gotoWebsocket">多文件异步映射</a-menu-item>
+                <a-menu-item key="2" @click="gotoView">元数据描述对象可视化</a-menu-item> 
+              </a-menu>
+            </a-layout-sider>
             <a-layout-content :style="{ padding: '0 24px', minHeight: '280px' }">
-              <Websocket></Websocket>
+              <!-- <Websocket></Websocket> -->
+              <router-view></router-view>
             </a-layout-content>
           </a-layout>
         </a-layout-content>
@@ -19,9 +30,9 @@
           ##计设项目小组
         </a-layout-footer>
       
-      </a-layout>
+    </a-layout>
     </template>
-    <script>
+<script>
 import websocket from './websocket.vue'
 import canvass from '../bcg1.vue'
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons-vue';
@@ -48,6 +59,14 @@ export default defineComponent({
           };
       },
       methods: {
+        gotoWebsocket(){
+          this.itemname1='Asynchronous mapping of multiple files'
+          this.$router.push('/MAP/Websocket')
+        },
+        gotoView(){
+          this.itemname1='Metadata describes object visualization'
+          this.$router.push('/MAP/View')
+        }
       },
   });
   </script>

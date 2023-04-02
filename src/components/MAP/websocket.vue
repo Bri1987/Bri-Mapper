@@ -1,8 +1,11 @@
 <template>
     <div>
         <a-layout-header style="background: rgba(255, 255, 255, 0);">
-                <a-typography-title :level="3" style="text-align: left;color:#1da57a">多文件异步映射</a-typography-title>
-                <a-divider style="border-color: #7cb305" dashed />
+            <a-typography-title :level="3" style="text-align: left;color:#1da57a">
+                <cloud-sync-outlined />
+                多文件异步映射
+            </a-typography-title>
+            <a-divider style="border-color: #7cb305" dashed />
         </a-layout-header>
         <a-layout-content style="margin:0 50px;font-size: larger;font-weight: 550;" v-if="visiable">
             <br>

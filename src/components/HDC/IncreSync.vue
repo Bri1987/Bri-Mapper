@@ -10,13 +10,10 @@
         <a-layout-content style="position:fixed;left:420px;top:200px;font-size: larger;font-weight: 550;" v-if="visiable">
             <br><br>
             <a-form :model="zSubmit">
-                <a-form-item label="table_name" style="width: 600px;margin-bottom: 60px;">
-                    <a-input v-model:value="zSubmit.insert_sql"/>
-                </a-form-item>
                 <a-row :gutter="48">
                     <a-col :span="100" style="width: 400px;">
                         <a-form-item label="第一个文件id" style="margin-bottom: 60px;">
-                            <a-input v-medol:value="zSubmit.id1"/>
+                            <a-input v-model:value="zSubmit.id1"/>
                         </a-form-item>
                         <a-form-item label="上传第一个文件">
                             <a-upload
@@ -41,7 +38,7 @@
                     </a-col>
                     <a-col :span="100" style="width: 400px;">
                         <a-form-item label="第二个文件id" style="margin-bottom: 60px;">
-                            <a-input v-medol:value="zSubmit.id2"/>
+                            <a-input v-model:value="zSubmit.id2"/>
                         </a-form-item>
                         <a-form-item label="上传第二个文件">
                             <a-upload
@@ -65,7 +62,17 @@
                         </a-form-item>
                     </a-col>
                 </a-row>
-                <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;bottom: 15%;right:20%">
+                <a-form-item label="insert_sql" style="width: 100%;margin-bottom: 60px;">
+                    <!-- <a-input v-model:value="zSubmit.insert_sql"/> -->
+                    <a-textarea
+                        v-model:value="zSubmit.insert_sql"
+                        placeholder="insert_sql"
+                        :auto-size="{ minRows: 2, maxRows: 5 }"
+                        allowClear="true"
+                        spellcheck="false"
+                    />
+                </a-form-item>
+                <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;bottom: 12%;right:20%">
                     <a-button type="primary" @click="onSubmit">Submit</a-button>
                 </a-form-item>
             </a-form>
@@ -103,8 +110,14 @@ export default{
     },
     methods:{
         onSubmit(){
+            var form = new FormData()
+            form.append('id1',this.zSubmit.id1)
+            form.append('id2',this.zSubmit.id2)
+            form.append('file1',this.zSubmit.file1)
+            form.append('file2',this.zSubmit.file2)
+            form.append('insert_sql',this.zSubmit.insert_sql)
             // this.visiable=false //测试
-            this.$axios.post('http://localhost:8121/function/sync/add',this.zSubmit)
+            this.$axios.post('http://localhost:8121/function/sync/add',form)
             .then(res=>{
                 console.log(res)
                 if(res.status==200){

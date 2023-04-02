@@ -61,17 +61,17 @@ export default defineComponent({
       },
       methods:{
         gotoIncre(){
-            this.itemname1='Incre'
+            this.itemname1='Increment Synchronization'
   
             this.$router.push('/HDC/incre')
           },
         gotoFull(){
-          this.itemname1='full'
+          this.itemname1='Full synchronization'
 
           this.$router.push('/HDC/full')
         },
         gotoUnified(){
-            this.itemname1='unified'
+            this.itemname1='Unified search'
             //这里的逻辑是
             /**
              * 1.点击后直接弹出一个询问框：是否是一个次搜索
@@ -82,7 +82,6 @@ export default defineComponent({
             // this.$router.push('/HDC/unified')
         },
         notfirstSelect(){
-  
           this.$router.push('/HDC/unified')
         },
         firstSelect(){
