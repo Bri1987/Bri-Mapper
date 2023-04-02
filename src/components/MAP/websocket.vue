@@ -12,7 +12,7 @@
             <a-form :model="zSubmit">
                 <a-form-item label="table_name" style="width: 600px;margin-bottom: 60px;">
                     <a-input v-model:value="zSubmit.insert_sql"/>
-                </a-form-item> -->
+                </a-form-item> 
                 <a-row :gutter="48">
                     <a-col :span="100">
                         <a-form-item label="第一个文件id" style="margin-bottom: 60px;">
