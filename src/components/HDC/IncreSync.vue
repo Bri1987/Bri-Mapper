@@ -83,12 +83,13 @@
                 title="成功实现增量同步!"
                 sub-title="Incremental synchronization was successfully achieved.You can try other functions in the sider menu!"
             ></a-result>  
+            <!-- <img src="@/assets/IMG_3134.GIF"> -->
         </a-layout-content>
     </div>
 </template>
 <script>
 import { LoadingOutlined,PlusOutlined,VerticalAlignTopOutlined,BuildOutlined,EditOutlined} from '@ant-design/icons-vue';
-
+// import doggie from '@/assets/IMG_3245.GIF'
 export default{
     data(){
         return {
@@ -103,6 +104,7 @@ export default{
             loading:false,
             done1:false,
             done2:false,
+            // doggie
         }
     },
     components:{

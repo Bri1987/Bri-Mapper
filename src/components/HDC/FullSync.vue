@@ -72,13 +72,27 @@
             
         </a-layout-content>
             <a-card title="详细信息" :bordered="false" class="details" v-show="visible">
-            <close-circle-outlined class="exit" @click="exit_details"/>
-            <a-list>
-                <a-list-item v-for="(value,key,index) in detailInfo" :key="index">
-                    {{ key }} : {{ value }}
-                </a-list-item>
-            </a-list>
-        </a-card>
+                <close-circle-outlined class="exit" @click="exit_details"/>
+                <a-layout-content class="bc">
+                    <div class="scrolls">
+                        <a-row :gutter="[24,48]" style="margin-bottom: 32px;" >
+                            <a-col :span="8" v-for="(data,index) in detailInfo" :key="index">
+                                <a-card class="wholecards" :bordered="false" hoverable="true">
+                                    <template #title>
+                                        <heat-map-outlined />
+                                        {{ data.科技平台服务资源名称}}
+                                    </template>
+                                    <a-list>
+                                        <a-list-item v-for="(value,key,indix) in data" :key="index">
+                                            {{ key }}:{{ value }}
+                                        </a-list-item>
+                                    </a-list>
+                                </a-card>
+                            </a-col>
+                        </a-row>
+                    </div>
+                </a-layout-content>
+            </a-card>
     </a-layout>
 </template>
   
@@ -102,9 +116,9 @@ export default{
             loading:false,
             done1:false,
             done2:false,
-            visible:false,
+            visible:false,//test false
             detailInfo:{},
-            grey:false
+            grey:false, //test false
         }
     },
     methods:{
@@ -176,15 +190,20 @@ export default{
     right: 0;
     top: 0;
     bottom: 0;
-    background: rgba(187, 187, 187, 0.5);
+    background: rgba(187, 187, 187, 0.7);
     z-index: 9;
 }
 .details{
+    border-radius: 1%;
     z-index: 999;
-    width: 600px;
-    position: fixed;
-    top:19%;
-    left:36%
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0%;
+    left:0%;
+    padding: 0%;
+     background-color: rgba(187,187,187,0);
+     background: rgba(255, 255, 255,0.6) linear-gradient(70deg, #488cba, #909ff3, #b375dc);
 }
 .exit{
     position: absolute;
@@ -196,5 +215,21 @@ export default{
 .exit:hover{
    color: green;
    font-size: larger;
+}
+.bc{
+    height: 85%;
+    left: 2%;
+    width: 96%;
+    position: absolute;
+    overflow: hidden;
+}
+.scrolls{
+    position: absolute;height:100%;left:0;right: -17px;top:0;bottom: 0;overflow-x: hidden;overflow-y: scroll;
+}
+.wholecards{
+    border-radius: 5%;
+}
+.wholecards:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 </style>

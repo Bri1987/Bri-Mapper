@@ -19,9 +19,8 @@
         Upload
       </a-button>
     </a-upload>
-    <button @click="showBing">点击</button>
+    <!-- <button @click="showBing(0)">点击</button> -->
     <a-layout-content class="bingtu" id="main">
-        jodjwi
     </a-layout-content>
   </div>
 </template>
@@ -41,7 +40,8 @@ export default{
         }
     },
     methods:{
-        uploadFile1(file){        
+        uploadFile1(file){    
+            // this.showBing(0)
             this.thisfile=file.file
             var form=new FormData()
             form.append('file',this.thisfile)
@@ -52,7 +52,7 @@ export default{
                 {
                     console.log(res.data.data)
                     //这里展示饼
-                    // this.showBing(res.data.data)
+                    this.showBing(res.data.data)
                 }
             }).catch(err=>{
                 console.log(err)
@@ -65,15 +65,52 @@ export default{
             }
         },
         showBing(datas){
-            for()
+            // datas={
+            //     "人员类": 57,
+            //     "信息资源": 21,
+            //     "元素及其修饰词": 48,
+            //     "军民通用资源数据元编制": 26,
+            //     "分类属性": 8,
+            //     "固定资产": 41,
+            //     "扩展元数据": 6,
+            //     "报文结构及标记": 27,
+            //     "核心元数据": 14,
+            //     "注册": 65,
+            //     "科技人才专长":4, 
+            //     "科技人才任职":6,
+            //     "科技人才培训交流经历":7,
+            //     "科技人才基本信息":46,
+            //     "科技人才奖励信息":9,
+            //     "科技人才工作履历":11,
+            //     "科技人才惩罚信息":82,
+            //     "科技人才教育经历":10,
+            //     "科技人才荣誉信息":6,
+            //     "科技平台":19,
+            //     "科技资源":18,
+            //     "设施类":79
+            //       }
+            var values=[]
+            var names=[]
+            for(var val in datas){
+                console.log(val,datas[val])
+                values.push(datas[val])
+                names.push(val)
+            }
+            console.log(values.length)
+            console.log(names)
+            var data=[]
+            for(let i=0;i<values.length;i++){
+                var obj={
+                    value:values[i],
+                    name:names[i]
+                }
+                data.push(obj)
+            }
+            console.log(data)
             const chartBox = echarts.init(document.getElementById("main"));
             const option = {
                 tooltip: {
                     trigger: 'item'
-                },
-                legend: {
-                    top: '5%',
-                    left: 'center'
                 },
                 series: [
                     {
@@ -85,13 +122,7 @@ export default{
                             borderColor: '#fff',
                             borderWidth: 2
                         },
-                        data: [
-                            { value: 1048, name: 'Search Engine' },
-                            { value: 735, name: 'Direct' },
-                            { value: 580, name: 'Email' },
-                            { value: 484, name: 'Union Ads' },
-                            { value: 300, name: 'Video Ads' }
-                        ]
+                        data:data
                     }
                 ]
             };
@@ -148,11 +179,12 @@ export default{
 //   },
 // });
 </script>
-<style>
+
+<style scoped>
 .bingtu{
     position: absolute;
     height: 60%;
     width: 70%;
-    background-color: #fff;
+    background-color: rgba(255,255,255,0.6);
 }
 </style>
