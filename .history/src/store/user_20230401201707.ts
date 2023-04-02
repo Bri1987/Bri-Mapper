@@ -14,8 +14,7 @@ interface addUserList {
   dtype:number
 }
 interface editUserList {
-  id: number,
-  user?:string,
+  id:number
   dbname?:string,
   ip?: string,
   dtype?:number
@@ -42,13 +41,13 @@ export const userStore = defineStore('user', {
       const res: any = await getUsers(value)
       console.log(111)
       if (res.status === 200) {
-        // console.log(res)
+        console.log(res)
 				 ElMessage.success('获取用户列表成功')
          this.users = res.data.data
         //  this.total = res.data.total
         
       }else {
-				ElMessage.error('获取用户列表失败')
+				ElMessage.error('获取用户列表成功失败')
       }
     },
     async getUsersFromId(id:number) {
@@ -66,7 +65,7 @@ export const userStore = defineStore('user', {
     },
     async addUser(data:addUserList){
       const res:any = await addUser(data)
-      if(res.status === 200){
+      if(res.status === 201){
         ElMessage.success('创建用户成功')
      }else {
         ElMessage.error('创建用户失败')

@@ -14,8 +14,7 @@ interface addUserList {
   dtype:number
 }
 interface editUserList {
-  id: number,
-  user?:string,
+  id:number
   dbname?:string,
   ip?: string,
   dtype?:number

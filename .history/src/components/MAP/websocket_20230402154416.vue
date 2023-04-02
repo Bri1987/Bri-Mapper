@@ -15,47 +15,50 @@
                 </a-form-item>
 
                 <a-row :gutter="48">
-                    
-                    <a-form-item style="color:green" label="标准数据源">
-                        <a-upload
-                        :file-list="filelist1"
-                        name="first"
-                        list-type="picture-card"
-                        class="first"   
-                        @change="handleChange1"
-                        :max-count="1"
-                        accept=".csv"
-                        >
-                            <div>
-                                <loading-outlined v-if="loading"></loading-outlined>
-                                <upload-outlined v-else></upload-outlined>
-                                <div class="ant-upload-text">Upload</div>
-                            </div>
-                        </a-upload>
-                        
-                    </a-form-item>
-                </a-row>    
-                <a-row :gutter="48">
-                    <a-form-item style="color:green" label="异构数据源">
-                        <a-upload
-                        :file-list="filelist2"
-                        :multiple="true"
-                        name="second"
-                        list-type="picture-card"
-                        class="second"   
-                        @change="handleChange2"
-                        accept=".csv"
-                        >
-                            <div>
-                                <loading-outlined v-if="loading"></loading-outlined>
-                                <upload-outlined v-else></upload-outlined>
-                                <div class="ant-upload-text">Upload</div>
-                            </div>
-                        </a-upload>
-                        
-                    </a-form-item>
+                    <a-col :span="200">
+                        <a-form-item style="color:green" label="标准数据源">
+                            <a-upload
+                            :file-list="filelist1"
+                            name="first"
+                            list-type="picture-card"
+                            class="first"   
+                            @change="handleChange1"
+                            :show-upload-list="false"
+                            :customRequest="file=>uploadForm1(file)"
+                            maxCount="1"
+                            accept=".csv"
+                            >
+                                <div>
+                                    <LoadingOutlined v-if="loading"></LoadingOutlined>
+                                    <plus-outlined v-else></plus-outlined>
+                                    <div class="ant-upload-text">Upload</div>
+                                </div>
+                            </a-upload>
+                            
+                        </a-form-item>
+                    </a-col>
+                    <a-col :span="200">
+                        <a-form-item label="异构数据源">
+                            <a-upload
+                            :file-list="filelist2"
+                            name="second"
+                            list-type="picture-card"
+                            class="second"   
+                            @change="handleChange2"
+                            :show-upload-list="false"
+                            :customRequest="file=>uploadForm2(file)"
+                            maxCount="1"
+                            accept=".xml"
+                            >
+                                <div>
+                                    <LoadingOutlined v-if="loading"></LoadingOutlined>
+                                    <plus-outlined v-else>+</plus-outlined>
+                                    <div class="ant-upload-text">Upload</div>
+                                </div>
+                            </a-upload>
+                        </a-form-item>
+                    </a-col>
                 </a-row>
-                
                 <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;bottom: 15%;right:20%">
                     <a-button type="primary" @click="onSubmit">Submit</a-button>
                 </a-form-item>
@@ -71,9 +74,10 @@
     </div>
 </template>
 <script>
-import { LoadingOutlined,UploadOutlined,PlusOutlined,VerticalAlignTopOutlined} from '@ant-design/icons-vue';
+import { LoadingOutlined,PlusOutlined,VerticalAlignTopOutlined} from '@ant-design/icons-vue';
 import axios from 'axios';
-// import FormData from 'form-data';
+import FormData from 'form-data';
+import { ref } from 'vue';
 
 export default{
     data(){
@@ -81,22 +85,11 @@ export default{
             sessionId:'',
             visiable: true,
             url:'',
-            filelist1: [{
-                uid: '',
-                name: '',
-                status: 'done',
-                response: 'Server Error 500', // custom error message to show
-                url: ''
-            }],
-            filelist2: [
-                {
-                uid: '',
-                name: '',
-                status: 'done',
-                response: 'Server Error 500', // custom error message to show
-                url: ''
-                }
-            ],
+            zSubmit:{
+                insert_sql:'',
+                file1:{},
+                file2:{}
+            },
             loading:false,
             done1:false,
             done2:false,
@@ -104,8 +97,8 @@ export default{
     },
     components:{
         PlusOutlined,
-        UploadOutlined,
-        VerticalAlignTopOutlined,
+        LoadingOutlined,
+        VerticalAlignTopOutlined
     },
     methods: {
         formatDate(now)   {    
@@ -132,7 +125,7 @@ export default{
                 
                 const date =this.formatDate(new Date())
                 console.log('服务端回应' + date + e.data);
-                this.sessionId = e.data.value;
+                sessionId = e.data.value;
                 // 接收服务端数据时触发的回调函数
                 // dispatch('wsHearReset')
                 // dispatch('handlerWSMessage', e)
@@ -166,11 +159,13 @@ export default{
             //     console.log(err)
             // })
         },
-        handleChange1(info) {
-            console.log(info);
-            if (info.file.status === 'uploading') {
-                console.log('000');
-           }
+
+        handleChange1(info){
+            console.log("handleChange1",info.file.name)
+            if(info.file.status==='uploading') {
+                loading = true;
+                return; 
+            }
         },
         handleChange2(info){
             console.log("handleChange2",info.file.name)
@@ -178,33 +173,7 @@ export default{
                 loading = true;
                 return; 
             }
-        },
-
-        // handleChange1(info) {
-        //     console.log(this.file.name)
-        //     if (info.file.status === 'uploading') {
-        //         console.log(this.file.name)
-        //         this.loading = true;
-        //         return;
-        //     }
-        // },
-        // handleChange1(info){
-        //     console.log("handleChange1", info.file.name)
-        //     let resFileList = [...info.fileList];
-        //     this.fileList1 = resFileList;
-        //     console.log(info.file.status);
-        //     if (info / file.status === 'done') {
-        //         console.log(this.fileList1);
-        //     }
-            
-        //     if(info.file.status==='uploading') {
-        //         loading = true;
-        //         return; 
-        //     }
-        // },
-
-        
+        }
     }
-}
-</script>
+}</script>
 <style></style>

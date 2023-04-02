@@ -16,35 +16,36 @@
 
                 <a-row :gutter="48">
                     
-                    <a-form-item style="color:green" label="标准数据源">
-                        <a-upload
-                        :file-list="filelist1"
-                        name="first"
-                        list-type="picture-card"
-                        class="first"   
-                        @change="handleChange1"
-                        :max-count="1"
-                        accept=".csv"
-                        >
-                            <div>
-                                <loading-outlined v-if="loading"></loading-outlined>
-                                <upload-outlined v-else></upload-outlined>
-                                <div class="ant-upload-text">Upload</div>
-                            </div>
-                        </a-upload>
-                        
-                    </a-form-item>
+                        <a-form-item style="color:green" label="标准数据源">
+                            <a-upload
+                            :file-list="filelist1"
+                            :multiple="true"
+                            name="first"
+                            list-type="picture-card"
+                            class="first"   
+                            @change="handleChange1"
+                            :max-count="1"
+                            accept=".csv"
+                            >
+                                <div>
+                                    <loading-outlined v-if="loading"></loading-outlined>
+                                    <upload-outlined v-else></upload-outlined>
+                                    <div class="ant-upload-text">Upload</div>
+                                </div>
+                            </a-upload>
+                            
+                        </a-form-item>
                 </a-row>    
                 <a-row :gutter="48">
-                    <a-form-item style="color:green" label="异构数据源">
+                    <a-form-item label="异构数据源">
                         <a-upload
                         :file-list="filelist2"
-                        :multiple="true"
+                        action="#"
                         name="second"
                         list-type="picture-card"
                         class="second"   
                         @change="handleChange2"
-                        accept=".csv"
+                        accept=".xml"
                         >
                             <div>
                                 <loading-outlined v-if="loading"></loading-outlined>
@@ -52,7 +53,6 @@
                                 <div class="ant-upload-text">Upload</div>
                             </div>
                         </a-upload>
-                        
                     </a-form-item>
                 </a-row>
                 
@@ -73,7 +73,7 @@
 <script>
 import { LoadingOutlined,UploadOutlined,PlusOutlined,VerticalAlignTopOutlined} from '@ant-design/icons-vue';
 import axios from 'axios';
-// import FormData from 'form-data';
+import FormData from 'form-data';
 
 export default{
     data(){
@@ -81,14 +81,14 @@ export default{
             sessionId:'',
             visiable: true,
             url:'',
-            filelist1: [{
+            file0: {
                 uid: '',
                 name: '',
                 status: 'done',
                 response: 'Server Error 500', // custom error message to show
                 url: ''
-            }],
-            filelist2: [
+            },
+            filelist0: [
                 {
                 uid: '',
                 name: '',
@@ -166,28 +166,13 @@ export default{
             //     console.log(err)
             // })
         },
-        handleChange1(info) {
-            console.log(info);
+        handleChange1 (info) {
             if (info.file.status === 'uploading') {
-                console.log('000');
-           }
-        },
-        handleChange2(info){
-            console.log("handleChange2",info.file.name)
-            if(info.file.status==='uploading') {
-                loading = true;
-                return; 
+                console.log(this.file.name)
+                this.loading = true;
+                return;
             }
         },
-
-        // handleChange1(info) {
-        //     console.log(this.file.name)
-        //     if (info.file.status === 'uploading') {
-        //         console.log(this.file.name)
-        //         this.loading = true;
-        //         return;
-        //     }
-        // },
         // handleChange1(info){
         //     console.log("handleChange1", info.file.name)
         //     let resFileList = [...info.fileList];
@@ -197,13 +182,18 @@ export default{
         //         console.log(this.fileList1);
         //     }
             
-        //     if(info.file.status==='uploading') {
-        //         loading = true;
-        //         return; 
-        //     }
+            // if(info.file.status==='uploading') {
+            //     loading = true;
+            //     return; 
+            // }
         // },
-
-        
+        handleChange2(info){
+            console.log("handleChange2",info.file.name)
+            if(info.file.status==='uploading') {
+                loading = true;
+                return; 
+            }
+        }
     }
 }
 </script>

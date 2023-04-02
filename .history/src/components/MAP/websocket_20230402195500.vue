@@ -167,10 +167,10 @@ export default{
             // })
         },
         handleChange1(info) {
-            console.log(info);
-            if (info.file.status === 'uploading') {
-                console.log('000');
-           }
+            console.log(111);
+            if (info.file.status !== 'uploading') {
+                console.log(000);
+      `     }
         },
         handleChange2(info){
             console.log("handleChange2",info.file.name)
@@ -179,30 +179,6 @@ export default{
                 return; 
             }
         },
-
-        // handleChange1(info) {
-        //     console.log(this.file.name)
-        //     if (info.file.status === 'uploading') {
-        //         console.log(this.file.name)
-        //         this.loading = true;
-        //         return;
-        //     }
-        // },
-        // handleChange1(info){
-        //     console.log("handleChange1", info.file.name)
-        //     let resFileList = [...info.fileList];
-        //     this.fileList1 = resFileList;
-        //     console.log(info.file.status);
-        //     if (info / file.status === 'done') {
-        //         console.log(this.fileList1);
-        //     }
-            
-        //     if(info.file.status==='uploading') {
-        //         loading = true;
-        //         return; 
-        //     }
-        // },
-
         
     }
 }

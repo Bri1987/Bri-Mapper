@@ -167,9 +167,9 @@ export default{
             // })
         },
         handleChange1(info) {
-            console.log(info);
+            console.log(111);
             if (info.file.status === 'uploading') {
-                console.log('000');
+                console.log(000);
            }
         },
         handleChange2(info){

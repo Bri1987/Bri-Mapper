@@ -37,7 +37,7 @@ export function deleteUsersFromId(id:number) {
 }
 export function editUsersFromId(id:number,dbname?:string,ip?:string) {
   return myRequest.request({
-    url: `update`,
+    url: `update/${id}`,
     method:'post',
     data:{
       dbname,ip

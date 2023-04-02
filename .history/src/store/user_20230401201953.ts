@@ -14,8 +14,7 @@ interface addUserList {
   dtype:number
 }
 interface editUserList {
-  id: number,
-  user?:string,
+  id:number
   dbname?:string,
   ip?: string,
   dtype?:number
@@ -42,7 +41,7 @@ export const userStore = defineStore('user', {
       const res: any = await getUsers(value)
       console.log(111)
       if (res.status === 200) {
-        // console.log(res)
+        console.log(res)
 				 ElMessage.success('获取用户列表成功')
          this.users = res.data.data
         //  this.total = res.data.total

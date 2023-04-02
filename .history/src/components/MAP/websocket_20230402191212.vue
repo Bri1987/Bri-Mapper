@@ -16,24 +16,24 @@
 
                 <a-row :gutter="48">
                     
-                    <a-form-item style="color:green" label="标准数据源">
-                        <a-upload
-                        :file-list="filelist1"
-                        name="first"
-                        list-type="picture-card"
-                        class="first"   
-                        @change="handleChange1"
-                        :max-count="1"
-                        accept=".csv"
-                        >
-                            <div>
-                                <loading-outlined v-if="loading"></loading-outlined>
-                                <upload-outlined v-else></upload-outlined>
-                                <div class="ant-upload-text">Upload</div>
-                            </div>
-                        </a-upload>
-                        
-                    </a-form-item>
+                        <a-form-item style="color:green" label="标准数据源">
+                            <a-upload
+                            :file-list="filelist1"
+                            name="first"
+                            list-type="picture-card"
+                            class="first"   
+                            @change="handleChange1"
+                            :max-count="1"
+                            accept=".csv"
+                            >
+                                <div>
+                                    <loading-outlined v-if="loading"></loading-outlined>
+                                    <upload-outlined v-else></upload-outlined>
+                                    <div class="ant-upload-text">Upload</div>
+                                </div>
+                            </a-upload>
+                            
+                        </a-form-item>
                 </a-row>    
                 <a-row :gutter="48">
                     <a-form-item style="color:green" label="异构数据源">
@@ -73,7 +73,7 @@
 <script>
 import { LoadingOutlined,UploadOutlined,PlusOutlined,VerticalAlignTopOutlined} from '@ant-design/icons-vue';
 import axios from 'axios';
-// import FormData from 'form-data';
+import FormData from 'form-data';
 
 export default{
     data(){
@@ -167,10 +167,26 @@ export default{
             // })
         },
         handleChange1(info) {
-            console.log(info);
+            console.log(this.file.name)
             if (info.file.status === 'uploading') {
-                console.log('000');
-           }
+                console.log(this.file.name)
+                this.loading = true;
+                return;
+            }
+        },
+        handleChange1(info){
+            console.log("handleChange1", info.file.name)
+            let resFileList = [...info.fileList];
+            this.fileList1 = resFileList;
+            console.log(info.file.status);
+            if (info / file.status === 'done') {
+                console.log(this.fileList1);
+            }
+            
+            if(info.file.status==='uploading') {
+                loading = true;
+                return; 
+            }
         },
         handleChange2(info){
             console.log("handleChange2",info.file.name)
@@ -178,32 +194,7 @@ export default{
                 loading = true;
                 return; 
             }
-        },
-
-        // handleChange1(info) {
-        //     console.log(this.file.name)
-        //     if (info.file.status === 'uploading') {
-        //         console.log(this.file.name)
-        //         this.loading = true;
-        //         return;
-        //     }
-        // },
-        // handleChange1(info){
-        //     console.log("handleChange1", info.file.name)
-        //     let resFileList = [...info.fileList];
-        //     this.fileList1 = resFileList;
-        //     console.log(info.file.status);
-        //     if (info / file.status === 'done') {
-        //         console.log(this.fileList1);
-        //     }
-            
-        //     if(info.file.status==='uploading') {
-        //         loading = true;
-        //         return; 
-        //     }
-        // },
-
-        
+        }
     }
 }
 </script>
