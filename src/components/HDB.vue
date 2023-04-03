@@ -100,6 +100,7 @@
         </a-layout-content>
     </a-layout>
 </template>
+
 <script>
 import { LoadingOutlined,PlusOutlined,VerticalAlignTopOutlined,DatabaseOutlined} from '@ant-design/icons-vue';
 import canvass from './bcg1.vue'
