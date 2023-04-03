@@ -1,7 +1,7 @@
 <template>
   <a-layout class="users">
     <canvass></canvass>
-    <a-layout-content style="padding: 0 50px;margin-bottom:20px; position:fixed;left:5%;right: 5%;bottom: 5%;top:10%;background: rgba(0, 0, 0, 0);">
+    <a-layout-content style="padding: 0 50px;margin-bottom:20px; left:5%;right: 5%;bottom: 5%;top:10%;background: rgba(0, 0, 0, 0);">
       <a-breadcrumb style="margin: 16px 0">
         <a-breadcrumb-item>数据源</a-breadcrumb-item>
       </a-breadcrumb>

@@ -1,7 +1,7 @@
 <template>
   <a-layout class="users">
     <canvass></canvass>
-    <a-layout-content style="padding: 0 50px;margin-bottom:20px; position:fixed;left:5%;right: 5%;bottom: 5%;top:10%;background: rgba(0, 0, 0, 0);">
+    <a-layout-content style="padding: 0 50px; position:fixed;left:5%;right: 5%;bottom: 5%;top:10%;background: rgba(0, 0, 0, 0);">
       <a-breadcrumb style="margin: 16px 0">
         <a-breadcrumb-item>数据源</a-breadcrumb-item>
       </a-breadcrumb>
@@ -214,14 +214,13 @@ onMounted(() => {
   position:fixed;
     right: 0;
     left:0;
-    bottom: 0%;
+    bottom: 10%;
     height:94%;
     z-index: 999;
-    
+
 }
 .box-card{
   background: rgba(255,255,255,0.6);
-  margin-bottom: 30px;
 }
 .el-link {
   margin-right: 15px;

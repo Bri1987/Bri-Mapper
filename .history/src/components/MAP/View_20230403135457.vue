@@ -65,7 +65,7 @@ export default{
             }
         },
         showBing(datas){
-            // for ();
+            for ();
             const chartBox = echarts.init(document.getElementById("main"));
             const option = {
                 tooltip: {
