@@ -137,6 +137,7 @@ export default{
                 if(res.status==200){
                     this.detailInfo=res.data.data
                     this.showModal()
+                }
             }).catch(err=>{
                 console.log(err)
             })
