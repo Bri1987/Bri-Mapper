@@ -32,7 +32,7 @@ declare module '@vue/runtime-core' {
     APopconfirm: typeof import('ant-design-vue/es')['Popconfirm']
     AResult: typeof import('ant-design-vue/es')['Result']
     ARow: typeof import('ant-design-vue/es')['Row']
-    ATable: typeof import('ant-design-vue/es')['Table']
+    ATextarea: typeof import('ant-design-vue/es')['Textarea']
     ATypographyTitle: typeof import('ant-design-vue/es')['TypographyTitle']
     AUpload: typeof import('ant-design-vue/es')['Upload']
     Bcg1: typeof import('./src/components/bcg1.vue')['default']
@@ -49,6 +49,7 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     SelectAll: typeof import('./src/components/CRUD/selectAll.vue')['default']
     Unified: typeof import('./src/components/HDC/Unified.vue')['default']
+    View: typeof import('./src/components/MAP/View.vue')['default']
     Websocket: typeof import('./src/components/MAP/websocket.vue')['default']
   }
 }
