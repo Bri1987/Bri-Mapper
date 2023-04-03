@@ -19,7 +19,6 @@
         Upload
       </a-button>
     </a-upload>
-    <!-- <button @click="showBing(0)">点击</button> -->
     <a-layout-content class="bingtu" id="main">
     </a-layout-content>
   </div>
@@ -132,52 +131,6 @@ export default{
 
     }
 }
-// export default defineComponent({
-//   components: {
-//     UploadOutlined,CloudUploadOutlined
-//   },
-//   setup() {
-//     const handleChange = info => {
-//         if (info.file.status !== 'uploading') {
-//         console.log(info.file, info.fileList);
-//       }
-//       if (info.file.status === 'done') {
-//         message.success(`${info.file.name} file uploaded successfully`);
-//       } else if (info.file.status === 'error') {
-//         message.error(`${info.file.name} file upload failed.`);
-//       }
-//     };
-//     const fileList = ref([]);
-//     const thisfile={}
-//     const uploadFile=file=>{
-//         thisfile=fileList.file
-//         var form=new FormData()
-//         form.append('file',thisfile)
-//         axios.post("http://localhost:8121/function/visualize",form)
-//         .then(res=>{
-//             console.log(res)
-//             if(res.status==200)
-//             {
-//                 console.log(res.data.data)
-//                 //这里展示饼
-//                 // showBing(res.data.data)
-//             }
-//         }).catch(err=>{
-//             console.log(err)
-//         })
-//     }
-
-//     const showBing=data=>{
-//         //展示饼图
-//         // const bingtu=echarts.init(document.getElemetById("main"))
-//     }
-//     return {
-//       fileList,
-//       handleChange,
-//       uploadFile
-//     };
-//   },
-// });
 </script>
 
 <style scoped>

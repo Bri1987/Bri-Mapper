@@ -110,7 +110,6 @@ export default{
     methods:{
         onSubmit(){
             // this.visiable=false
-            // console.log('submit!', toRaw(this.config));//这里写表单的上传方法    
             console.log(this.config)
             var form= new FormData()
             form.append("id1",this.config.id1)
@@ -133,11 +132,9 @@ export default{
         },
         uploadForm1(filelist1){
             this.config.file1=filelist1.file
-            // console.log(filelist1.file)
         },
         uploadForm2(filelist2){
             this.config.file2=filelist2.file
-            // console.log(filelist2.file)
         },
         handleChange1(info){
             console.log("handleChange1",info.file.name)

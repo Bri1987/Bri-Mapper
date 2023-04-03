@@ -105,7 +105,6 @@ export default{
     methods:{
         onSubmit(){
             // this.visiable=false
-            // console.log('submit!', toRaw(this.zSubmit));//这里写表单的上传方法    
             axios.post('http://localhost:8121/function/sync/add',this.zSubmit)
             .then(res=>{
                 console.log(res)
@@ -119,11 +118,9 @@ export default{
         },
         uploadForm1(filelist1){
             this.zSubmit.file1=filelist1.file
-            // console.log(filelist1.file)
         },
         uploadForm2(filelist2){
             this.zSubmit.file2=filelist2.file
-            // console.log(filelist2.file)
         },
         handleChange1(info){
             console.log("handleChange1",info.file.name)

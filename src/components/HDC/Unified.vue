@@ -38,6 +38,7 @@
         </a-layout>
     </div>
 </template>
+
 <script>
 import axios from 'axios';
 import {HeatMapOutlined, CloseCircleOutlined} from '@ant-design/icons-vue'

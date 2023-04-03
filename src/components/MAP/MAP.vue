@@ -21,7 +21,6 @@
               </a-menu>
             </a-layout-sider>
             <a-layout-content :style="{ padding: '0 24px', minHeight: '280px' }">
-              <!-- <Websocket></Websocket> -->
               <router-view></router-view>
             </a-layout-content>
           </a-layout>

@@ -124,7 +124,6 @@ export default{
     methods:{
         onSubmit(){
             // this.showModal()//测试
-            // console.log('submit!', toRaw(this.newSubmit));//这里写表单的上传方法    
             var form = new FormData()
             form.append('id1',this.newSubmit.id1)
             form.append('id2',this.newSubmit.id2)
@@ -203,7 +202,7 @@ export default{
     left:0%;
     padding: 0%;
      background-color: rgba(187,187,187,0);
-     background: rgba(255, 255, 255,0.6) linear-gradient(70deg, #488cba, #909ff3, #b375dc);
+    /*background: rgba(255, 255, 255,0.6) linear-gradient(70deg, #488cba, #909ff3, #b375dc);*/
 }
 .exit{
     position: absolute;

@@ -118,12 +118,10 @@ export default{
             form.append('file1',this.zSubmit.file1)
             form.append('file2',this.zSubmit.file2)
             form.append('insert_sql',this.zSubmit.insert_sql)
-            // this.visiable=false //测试
             this.$axios.post('http://localhost:8121/function/sync/add',form)
             .then(res=>{
                 console.log(res)
                 if(res.status==200){
-                    //这里翻个烟花？？？
                     this.visiable=false
                 }
             }).catch(err=>{
