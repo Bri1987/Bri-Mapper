@@ -15,10 +15,11 @@ import org.apache.jena.vocabulary.RDFS;
 
 public class Demo
 {
-    public static Mapping map_lexi()
+    public static Mapping map_lexi(String file_name)
     {
         ModelStorage source = new ModelStorage("FCA/src/test/resources/metadata2/m88.owl");
-        ModelStorage target = new ModelStorage("FCA/src/test/resources/metadata2/w88.owl");
+        String tar="FCA/src/test/resources/metadata2/"+file_name+".owl";
+        ModelStorage target = new ModelStorage(tar);
 
 //        /************************** Lexical-level Matching ***************************/
 //        LexicalMatcher lm = MatcherFactory.createLexicalMatcher();
@@ -64,7 +65,7 @@ public class Demo
     public static void main(String[] args) {
         ModelStorage source = new ModelStorage("FCA/src/test/resources/metadata2/m88.owl");
         ModelStorage target = new ModelStorage("FCA/src/test/resources/metadata2/w88.owl");
-        map_lexi();
+        map_lexi("w88");
 
 //        /************************** Lexical-level Matching ***************************/
 //        LexicalMatcher lm = MatcherFactory.createLexicalMatcher();

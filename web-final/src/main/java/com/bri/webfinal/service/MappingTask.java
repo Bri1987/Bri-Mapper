@@ -86,7 +86,7 @@ public class MappingTask implements Runnable
         Map<String, Set<MetadataField>> map_meta=metadata2map(metadataFields);
         Map<String,Set<MetadataField>> map_source=metadata2map(sourceDataFields);
 
-        Mapping lexi_map =map_lexi();
+        Mapping lexi_map =map_lexi(file_name);
         Map<Set<MetadataField>,Set<MetadataField>> final_map= mapping2map(lexi_map,map_meta,map_source);
 
         //将结果写入xml文件
