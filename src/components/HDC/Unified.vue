@@ -160,8 +160,6 @@ export default{
                 {
                     //展示小卡片
                     this.datas=res.data.data
-                    // var length=this.datas.length
-                    
                     this.showCards()
                 }
             }).catch(err=>{

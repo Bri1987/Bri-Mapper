@@ -137,10 +137,6 @@ export default{
                 if(res.status==200){
                     this.detailInfo=res.data.data
                     this.showModal()
-                    //显示一个小卡片
-                    //!!!治理是不是该返回一个什么数据
-                    // this.showModal()
-                }
             }).catch(err=>{
                 console.log(err)
             })
@@ -154,11 +150,9 @@ export default{
         },
         uploadForm1(filelist1){
             this.newSubmit.file1=filelist1.file
-            // console.log(filelist1.file)
         },
         uploadForm2(filelist2){
             this.newSubmit.file2=filelist2.file
-            // console.log(filelist2.file)
         },
         handleChange1(info){
             console.log("handleChange1",info.file.name)

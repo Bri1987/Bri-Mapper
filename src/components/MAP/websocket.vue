@@ -109,7 +109,6 @@ export default{
             .then(res=>{
                 console.log(res)
                 if(res.status==200){
-                    //这里翻个烟花？？？
                     this.visiable=false
                 }
             }).catch(err=>{

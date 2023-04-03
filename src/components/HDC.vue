@@ -86,7 +86,6 @@ export default defineComponent({
         firstSelect(){
           this.$router.push('/HDC/form')
         }
-
       }
   });
   </script>

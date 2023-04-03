@@ -127,8 +127,6 @@ export default{
             };
             option && chartBox.setOption(option);
         }
-        
-
     }
 }
 </script>
