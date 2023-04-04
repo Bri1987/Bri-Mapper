@@ -22,7 +22,7 @@
                 <div v-show="visiable" style="position: absolute;height:100%;left:0;right: -17px;top:0;bottom: 0;overflow-x: hidden;overflow-y: scroll;">
                 <a-row :gutter="[24,48]" style="margin-bottom: 32px;" >
                     <a-col :span="8" v-for="(data,index) in datas" :key="index">
-                        <a-card class="wholecards" :bordered="false" hoverable="true" @click="showdetails(data)" style="">
+                        <a-card class="wholecards" :bordered="false" hoverable="true" @click="showdetails(data)">
                             <template #title>
                                 <heat-map-outlined />
                                 {{ data.科技平台服务资源名称 }}
@@ -38,6 +38,7 @@
         </a-layout>
     </div>
 </template>
+
 <script>
 import axios from 'axios';
 import {HeatMapOutlined, CloseCircleOutlined} from '@ant-design/icons-vue'
@@ -159,8 +160,6 @@ export default{
                 {
                     //展示小卡片
                     this.datas=res.data.data
-                    // var length=this.datas.length
-                    
                     this.showCards()
                 }
             }).catch(err=>{

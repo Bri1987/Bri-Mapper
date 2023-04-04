@@ -79,7 +79,6 @@ export default defineComponent({
              * 3.不是，直接添砖到全局搜索——》搜索出现小卡片
              * 4. 离开时弹窗是否删除es中的所有的数据？？
              */
-            // this.$router.push('/HDC/unified')
         },
         notfirstSelect(){
           this.$router.push('/HDC/unified')
@@ -87,7 +86,6 @@ export default defineComponent({
         firstSelect(){
           this.$router.push('/HDC/form')
         }
-
       }
   });
   </script>
@@ -97,7 +95,6 @@ export default defineComponent({
   width: 120px;
   height: 31px;
   margin: 16px 24px 16px 0;
-  /* background: rgba(255, 255, 255, 0.3); */
   }
   
   .ant-row-rtl #components-layout-demo-top-side .logo {

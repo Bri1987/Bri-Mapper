@@ -100,6 +100,7 @@
         </a-layout-content>
     </a-layout>
 </template>
+
 <script>
 import { LoadingOutlined,PlusOutlined,VerticalAlignTopOutlined,DatabaseOutlined} from '@ant-design/icons-vue';
 import canvass from './bcg1.vue'
@@ -173,7 +174,6 @@ export default{
             form.append("file1",this.newSubmit.file1)
             form.append("table_name",this.newSubmit.table_name)
             // this.showResults()//测试
-            // console.log('submit!', toRaw(this.newSubmit));//这里写表单的上传方法    
             this.$axios.post('http://localhost:8121/heterogeneous/postgresql/exchange',form)
             .then(res=>{
                 console.log(res)
@@ -224,14 +224,12 @@ export default{
 .wholecards:hover{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
-
 p{
     text-align: left;
 }
 .precfg{
     padding: 24px 0; 
     background: rgba(255, 255, 255,0.6);
-    /* background:rgba(255, 255, 255,0.6) linear-gradient(90deg, #488cba, #8391dd, #9966bb); */
     height: 86%;width: 80%;left: 10%;position: absolute;
 }
 .results{
