@@ -28,6 +28,7 @@ declare module '@vue/runtime-core' {
     AListItem: typeof import('ant-design-vue/es')['ListItem']
     AMenu: typeof import('ant-design-vue/es')['Menu']
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
+    AModal: typeof import('ant-design-vue/es')['Modal']
     APageHeader: typeof import('ant-design-vue/es')['PageHeader']
     APopconfirm: typeof import('ant-design-vue/es')['Popconfirm']
     AResult: typeof import('ant-design-vue/es')['Result']
@@ -36,6 +37,7 @@ declare module '@vue/runtime-core' {
     ATypographyTitle: typeof import('ant-design-vue/es')['TypographyTitle']
     AUpload: typeof import('ant-design-vue/es')['Upload']
     Bcg1: typeof import('./src/components/bcg1.vue')['default']
+    copy: typeof import('./src/components/MAP/wsocket copy.vue')['default']
     CRUD: typeof import('./src/components/CRUD.vue')['default']
     FirstTime: typeof import('./src/components/HDC/FirstTime.vue')['default']
     FullSync: typeof import('./src/components/HDC/FullSync.vue')['default']
@@ -51,5 +53,7 @@ declare module '@vue/runtime-core' {
     Unified: typeof import('./src/components/HDC/Unified.vue')['default']
     View: typeof import('./src/components/MAP/View.vue')['default']
     Websocket: typeof import('./src/components/MAP/websocket.vue')['default']
+    Wsocket: typeof import('./src/components/MAP/wsocket.vue')['default']
+    'Wsocket copy': typeof import('./src/components/MAP/wsocket copy.vue')['default']
   }
 }

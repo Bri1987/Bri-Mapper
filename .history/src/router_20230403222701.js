@@ -67,12 +67,12 @@ const router=createRouter({
             component:Map,
             children:[
                 {
-                    path:'wsocket',
-                    component:wsocket
+                    path:'Websocket',
+                    component:Websocket
                 },
                 {
                     path:'/MAP',
-                    redirect:'/MAP/wsocket'
+                    redirect:'/MAP/Websocket'
                 },
                 {
                     path:'View',

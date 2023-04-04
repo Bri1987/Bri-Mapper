@@ -37,6 +37,7 @@ import wsocket from './wsocket.vue'
 import canvass from '../bcg1.vue'
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons-vue';
 import { defineComponent, ref } from 'vue';
+import wsocket from './wsocket.vue';
 export default defineComponent({
       components: {
     UserOutlined,

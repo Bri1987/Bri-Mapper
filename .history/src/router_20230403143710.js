@@ -8,7 +8,7 @@ import FirstTime from './components/HDC/FirstTime.vue'
 import HDB from './components/HDB.vue'
 import User from './view/users/Users.vue'
 import Map from './components/MAP/MAP.vue'
-import wsocket from './components/MAP/wsocket.vue'
+import Websocket from './components/MAP/Websocket.vue'
 import View from './components/MAP/View.vue'
 // import addData from './components/bcg1.vue'
 //创建路由实例对象
@@ -67,12 +67,12 @@ const router=createRouter({
             component:Map,
             children:[
                 {
-                    path:'wsocket',
-                    component:wsocket
+                    path:'Websocket',
+                    component:Websocket
                 },
                 {
                     path:'/MAP',
-                    redirect:'/MAP/wsocket'
+                    redirect:'/MAP/Websocket'
                 },
                 {
                     path:'View',

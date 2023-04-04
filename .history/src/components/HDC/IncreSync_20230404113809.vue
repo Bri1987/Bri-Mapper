@@ -116,7 +116,7 @@ export default{
             form.append('file1',this.zSubmit.file1)
             form.append('file2',this.zSubmit.file2)
             form.append('insert_sql', this.zSubmit.insert_sql)
-            console.log('file:'+form.get('file'))
+            console.log('file:'+form.get('file1'))
             // this.visiable=false //测试
             this.$axios.post('http://localhost:8121/function/sync/add',form)
             .then(res=>{
@@ -130,7 +130,8 @@ export default{
             })
         },
         uploadForm1(filelist1){
-            this.zSubmit.file1=filelist1.file
+            this.zSubmit.file1 = filelist1
+            console.log(this.zSubmit.file1 )
         },
         uploadForm2(filelist2){
             this.zSubmit.file2=filelist2.file
