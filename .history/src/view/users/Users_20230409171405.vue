@@ -178,7 +178,7 @@ const searchUser = () => {
     pageNum.value = 1
     pageSize.value = 10
   } else {
-    store.getUsersFromId( Number(query.value))
+    store.getUsersFromId( query.value )
   }
 }
 //删除数据源
@@ -203,7 +203,7 @@ const resetForm = () => {
   query.value = ''
   store.getUsers({ pagenum: 1, pagesize: 10 })
   pageNum.value = 1
-  pageSize.value = 20
+  pageSize.value = 10
 }
 onMounted(() => {
   store.getUsers({ pagenum: 1, pagesize: 10 })
@@ -222,7 +222,7 @@ onMounted(() => {
 .box-card{
   background: rgba(255,255,255,0.6);
   margin-bottom: 30px;
-  height:90%;
+  height:80%;
 }
 .el-link {
   margin-right: 15px;

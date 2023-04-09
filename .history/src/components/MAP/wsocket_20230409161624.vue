@@ -103,7 +103,9 @@ export default{
             previewVisible: false,
             previewImage: '',
             previewTitle: '',
-            flag:false,
+            flag: false,
+
+            pattern = /^(?!.*\.(?:csv)$).*$/i;
         }
     },
     components:{
@@ -214,9 +216,7 @@ export default{
         handleChange2(info){
             console.log("handleChange2", info.file.name)
             info.file.status = 'done'
-            name = info.file.name.replace(/\.csv$/, '');
-            info.file.url = 'http://localhost:8123/mapping/download/' + name
-            console.log(info.file.url)
+            info.file.url='http://localhost:8123/mapping/download/'+info.file.name
             // if(info.file.status==='uploading') {
             //     this.loading = true;
             //     // return; 

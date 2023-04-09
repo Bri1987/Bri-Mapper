@@ -20,6 +20,7 @@
                     
                     <a-form-item style="color:green" label="标准数据源">
                         <a-upload
+                        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
                         :file-list="filelist1"
                         name="first"
                         class="first"   
@@ -34,7 +35,9 @@
                             <upload-outlined></upload-outlined>
                             Upload
                           </a-button>
+
                         </a-upload>
+
                     </a-form-item>
                 </a-row>    
                 <a-row :gutter="48">
@@ -191,8 +194,8 @@ export default{
                 console.log(res)
                 if(res.status==200){
                     console.log(JSON.stringify(res.data));
-                    // this.flag = true;
-                    // this.handleChange1
+                    this.flag = true;
+                    this.handleChange1
                 }
             }).catch(err=>{
                 console.log(err)
@@ -202,10 +205,6 @@ export default{
             console.log("handleChange1", info.file);
             info.file.status = 'done'
             
-            // if (this.flag) {
-            //     info.file.status = 'uploading';
-            //     this.flag=false
-            // }
             // if (info.file.status === 'uploading') {
             //     console.log('formws.file1 uploading');
             //     this.loading = true;
@@ -214,9 +213,10 @@ export default{
         handleChange2(info){
             console.log("handleChange2", info.file.name)
             info.file.status = 'done'
-            name = info.file.name.replace(/\.csv$/, '');
-            info.file.url = 'http://localhost:8123/mapping/download/' + name
-            console.log(info.file.url)
+            if (this.flag) {
+                info.file.status = 'uploading'
+                this.flag=false
+            }
             // if(info.file.status==='uploading') {
             //     this.loading = true;
             //     // return; 

@@ -22,19 +22,24 @@
                         <a-upload
                         :file-list="filelist1"
                         name="first"
+                        list-type="picture-card"
                         class="first"   
                         @change="handleChange1"
                         @preview="handlePreview"
                         :max-count="1"
-                        :show-upload-list="{ showDownloadIcon: true, showRemoveIcon: true }"
                         :customRequest="file=>uploadForm1(file)"
                         accept=".csv"
                         >
-                            <a-button>
-                            <upload-outlined></upload-outlined>
-                            Upload
-                          </a-button>
+                            <div>
+                                <!-- <loading-outlined v-if="loading"></loading-outlined> -->
+                                <upload-outlined v-else></upload-outlined>
+                                <div class="ant-upload-text">Upload</div>
+                            </div>
+                            <!-- <vertical-align-top-outlined v-if="loading"/>{{ formws.file1.name}} -->
                         </a-upload>
+                        <!-- <a-modal :visible="previewVisible" :title="previewTitle" :footer="null" @cancel="handleCancel">
+                            <img alt="example" style="width: 100%" :src="previewImage" />
+                          </a-modal> -->
                     </a-form-item>
                 </a-row>    
                 <a-row :gutter="48">
@@ -43,16 +48,17 @@
                         :file-list="filelist2"
                         :multiple="true"
                         name="second"
+                        list-type="picture-card"
                         class="second"   
-                        @change="handleChange2" 
-                        :show-upload-list="{ showDownloadIcon: true, showRemoveIcon: true }"
+                        @change="handleChange2"
                         :customRequest="file=>uploadForm2(file)"
                         accept=".csv"
                         >
-                        <a-button>
-                            <upload-outlined></upload-outlined>
-                            Upload
-                          </a-button>
+                            <div>
+                                <loading-outlined v-if="loading"></loading-outlined>
+                                <upload-outlined v-else></upload-outlined>
+                                <div class="ant-upload-text">Upload</div>
+                            </div>
                         </a-upload>
                         
                     </a-form-item>
@@ -102,8 +108,7 @@ export default{
             loading: false,
             previewVisible: false,
             previewImage: '',
-            previewTitle: '',
-            flag:false,
+            previewTitle:'',
         }
     },
     components:{
@@ -134,19 +139,15 @@ export default{
 
             ws.addEventListener('message', e => {
                 
-                const date = this.formatDate(new Date())
-                
+                const date =this.formatDate(new Date())
                 console.log('服务端回应' + date + e.data);
-                var t=JSON.parse(e.data)
-                console.log(t.value);
-
-                if (t.type === 'sessionId'){
-                    this.formws.sessionid = t.value;
-                    console.log('sessionId:',this.formws.sessionid)
+                if (e.data.type === 'sessionId'){
+                    this.formws.sessionid = e.data.value;
                 }
-                if (t.type === 'file_id'){
+                if (e.data.type === 'file_id'){
+                    t = e.data.value;
                     this.formws.file2.forEach(function (element, index, array) {
-                        // console.log('flie2:',element)
+                        console.log(element)
                     });
                 }
 
@@ -191,43 +192,37 @@ export default{
                 console.log(res)
                 if(res.status==200){
                     console.log(JSON.stringify(res.data));
-                    // this.flag = true;
-                    // this.handleChange1
                 }
             }).catch(err=>{
                 console.log(err)
             })
         },
         handleChange1(info) {
-            console.log("handleChange1", info.file);
-            info.file.status = 'done'
-            
-            // if (this.flag) {
-            //     info.file.status = 'uploading';
-            //     this.flag=false
-            // }
+            console.log("handleChange1",info.file.name);
             // if (info.file.status === 'uploading') {
             //     console.log('formws.file1 uploading');
             //     this.loading = true;
             // }
+            // if (info.file.status === 'done') {
+            //     console.log('formws.file1 done');
+            //     this.loading = false;
+        //    }
         },
         handleChange2(info){
-            console.log("handleChange2", info.file.name)
-            info.file.status = 'done'
-            name = info.file.name.replace(/\.csv$/, '');
-            info.file.url = 'http://localhost:8123/mapping/download/' + name
-            console.log(info.file.url)
+            console.log("handleChange2",info.file.name)
             // if(info.file.status==='uploading') {
             //     this.loading = true;
             //     // return; 
             // }
+            if (info.file.status === 'done') {
+                console.log('formws.file1 done');
+                this.loading = false;
+           }
         },
 
         uploadForm1(filelist1) {
-            
             this.formws.file1 = filelist1.file
             console.log(this.formws.file1)
-            
         },
         uploadForm2(filelist2) {
             this.formws.file2.push(filelist2.file) 

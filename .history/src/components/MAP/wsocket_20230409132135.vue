@@ -20,6 +20,7 @@
                     
                     <a-form-item style="color:green" label="标准数据源">
                         <a-upload
+                        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
                         :file-list="filelist1"
                         name="first"
                         class="first"   
@@ -34,7 +35,16 @@
                             <upload-outlined></upload-outlined>
                             Upload
                           </a-button>
+                            <!-- <div>
+                                <loading-outlined v-if="loading"></loading-outlined>
+                                <upload-outlined ></upload-outlined>
+                                <div class="ant-upload-text">Upload</div>
+                            </div> -->
+                            <!-- <vertical-align-top-outlined v-if="loading"/>{{ formws.file1.name}} -->
                         </a-upload>
+                        <!-- <a-modal :visible="previewVisible" :title="previewTitle" :footer="null" @cancel="handleCancel">
+                            <img alt="example" style="width: 100%" :src="previewImage" />
+                          </a-modal> -->
                     </a-form-item>
                 </a-row>    
                 <a-row :gutter="48">
@@ -102,8 +112,7 @@ export default{
             loading: false,
             previewVisible: false,
             previewImage: '',
-            previewTitle: '',
-            flag:false,
+            previewTitle:'',
         }
     },
     components:{
@@ -191,8 +200,6 @@ export default{
                 console.log(res)
                 if(res.status==200){
                     console.log(JSON.stringify(res.data));
-                    // this.flag = true;
-                    // this.handleChange1
                 }
             }).catch(err=>{
                 console.log(err)
@@ -200,12 +207,7 @@ export default{
         },
         handleChange1(info) {
             console.log("handleChange1", info.file);
-            info.file.status = 'done'
-            
-            // if (this.flag) {
-            //     info.file.status = 'uploading';
-            //     this.flag=false
-            // }
+            info.file.status='done'
             // if (info.file.status === 'uploading') {
             //     console.log('formws.file1 uploading');
             //     this.loading = true;
@@ -213,18 +215,19 @@ export default{
         },
         handleChange2(info){
             console.log("handleChange2", info.file.name)
-            info.file.status = 'done'
-            name = info.file.name.replace(/\.csv$/, '');
-            info.file.url = 'http://localhost:8123/mapping/download/' + name
-            console.log(info.file.url)
+            info.file.status='done'
             // if(info.file.status==='uploading') {
             //     this.loading = true;
             //     // return; 
             // }
+            if (info.file.status === 'done') {
+                console.log('formws.file1 done');
+                this.loading = false;
+           }
         },
 
         uploadForm1(filelist1) {
-            
+            filelist1.file.status='done'
             this.formws.file1 = filelist1.file
             console.log(this.formws.file1)
             

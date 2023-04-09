@@ -8,9 +8,9 @@
         </a-layout-header>
         <a-layout-content style="margin:0 50px;font-size: larger;font-weight: 550;" v-if="visiable">
             <br>
-            <a-form :model="formws">
+            <a-form :model="zSubmit">
                 <a-form-item label="url" >
-                    <a-input v-model:value="formws.url"/>
+                    <a-input v-model:value="url"/>
                 </a-form-item>
                 <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;right:20%">
                     <a-button type="primary" @click="onWs">Submit</a-button>
@@ -22,19 +22,24 @@
                         <a-upload
                         :file-list="filelist1"
                         name="first"
+                        list-type="picture-card"
                         class="first"   
                         @change="handleChange1"
                         @preview="handlePreview"
                         :max-count="1"
-                        :show-upload-list="{ showDownloadIcon: true, showRemoveIcon: true }"
                         :customRequest="file=>uploadForm1(file)"
                         accept=".csv"
                         >
-                            <a-button>
-                            <upload-outlined></upload-outlined>
-                            Upload
-                          </a-button>
+                            <div>
+                                <loading-outlined v-if="loading"></loading-outlined>
+                                <upload-outlined v-else></upload-outlined>
+                                <div class="ant-upload-text">Upload</div>
+                            </div>
+                            <vertical-align-top-outlined v-if="loading"/>{{ file1.name}}
                         </a-upload>
+                        <!-- <a-modal :visible="previewVisible" :title="previewTitle" :footer="null" @cancel="handleCancel">
+                            <img alt="example" style="width: 100%" :src="previewImage" />
+                          </a-modal> -->
                     </a-form-item>
                 </a-row>    
                 <a-row :gutter="48">
@@ -43,16 +48,17 @@
                         :file-list="filelist2"
                         :multiple="true"
                         name="second"
+                        list-type="picture-card"
                         class="second"   
-                        @change="handleChange2" 
-                        :show-upload-list="{ showDownloadIcon: true, showRemoveIcon: true }"
+                        @change="handleChange2"
                         :customRequest="file=>uploadForm2(file)"
                         accept=".csv"
                         >
-                        <a-button>
-                            <upload-outlined></upload-outlined>
-                            Upload
-                          </a-button>
+                            <div>
+                                <loading-outlined v-if="loading"></loading-outlined>
+                                <upload-outlined v-else></upload-outlined>
+                                <div class="ant-upload-text">Upload</div>
+                            </div>
                         </a-upload>
                         
                     </a-form-item>
@@ -80,16 +86,11 @@ import FormData from 'form-data';
 export default{
     data(){
         return {
-            
+            sessionId:'',
             visiable: true,
-            
-            formws: {
-                url: '',
-                sessionid:'',
-                file1: {},
-                file2:[], 
-            },
-            
+            url:'',
+            file1: {},
+            file2:[],
             //     [
             //     {
             //     uid: '',
@@ -102,8 +103,7 @@ export default{
             loading: false,
             previewVisible: false,
             previewImage: '',
-            previewTitle: '',
-            flag:false,
+            previewTitle:'',
         }
     },
     components:{
@@ -122,8 +122,8 @@ export default{
             return   year+"-"+(month=month<10?("0"+month):month)+"-"+(date=date<10?("0"+date):date)+" "+(hour=hour<10?("0"+hour):hour)+":"+(minute=minute<10?("0"+minute):minute)+":"+(second=second<10?("0"+second):second);     
         } ,
         onWs() {
-            console.log(this.formws.url);
-            const ws = new WebSocket(this.formws.url);
+            console.log(this.url);
+            const ws = new WebSocket(this.url);
             console.log(ws);
             ws.addEventListener('open', e => {
                 console.log('长连接连接成功')
@@ -134,22 +134,9 @@ export default{
 
             ws.addEventListener('message', e => {
                 
-                const date = this.formatDate(new Date())
-                
+                const date =this.formatDate(new Date())
                 console.log('服务端回应' + date + e.data);
-                var t=JSON.parse(e.data)
-                console.log(t.value);
-
-                if (t.type === 'sessionId'){
-                    this.formws.sessionid = t.value;
-                    console.log('sessionId:',this.formws.sessionid)
-                }
-                if (t.type === 'file_id'){
-                    this.formws.file2.forEach(function (element, index, array) {
-                        // console.log('flie2:',element)
-                    });
-                }
-
+                this.sessionId = e.data.value;
                 // 接收服务端数据时触发的回调函数
                 // dispatch('wsHearReset')
                 // dispatch('handlerWSMessage', e)
@@ -170,83 +157,70 @@ export default{
         onSubmit() {
 
             const form = new FormData()
-            form.append('sessionId', this.formws.sessionid)
-            form.append('file', this.formws.file1)
-            
-            this.formws.file2.forEach(function (element, index, array) {
-                form.append('file_lists', element)
-            });
-            for (const [key, value] of form.entries()) {
-                console.log(`${key}: ${value}`);
-                console.log(value);
-            }
-            // console.log('file:'+form.has('file'))
+            form.append('sessionId', this.sessionId)
+            form.append('file', this.file1)
+            form.append('file_list', this.file2)
+            // console.log(this.file1.raw)
+            console.log('file:'+form.has('file'))
             // this.visiable=false //测试
-            this.$axios.post('http://localhost:8123/mapping/map', form, {
-                "Content-Type": "multipart/form-data;charset=utf-8",
-                'Host': 'localhost:8123', 
-                'Connection': 'keep-alive',
+            this.$axios.post('http://localhost:8121/mapping/map', form, {
+                "Content-Type": "multipart/form-data;charset=utf-8"
             })
             .then(res=>{
                 console.log(res)
                 if(res.status==200){
                     console.log(JSON.stringify(res.data));
-                    // this.flag = true;
-                    // this.handleChange1
                 }
             }).catch(err=>{
                 console.log(err)
             })
         },
         handleChange1(info) {
-            console.log("handleChange1", info.file);
-            info.file.status = 'done'
-            
-            // if (this.flag) {
-            //     info.file.status = 'uploading';
-            //     this.flag=false
-            // }
+            console.log("handleChange1",info.file.name);
             // if (info.file.status === 'uploading') {
-            //     console.log('formws.file1 uploading');
+            //     console.log('file1 uploading');
             //     this.loading = true;
             // }
+            // if (info.file.status === 'done') {
+            //     console.log('file1 done');
+            //     this.loading = false;
+        //    }
         },
         handleChange2(info){
-            console.log("handleChange2", info.file.name)
-            info.file.status = 'done'
-            name = info.file.name.replace(/\.csv$/, '');
-            info.file.url = 'http://localhost:8123/mapping/download/' + name
-            console.log(info.file.url)
+            console.log("handleChange2",info.file.name)
             // if(info.file.status==='uploading') {
             //     this.loading = true;
             //     // return; 
             // }
+            if (info.file.status === 'done') {
+                console.log('file1 done');
+                this.loading = false;
+           }
         },
 
-        uploadForm1(filelist1) {
+        uploadForm1(file1) {
             
-            this.formws.file1 = filelist1.file
-            console.log(this.formws.file1)
-            
+            this.file1 = file1.file
+            console.log(this.file1)
         },
         uploadForm2(filelist2) {
-            this.formws.file2.push(filelist2.file) 
-            console.log(this.formws.file2)
+            this.file2.push(filelist2.file) 
+            console.log(this.file2)
         },
 
-        // handleCancel: () => {
-        //     this.previewVisible = false;
-        //     this.previewTitle = '';
-        // },
+        handleCancel: () => {
+            this.previewVisible = false;
+            this.previewTitle = '';
+        },
 
-        // handlePreview: async file => {
-        //     if (!file.url && !file.preview) {
-        //     file.preview = await getBase64(file.originFileObj);
-        // }
-        // this.previewImage= file.url || file.preview;
-        // this.previewVisible = true;
-        // this.previewTitle= file.name || file.url.substring(file.url.lastIndexOf('/') + 1);
-        // },
+        handlePreview: async file => {
+            if (!file.url && !file.preview) {
+            file.preview = await getBase64(file.originFileObj);
+        }
+        this.previewImage= file.url || file.preview;
+        this.previewVisible = true;
+        this.previewTitle= file.name || file.url.substring(file.url.lastIndexOf('/') + 1);
+        },
         
     }
 }

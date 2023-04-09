@@ -19,7 +19,7 @@ export function getUsers(data:userList) {
 }
 export function getUsersFromId(id:number) {
   return myRequest.request({
-    url: `detail/${id}`,
+    url: `detail`,
   })
 }
 export function addUser(data:addUserList) {

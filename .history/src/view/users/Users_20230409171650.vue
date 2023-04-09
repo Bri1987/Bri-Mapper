@@ -178,7 +178,7 @@ const searchUser = () => {
     pageNum.value = 1
     pageSize.value = 10
   } else {
-    store.getUsersFromId( Number(query.value))
+    store.getUsersFromId( query.value )
   }
 }
 //删除数据源

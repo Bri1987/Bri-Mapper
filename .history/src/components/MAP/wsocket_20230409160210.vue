@@ -34,7 +34,9 @@
                             <upload-outlined></upload-outlined>
                             Upload
                           </a-button>
+
                         </a-upload>
+
                     </a-form-item>
                 </a-row>    
                 <a-row :gutter="48">
@@ -201,7 +203,6 @@ export default{
         handleChange1(info) {
             console.log("handleChange1", info.file);
             info.file.status = 'done'
-            
             // if (this.flag) {
             //     info.file.status = 'uploading';
             //     this.flag=false
@@ -214,9 +215,7 @@ export default{
         handleChange2(info){
             console.log("handleChange2", info.file.name)
             info.file.status = 'done'
-            name = info.file.name.replace(/\.csv$/, '');
-            info.file.url = 'http://localhost:8123/mapping/download/' + name
-            console.log(info.file.url)
+            
             // if(info.file.status==='uploading') {
             //     this.loading = true;
             //     // return; 

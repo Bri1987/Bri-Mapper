@@ -21,7 +21,7 @@
                     <a-form-item style="color:green" label="标准数据源">
                         <a-upload
                         :file-list="filelist1"
-                        name="first"
+                        name="first".
                         class="first"   
                         @change="handleChange1"
                         @preview="handlePreview"
