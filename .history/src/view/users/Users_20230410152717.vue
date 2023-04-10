@@ -27,7 +27,7 @@
             添加数据源
           </el-button>
         </div>
-        <el-table :data="users" stripe style="width: 100%;height:300px" border>
+        <el-table :data="users" stripe style="width: 100%;height:400px" border>
           <el-table-column type="index" width="60" label="序号" />
           <el-table-column prop="ip" label="ip" />
           <el-table-column prop="user" label="用户名" />
