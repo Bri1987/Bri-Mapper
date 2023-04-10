@@ -21,6 +21,10 @@
     </a-upload>
     <a-layout-content class="bingtu" id="main">
     </a-layout-content>
+    <!-- <a-empty class="emptyStatus" v-if="empty">
+        <template #description>暂无数据，请先上传文件</template>
+    </a-empty> -->
+    
   </div>
 </template>
 <script lang="js">
@@ -35,7 +39,8 @@ export default{
     data(){
         return {
             thisfile:{},
-            fileList:[]
+            fileList:[],
+            empty:true
         }
     },
     methods:{
@@ -137,5 +142,11 @@ export default{
     height: 60%;
     width: 70%;
     background-color: rgba(255,255,255,0.6);
+}
+.emptyStatus{
+    position: absolute;
+    height: 60%;
+    width: 70%;
+    top:40%
 }
 </style>

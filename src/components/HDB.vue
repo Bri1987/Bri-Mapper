@@ -229,7 +229,7 @@ p{
 }
 .precfg{
     padding: 24px 0; 
-    background: rgba(255, 255, 255,0.6);
+    background: rgba(255, 255, 255,0.7);
     height: 86%;width: 80%;left: 10%;position: absolute;
 }
 .results{

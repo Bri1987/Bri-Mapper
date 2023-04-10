@@ -7,11 +7,11 @@
                 </a-typography-title>
                 <a-divider style="border-color: #7cb305" dashed />
         </a-layout-header>
-        <a-layout-content style="position:fixed;left:420px;top:200px;font-size: larger;font-weight: 550;" v-if="visiable">
+        <a-layout-content style="position:fixed;left:480px;top:200px;font-size: larger;font-weight: 550;" v-if="visiable">
             <br><br>
             <a-form :model="zSubmit">
                 <a-row :gutter="48">
-                    <a-col :span="100" style="width: 400px;">
+                    <a-col :span="100" style="width: 360px;">
                         <a-form-item label="第一个文件id" style="margin-bottom: 60px;">
                             <a-input v-model:value="zSubmit.id1"/>
                         </a-form-item>
@@ -36,7 +36,7 @@
                             <vertical-align-top-outlined v-if="done1"/>{{ zSubmit.file1.name}}
                         </a-form-item>
                     </a-col>
-                    <a-col :span="100" style="width: 400px;">
+                    <a-col :span="100" style="width: 360px;">
                         <a-form-item label="第二个文件id" style="margin-bottom: 60px;">
                             <a-input v-model:value="zSubmit.id2"/>
                         </a-form-item>

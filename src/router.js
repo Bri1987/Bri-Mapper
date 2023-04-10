@@ -54,7 +54,7 @@ const router=createRouter({
                 },  
                 {
                     path:'/HDC',
-                    redirect:'/HDC/full'
+                    redirect:'/HDC/Incre'
                 },
             ]
         },
