@@ -7,10 +7,11 @@ export default{
       colors: {
         type: Array,
         default: () => ['#4CB1EF', '#424959', '#FF4B44']
+        // default: () => ['#0b0b04','#66a12b','#bae33f','#66a12b','#0b0b04']
       },
       triangleSize: {
         type: Number,
-        default: 100
+        default: 90
       }
     },
     mounted() {

@@ -8,15 +8,15 @@
             </a-typography-title>
             <a-divider style="border-color: #7cb305" dashed />
         </a-layout-header>
-        <a-layout-content style="position:fixed;left:420px;top:200px;font-size: larger;font-weight: 550;">
+        <a-layout-content style="position:fixed;left:480px;top:200px;font-size: larger;font-weight: 550;">
             <br>
             <br>
             <a-form :model="newSubmit">
-                <a-form-item label="table_name" style="width: 600px;margin-bottom: 60px;">
+                <a-form-item label="table_name" style="width: 540px;margin-bottom: 60px;">
                     <a-input v-model:value="newSubmit.table_name"/>
                 </a-form-item>
                 <a-row :gutter="[48,48]">
-                    <a-col :span="96" style="width: 400px;">
+                    <a-col :span="96" style="width: 360px;">
                         <a-form-item label="第一个文件id：" style="margin-bottom: 60px;">
                         <a-input v-model:value="newSubmit.id1"/>
                     </a-form-item>
@@ -30,6 +30,7 @@
                             :show-upload-list="false"
                             :customRequest="file=>uploadForm1(file)"
                             maxCount="1"
+                            accept=".xml"
                         >
                             <div>
                                 <LoadingOutlined v-if="loading"></LoadingOutlined>
@@ -40,7 +41,7 @@
                         <vertical-align-top-outlined v-if="done1"/>{{ newSubmit.file1.name}}
                     </a-form-item>
                     </a-col>
-                    <a-col :span="96" style="width: 400px;">
+                    <a-col :span="96" style="width: 360px;">
                         <a-form-item label="第二个文件id：" style="margin-bottom: 60px;">
                         <a-input v-model:value="newSubmit.id2"/>
                     </a-form-item>
@@ -53,6 +54,7 @@
                             @change="handleChange2"
                             :show-upload-list="false"
                             :customRequest="uploadForm2"
+                            accept=".xml"
                             >
                             <!-- <img v-if="imgeUrl" :src="imgeUrl" alt="second"/> -->
                             <div>

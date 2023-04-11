@@ -5,8 +5,8 @@
         <!-- <a>PSYCHO UNIVERSE</a> -->
         <!--sjfwpijfoefw-->
         <button data-text="Awesome" class="button">
-            <span class="actual-text">&nbsp;psycho&nbsp;</span>
-            <span class="hover-text" aria-hidden="true">&nbsp;psycho&nbsp;</span>
+            <span class="actual-text">&nbsp;mapper&nbsp;</span>
+            <span class="hover-text" aria-hidden="true">&nbsp;mapper&nbsp;</span>
         </button>
         <!--idfjwopfof-->
     </a-layout>
