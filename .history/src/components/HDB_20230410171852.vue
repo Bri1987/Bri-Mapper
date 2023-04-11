@@ -5,12 +5,12 @@
             <a-breadcrumb style="margin: 16px 0">
                 <a-breadcrumb-item>HDB</a-breadcrumb-item>
             </a-breadcrumb>
-
             <a-layout-content class="precfg" v-if="shift">
                 <a-page-header
                     style="text-align: center;border: 1px solid rgb(235, 237, 240);top:0%;position: absolute;width: 100%;"
                     title=">异构数据库"
                     sub-title="请先填写并提交表单"
+                    style="border-radius: 5px;"
                 />
                 <br><br><br><br>
                 <a-form :model="newSubmit" style="position: absolute;width: 80%;left: 15%;font-weight:bold;">
@@ -98,7 +98,6 @@
                     </div>
                 </a-layout-content>
             </a-layout-content>
-            
         </a-layout-content>
     </a-layout>
 </template>
@@ -232,7 +231,7 @@ p{
 .precfg{
     padding: 24px 0; 
     background: rgba(255, 255, 255,0.6);
-    height: 90%;width: 90%;left: 5%;position: absolute;
+    height: 86%;width: 80%;left: 10%;position: absolute;
     border-radius: 5px;
 }
 .results{
@@ -241,7 +240,6 @@ p{
 .aftercfg{
     padding: 24px 0; 
     background: rgba(255, 255, 255,0.6) linear-gradient(90deg, #488cba, #909ff3, #b375dc);
-    height: 90%;width: 90%;left: 5%;position: absolute;
+    height: 86%;width: 80%;left: 10%;position: absolute;
 }
-
 </style>

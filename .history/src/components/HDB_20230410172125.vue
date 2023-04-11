@@ -5,7 +5,7 @@
             <a-breadcrumb style="margin: 16px 0">
                 <a-breadcrumb-item>HDB</a-breadcrumb-item>
             </a-breadcrumb>
-
+            <a-layout class="box-card">
             <a-layout-content class="precfg" v-if="shift">
                 <a-page-header
                     style="text-align: center;border: 1px solid rgb(235, 237, 240);top:0%;position: absolute;width: 100%;"
@@ -98,7 +98,7 @@
                     </div>
                 </a-layout-content>
             </a-layout-content>
-            
+            </a-layout>
         </a-layout-content>
     </a-layout>
 </template>

@@ -16,10 +16,10 @@
                     <a-button type="primary" @click="onWs">Submit</a-button>
                 </a-form-item> -->
 
-                <!-- <a-row :gutter="50"> -->
+                <a-row :gutter="48">
                     
-                    <a-form-item style="color:green;width:100%;" label="标准数据源">
-                        <a-upload-dragger
+                    <a-form-item style="color:green" label="标准数据源">
+                        <a-upload
                         :file-list="filelist1"
                         name="first"
                         class="first"   
@@ -30,39 +30,33 @@
                         :customRequest="file=>uploadForm1(file)"
                         accept=".csv"
                         >
-                            <div class="btn1">
+                            <a-button class="btn1">
                             <upload-outlined></upload-outlined>
                             Upload
-                          </div>
-                        </a-upload-dragger>
+                          </a-button>
+                        </a-upload>
                     </a-form-item>
-                <!-- </a-row>     -->
-                <!-- <a-row :gutter="50"> -->
-                    <a-form-item style="color:green;width:100%" label="异构数据源">
-                        <a-upload-dragger
+                </a-row>    
+                <a-row :gutter="48">
+                    <a-form-item style="color:green" label="异构数据源">
+                        <a-upload
                         :file-list="filelist2"
                         :multiple="true"
                         name="second"
                         class="second"   
-                        @change="handleChange2"
-                        @drop="handleDrop" 
+                        @change="handleChange2" 
                         :show-upload-list="{ showDownloadIcon: true, showRemoveIcon: true }"
                         :customRequest="file=>uploadForm2(file)"
                         accept=".csv"
-                        
                         >
-                        <p class="ant-upload-drag-icon">
-                            <inbox-outlined></inbox-outlined>
-                          </p>
-                          <p class="ant-upload-text">Click or drag file to this area to upload</p>
-                          <p class="ant-upload-hint">
-                            Support for a single or bulk upload. Strictly prohibit from uploading company data or other
-                            band files
-                          </p>
-                        </a-upload-dragger>
+                        <a-button class="btn2">
+                            <upload-outlined></upload-outlined>
+                            Upload
+                          </a-button>
+                        </a-upload>
                         
                     </a-form-item>
-                <!-- </a-row> -->
+                </a-row>
                 
                 <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;bottom: 15%;right:20%">
                     <a-button type="primary" @click="onSubmit">Submit</a-button>
@@ -79,7 +73,7 @@
     </div>
 </template>
 <script>
-import { LoadingOutlined,UploadOutlined,PlusOutlined,VerticalAlignTopOutlined,InboxOutlined} from '@ant-design/icons-vue';
+import { LoadingOutlined,UploadOutlined,PlusOutlined,VerticalAlignTopOutlined} from '@ant-design/icons-vue';
 import axios from 'axios';
 import FormData from 'form-data';
 
@@ -116,7 +110,6 @@ export default{
         PlusOutlined,
         UploadOutlined,
         VerticalAlignTopOutlined,
-        InboxOutlined,
     },
     methods: {
         formatDate(now)   {    
@@ -240,9 +233,7 @@ export default{
             this.formws.file2.push(filelist2.file) 
             console.log(this.formws.file2)
         },
-        handleDrop(e) {
-        console.log(e);
-        },
+
         // handleCancel: () => {
         //     this.previewVisible = false;
         //     this.previewTitle = '';
@@ -261,15 +252,4 @@ export default{
 }
 </script>
 <style lang="less">
-/*.second{
-    width: 100%;
-    background: rgba(255,255,255,0.6);
-    
-}*/
-.btn2{
-    width:100%;
-    background: rgba(255,255,255,0.6);
-    height: 300px;
-}
-
 </style>

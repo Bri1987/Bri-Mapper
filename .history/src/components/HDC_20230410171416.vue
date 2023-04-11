@@ -106,7 +106,6 @@ export default defineComponent({
     margin-bottom: 30px;
     height:90%;
     width:100%;
-    border-radius:5px;
-    padding:  24px 0;
+    border-radius:5px
   }
   </style>

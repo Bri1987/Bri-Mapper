@@ -97,8 +97,7 @@
                         </a-row>
                     </div>
                 </a-layout-content>
-            </a-layout-content>
-            
+
         </a-layout-content>
     </a-layout>
 </template>

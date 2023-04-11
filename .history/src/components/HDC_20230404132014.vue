@@ -8,7 +8,7 @@
             <a-breadcrumb-item>{{ itemname1 }}</a-breadcrumb-item>
 
           </a-breadcrumb>
-          <a-layout class="box-card">
+          <a-layout style="padding: 24px 0; background: rgba(255, 255, 255,0.6);height: 86%;width: 80%;left: 10%;position: absolute;">
             <a-layout-sider width="200" style="background: rgba(255, 255, 255,0.3)">
               <a-menu
                 v-model:selectedKeys="selectedKeys2"
@@ -101,12 +101,5 @@ export default defineComponent({
   float: right;
   margin: 16px 0 16px 24px;
   }
-  .box-card{
-    background: rgba(255,255,255,0.6);
-    margin-bottom: 30px;
-    height:90%;
-    width:100%;
-    border-radius:5px;
-    padding:  24px 0;
-  }
+
   </style>

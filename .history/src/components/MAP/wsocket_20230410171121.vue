@@ -240,7 +240,7 @@ export default{
             this.formws.file2.push(filelist2.file) 
             console.log(this.formws.file2)
         },
-        handleDrop(e) {
+        handleDrop(e)) {
         console.log(e);
         },
         // handleCancel: () => {
@@ -261,11 +261,11 @@ export default{
 }
 </script>
 <style lang="less">
-/*.second{
+.second{
     width: 100%;
     background: rgba(255,255,255,0.6);
     
-}*/
+}
 .btn2{
     width:100%;
     background: rgba(255,255,255,0.6);

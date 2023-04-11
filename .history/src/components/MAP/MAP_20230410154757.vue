@@ -14,7 +14,7 @@
                 v-model:selectedKeys="selectedKeys2"
                 v-model:openKeys="openKeys"
                 mode="inline"
-                style="margin-top:5px;height: 95%;background: rgba(255, 255, 255,0)"
+                style="margin-top:5px;height: 100%;background: rgba(255, 255, 255,0)"
               >
                 <a-menu-item key="1" @click="gotowsocket">多文件异步映射</a-menu-item>
                 <a-menu-item key="2" @click="gotoView">元数据描述对象可视化</a-menu-item> 
