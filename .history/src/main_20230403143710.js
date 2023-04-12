@@ -8,7 +8,6 @@ import 'element-plus/dist/index.css'
 import axios from 'axios'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import { createPinia } from 'pinia'
-import DataVVue3 from '@kjgl77/datav-vue3'
 
 import echarts from './utils/echarts';
 
@@ -26,5 +25,4 @@ app.use(pinia)
 app.use(router)
 app.use(Antd)
 app.use(Elem)
-app.use(DataVVue3)
 app.mount('#app')

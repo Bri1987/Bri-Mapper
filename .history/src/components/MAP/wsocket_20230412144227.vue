@@ -1,5 +1,5 @@
 <template>
-    <div class="websocket">
+    <div>
         <a-layout-header style="background: rgba(255, 255, 255, 0);">
             <a-typography-title :level="3" style="text-align: left;color:#1da57a; margin-top:20px;">
                 多文件异步映射
@@ -29,19 +29,16 @@
                         :show-upload-list="{ showDownloadIcon: true, showRemoveIcon: true }"
                         :customRequest="file=>uploadForm1(file)"
                         accept=".csv"
-                        style="background: rgba(255, 255, 255,0.5)"
                         >
-                            <div class="btn1" style="color: #1da57a;">
-                            <upload-outlined style="color: #1da57a;"></upload-outlined>
+                            <div class="btn1">
+                            <upload-outlined></upload-outlined>
                             Upload
                           </div>
                         </a-upload-dragger>
                     </a-form-item>
                 <!-- </a-row>     -->
                 <!-- <a-row :gutter="50"> -->
-                    
-                     <a-form-item style="color:green;width:100%" label="异构数据源">
-                    <div class="myItem">    
+                    <a-form-item style="color:green;width:100%" label="异构数据源">
                         <a-upload-dragger
                         :file-list="filelist2"
                         :multiple="true"
@@ -52,32 +49,21 @@
                         :show-upload-list="{ showDownloadIcon: true, showRemoveIcon: true }"
                         :customRequest="file=>uploadForm2(file)"
                         accept=".csv"
-                        style="background: rgba(255, 255, 255,0.5)"
+                        
                         >
                         <p class="ant-upload-drag-icon">
-                            <inbox-outlined style="color: #1da57a;"></inbox-outlined>
+                            <inbox-outlined></inbox-outlined>
                           </p>
-                          <p class="ant-upload-text" style="color: #1da57a;
-                          font-weight: lighter;">Click or drag file to this area to upload</p>
-                          <!-- <p class="ant-upload-hint">
+                          <p class="ant-upload-text">Click or drag file to this area to upload</p>
+                          <p class="ant-upload-hint">
                             Support for a single or bulk upload. Strictly prohibit from uploading company data or other
                             band files
-                          </p> -->
+                          </p>
                         </a-upload-dragger>
-                    </div>    
-                    </a-form-item>   
-                    
-                    
+                        
+                    </a-form-item>
                 <!-- </a-row> -->
-                <a-form-item style="left: 10%;" v-show="loading">
-                    <div small-bg>
-                        <dv-loading>
-                          <div color-white>
-                            Loading...
-                          </div>
-                        </dv-loading>
-                      </div>
-                </a-form-item >
+                
                 <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;">
                     <a-button type="primary" @click="onSubmit">Submit</a-button>
                 </a-form-item>
@@ -167,9 +153,8 @@ export default{
                 }
                 if (t.type === 'file_id'){
                     this.formws.file2.forEach(function (element, index, array) {
-                        console.log('flie2:',element)
+                        // console.log('flie2:',element)
                     });
-                    this.loading = false;
                 }
 
                 // 接收服务端数据时触发的回调函数
@@ -197,13 +182,12 @@ export default{
             
             this.formws.file2.forEach(function (element, index, array) {
                 form.append('file_lists', element)
-                // element.status='uploading'
+                element.status='uploading'
             });
             for (const [key, value] of form.entries()) {
                 console.log(`${key}: ${value}`);
                 console.log(value);
             }
-            this.loading = true;
             // console.log('file:'+form.has('file'))
             // this.visiable=false //测试
             this.$axios.post('http://localhost:8123/mapping/map', form, {
@@ -215,9 +199,8 @@ export default{
                 console.log(res)
                 if(res.status==200){
                     console.log(JSON.stringify(res.data));
-                    // this.loading = false;
-                    // this.flag = true;
-                    // this.handleChange2();
+                    this.flag = true;
+                    this.handleChange2();
                 }
             }).catch(err=>{
                 console.log(err)
@@ -240,14 +223,14 @@ export default{
         },
         handleChange2(info){
             console.log("handleChange2", info.file.name)
-            // if (this.flag) {
-            //     info.file.status = 'uploading';
-            //     console.log('++++++uploading')
-            //     this.flag=false
-            // } else {
-            //     info.file.status = 'done';
-            //     console.log('======done=====')
-            // }
+            if (this.flag) {
+                info.file.status = 'uploading';
+                console.log('++++++uploading')
+                this.flag=false
+            } else {
+                info.file.status = 'done';
+                console.log('======done=====')
+            }
             info.file.status = 'done'
             name = info.file.name.replace(/\.csv$/, '');
             info.file.url = 'http://localhost:8123/mapping/download/' + name
@@ -289,31 +272,20 @@ export default{
 }
 </script>
 <style lang="less">
-.websocket{
-    /*.second{
+/*.second{
     width: 100%;
     background: rgba(255,255,255,0.6);
     
-    }*/
-    /*.btn2{
-        width:100%;
-        background: rgba(255,255,255,0.6);
-        height: 300px;
-    }*/
-    .first,.ant-upload-drag{
+}*/
+/*.btn2{
+    width:100%;
+    background: rgba(255,255,255,0.6);
+    height: 300px;
+}*/
+.first,.ant-upload-drag{
     background: rgba(255, 255, 255,0.3);
-    }
-    .myItem{
-        color: red;
-        :global{
-            .ant-upload-drag{
-            color: rgb(1, 200, 97);
-            font-weight: lighter;
-            }
-        }
-        
-    }
+}
+.ant-upload-text{
 
 }
-
 </style>

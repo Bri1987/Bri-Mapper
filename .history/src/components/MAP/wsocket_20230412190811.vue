@@ -29,7 +29,6 @@
                         :show-upload-list="{ showDownloadIcon: true, showRemoveIcon: true }"
                         :customRequest="file=>uploadForm1(file)"
                         accept=".csv"
-                        style="background: rgba(255, 255, 255,0.5)"
                         >
                             <div class="btn1" style="color: #1da57a;">
                             <upload-outlined style="color: #1da57a;"></upload-outlined>

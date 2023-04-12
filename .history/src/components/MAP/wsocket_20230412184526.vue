@@ -29,7 +29,6 @@
                         :show-upload-list="{ showDownloadIcon: true, showRemoveIcon: true }"
                         :customRequest="file=>uploadForm1(file)"
                         accept=".csv"
-                        style="background: rgba(255, 255, 255,0.5)"
                         >
                             <div class="btn1" style="color: #1da57a;">
                             <upload-outlined style="color: #1da57a;"></upload-outlined>
@@ -52,7 +51,7 @@
                         :show-upload-list="{ showDownloadIcon: true, showRemoveIcon: true }"
                         :customRequest="file=>uploadForm2(file)"
                         accept=".csv"
-                        style="background: rgba(255, 255, 255,0.5)"
+                        
                         >
                         <p class="ant-upload-drag-icon">
                             <inbox-outlined style="color: #1da57a;"></inbox-outlined>
@@ -288,18 +287,18 @@ export default{
     }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .websocket{
     /*.second{
     width: 100%;
     background: rgba(255,255,255,0.6);
     
-    }*/
-    /*.btn2{
-        width:100%;
-        background: rgba(255,255,255,0.6);
-        height: 300px;
-    }*/
+}*/
+/*.btn2{
+    width:100%;
+    background: rgba(255,255,255,0.6);
+    height: 300px;
+}*/
     .first,.ant-upload-drag{
     background: rgba(255, 255, 255,0.3);
     }

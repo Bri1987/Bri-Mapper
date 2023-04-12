@@ -6,7 +6,7 @@ export default{
     props: {
       colors: {
         type: Array,
-        default: () => ['#5ac1ed', '#56b3a0', '#158479']
+        default: () => ['#4CB1EF', '#424959', '#FF4B44']
         // default: () => ['#0b0b04','#66a12b','#bae33f','#66a12b','#0b0b04']
       },
       triangleSize: {
