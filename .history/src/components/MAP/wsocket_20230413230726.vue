@@ -196,6 +196,11 @@ export default{
             this.onWs();
 
             await this.delay(2000);
+            // const timeoutID = setTimeout(() => {
+            // console.log('------wait connecting--------');
+            // }, 5000);
+            // // 取消定时器
+            // clearTimeout(timeoutID);
 
             const form = new FormData()
             form.append('sessionId', this.formws.sessionid)

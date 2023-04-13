@@ -189,14 +189,14 @@ export default{
                 // dispatch('handlerWSError', e)
             });
         },
-        delay(ms) {
-        return new Promise((resolve) => setTimeout(resolve, ms));
-        },
-        async onSubmit() {
+        onSubmit() {
             this.onWs();
+            const timeoutID = setTimeout(() => {
+            console.log('This message will not be displayed.');
+            }, 5000);
 
-            await this.delay(2000);
-
+            // 取消定时器
+            clearTimeout(timeoutID);
             const form = new FormData()
             form.append('sessionId', this.formws.sessionid)
             form.append('file', this.formws.file1)
