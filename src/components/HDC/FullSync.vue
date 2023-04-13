@@ -85,7 +85,7 @@
                                         {{ data.科技平台服务资源名称}}
                                     </template>
                                     <a-list>
-                                        <a-list-item v-for="(value,key,indix) in data" :key="index">
+                                        <a-list-item v-for="(value,key,indix) in data" :key="index" style="font-size:small">
                                             {{ key }}:{{ value }}
                                         </a-list-item>
                                     </a-list>
@@ -99,12 +99,12 @@
 </template>
   
 <script>
-import { LoadingOutlined,PlusOutlined,VerticalAlignTopOutlined,CloudSyncOutlined,CloseCircleOutlined} from '@ant-design/icons-vue';
+import { LoadingOutlined,PlusOutlined,VerticalAlignTopOutlined,CloudSyncOutlined,CloseCircleOutlined,HeatMapOutlined} from '@ant-design/icons-vue';
 import { defineComponent, reactive, toRaw } from 'vue';
 import axios from 'axios'
 export default{
     components:{
-        PlusOutlined,LoadingOutlined,VerticalAlignTopOutlined,CloudSyncOutlined,CloseCircleOutlined
+        PlusOutlined,LoadingOutlined,VerticalAlignTopOutlined,CloudSyncOutlined,CloseCircleOutlined,HeatMapOutlined
     },
     data(){
         return {
@@ -199,6 +199,7 @@ export default{
     left:0%;
     padding: 0%;
      background-color: rgba(187,187,187,0);
+     background-color:rgb(223, 223, 223);
     /*background: rgba(255, 255, 255,0.6) linear-gradient(70deg, #488cba, #909ff3, #b375dc);*/
 }
 .exit{
@@ -224,6 +225,7 @@ export default{
 }
 .wholecards{
     border-radius: 5%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 .wholecards:hover{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);

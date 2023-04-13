@@ -49,7 +49,7 @@ export default{
             this.thisfile=file.file
             var form=new FormData()
             form.append('file',this.thisfile)
-            this.$axios.post("http://localhost:8123/function/visualize",form)
+            this.$axios.post("http://localhost:8121/function/visualize",form)
             .then(res=>{
                 console.log(res)
                 if(res.status==200)

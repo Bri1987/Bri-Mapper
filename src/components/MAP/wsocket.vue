@@ -9,7 +9,7 @@
         <a-layout-content style="margin:0 50px;font-size: larger;font-weight: 550;" v-if="visiable">
             <br>
             <a-form :model="formws">
-                <a-form-item label="url" >
+                <a-form-item label="url" style="margin-bottom: 60px;" >
                     <a-input v-model:value="formws.url"/>
                 </a-form-item>
                 <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;right:20%">
@@ -18,7 +18,7 @@
 
                 <a-row :gutter="48">
                     
-                    <a-form-item style="color:green" label="标准数据源">
+                    <a-form-item style="color:green;;margin-bottom: 60px;" label="标准数据源">
                         <a-upload
                         :file-list="filelist1"
                         name="first"
@@ -182,7 +182,7 @@ export default{
             }
             // console.log('file:'+form.has('file'))
             // this.visiable=false //测试
-            this.$axios.post('http://localhost:8123/mapping/map', form, {
+            this.$axios.post('http://localhost:8121/mapping/map', form, {
                 "Content-Type": "multipart/form-data;charset=utf-8",
                 'Host': 'localhost:8123', 
                 'Connection': 'keep-alive',
@@ -215,7 +215,7 @@ export default{
             console.log("handleChange2", info.file.name)
             info.file.status = 'done'
             name = info.file.name.replace(/\.csv$/, '');
-            info.file.url = 'http://localhost:8123/mapping/download/' + name
+            info.file.url = 'http://localhost:8121/mapping/download/' + name
             console.log(info.file.url)
             // if(info.file.status==='uploading') {
             //     this.loading = true;
