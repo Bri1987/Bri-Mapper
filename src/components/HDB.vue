@@ -240,8 +240,9 @@ p{
 }
 .aftercfg{
     padding: 24px 0; 
-    background: rgba(255, 255, 255,0.6) linear-gradient(90deg, #488cba, #909ff3, #b375dc);
-    height: 90%;width: 90%;left: 5%;position: absolute;
+    /*background: rgba(255, 255, 255,0.6) linear-gradient(90deg, #488cba, #909ff3, #b375dc);*/
+    background: rgba(255, 255, 255,0.6);
+    height: 86%;width: 80%;left: 10%;position: absolute;
 }
 
 </style>

@@ -2,7 +2,7 @@
   <div>
     <a-layout>
       <a-page-header
-        style="text-align: center; border: 1px solid rgb(235, 237, 240)"
+        style="text-align: center; border: 1px solid rgb(235, 237, 240);background:rgba(235, 237, 240,0.6)"
         title=">对象可视化"
         sub-title="请先上传元数据对象"
       />
@@ -14,7 +14,7 @@
       :customRequest="file=>uploadFile1(file)"
       accept=".csv"
     >
-      <a-button style="position:absolute;right:10%;top:16%;color:white;background:#1da57a">
+      <a-button style="position:absolute;right:10%;top:10%;color:white;background:#1da57a">
         <upload-outlined></upload-outlined>
         Upload
       </a-button>
@@ -49,7 +49,7 @@ export default{
             this.thisfile=file.file
             var form=new FormData()
             form.append('file',this.thisfile)
-            this.$axios.post("http://localhost:8123/function/visualize",form)
+            this.$axios.post("http://localhost:8121/function/visualize",form)
             .then(res=>{
                 console.log(res)
                 if(res.status==200)
@@ -139,8 +139,8 @@ export default{
 <style scoped>
 .bingtu{
     position: absolute;
-    height: 60%;
-    width: 70%;
+    height: 70%;
+    width: 73%;
     background-color: rgba(255,255,255,0.6);
 }
 .emptyStatus{
