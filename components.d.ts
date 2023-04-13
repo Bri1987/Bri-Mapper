@@ -35,6 +35,7 @@ declare module '@vue/runtime-core' {
     ATextarea: typeof import('ant-design-vue/es')['Textarea']
     ATypographyTitle: typeof import('ant-design-vue/es')['TypographyTitle']
     AUpload: typeof import('ant-design-vue/es')['Upload']
+    AUploadDragger: typeof import('ant-design-vue/es')['UploadDragger']
     Bcg1: typeof import('./src/components/bcg1.vue')['default']
     copy: typeof import('./src/components/MAP/wsocket copy.vue')['default']
     FirstTime: typeof import('./src/components/HDC/FirstTime.vue')['default']

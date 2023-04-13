@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="websocket">
         <a-layout-header style="background: rgba(255, 255, 255, 0);">
-            <a-typography-title :level="3" style="text-align: left;color:#1da57a">
+            <a-typography-title :level="3" style="text-align: left;color:#1da57a; margin-top:20px;">
                 多文件异步映射
             </a-typography-title>
             <a-divider style="border-color: #7cb305" dashed />
@@ -9,17 +9,17 @@
         <a-layout-content style="margin:0 50px;font-size: larger;font-weight: 550;" v-if="visiable">
             <br>
             <a-form :model="formws">
-                <a-form-item label="url" style="margin-bottom: 60px;" >
+                <!-- <a-form-item label="url" >
                     <a-input v-model:value="formws.url"/>
                 </a-form-item>
                 <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;right:20%">
                     <a-button type="primary" @click="onWs">Submit</a-button>
-                </a-form-item>
+                </a-form-item> -->
 
-                <a-row :gutter="48">
+                <!-- <a-row :gutter="50"> -->
                     
-                    <a-form-item style="color:green;;margin-bottom: 60px;" label="标准数据源">
-                        <a-upload
+                    <a-form-item style="color:green;width:100%;" label="标准数据源">
+                        <a-upload-dragger
                         :file-list="filelist1"
                         name="first"
                         class="first"   
@@ -29,36 +29,56 @@
                         :show-upload-list="{ showDownloadIcon: true, showRemoveIcon: true }"
                         :customRequest="file=>uploadForm1(file)"
                         accept=".csv"
+                        style="background: rgba(255, 255, 255,0.5)"
                         >
-                            <a-button>
-                            <upload-outlined></upload-outlined>
+                            <div class="btn1" style="color: #1da57a;">
+                            <upload-outlined style="color: #1da57a;"></upload-outlined>
                             Upload
-                          </a-button>
-                        </a-upload>
+                          </div>
+                        </a-upload-dragger>
                     </a-form-item>
-                </a-row>    
-                <a-row :gutter="48">
-                    <a-form-item style="color:green" label="异构数据源">
-                        <a-upload
+                <!-- </a-row>     -->
+                <!-- <a-row :gutter="50"> -->
+                    
+                     <a-form-item style="color:green;width:100%" label="异构数据源">
+                    <div class="myItem">    
+                        <a-upload-dragger
                         :file-list="filelist2"
                         :multiple="true"
                         name="second"
                         class="second"   
-                        @change="handleChange2" 
+                        @change="handleChange2"
+                        @drop="handleDrop" 
                         :show-upload-list="{ showDownloadIcon: true, showRemoveIcon: true }"
                         :customRequest="file=>uploadForm2(file)"
                         accept=".csv"
+                        style="background: rgba(255, 255, 255,0.5)"
                         >
-                        <a-button>
-                            <upload-outlined></upload-outlined>
-                            Upload
-                          </a-button>
-                        </a-upload>
-                        
-                    </a-form-item>
-                </a-row>
-                
-                <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;bottom: 15%;right:20%">
+                        <p class="ant-upload-drag-icon">
+                            <inbox-outlined style="color: #1da57a;"></inbox-outlined>
+                          </p>
+                          <p class="ant-upload-text" style="color: #1da57a;
+                          font-weight: lighter;">Click or drag file to this area to upload</p>
+                          <!-- <p class="ant-upload-hint">
+                            Support for a single or bulk upload. Strictly prohibit from uploading company data or other
+                            band files
+                          </p> -->
+                        </a-upload-dragger>
+                    </div>    
+                    </a-form-item>   
+                    
+                    
+                <!-- </a-row> -->
+                <a-form-item style="left: 10%;" v-show="loading">
+                    <div small-bg>
+                        <dv-loading>
+                          <div color-white>
+                            Loading...
+                          </div>
+                        </dv-loading>
+                      </div>
+                </a-form-item >
+                <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;">
                     <a-button type="primary" @click="onSubmit">Submit</a-button>
                 </a-form-item>
             </a-form>
@@ -73,7 +93,7 @@
     </div>
 </template>
 <script>
-import { LoadingOutlined,UploadOutlined,PlusOutlined,VerticalAlignTopOutlined} from '@ant-design/icons-vue';
+import { LoadingOutlined,UploadOutlined,PlusOutlined,VerticalAlignTopOutlined,InboxOutlined} from '@ant-design/icons-vue';
 import axios from 'axios';
 import FormData from 'form-data';
 
@@ -84,7 +104,7 @@ export default{
             visiable: true,
             
             formws: {
-                url: '',
+                url: 'ws://localhost:8123/ws/session',
                 sessionid:'',
                 file1: {},
                 file2:[], 
@@ -110,6 +130,7 @@ export default{
         PlusOutlined,
         UploadOutlined,
         VerticalAlignTopOutlined,
+        InboxOutlined,
     },
     methods: {
         formatDate(now)   {    
@@ -138,7 +159,7 @@ export default{
                 
                 console.log('服务端回应' + date + e.data);
                 var t=JSON.parse(e.data)
-                console.log(t.value);
+                // console.log(t.value);
 
                 if (t.type === 'sessionId'){
                     this.formws.sessionid = t.value;
@@ -146,8 +167,9 @@ export default{
                 }
                 if (t.type === 'file_id'){
                     this.formws.file2.forEach(function (element, index, array) {
-                        // console.log('flie2:',element)
+                        console.log('flie2:',element)
                     });
+                    this.loading = false;
                 }
 
                 // 接收服务端数据时触发的回调函数
@@ -168,18 +190,20 @@ export default{
             });
         },
         onSubmit() {
-
+            this.onWs();
             const form = new FormData()
             form.append('sessionId', this.formws.sessionid)
             form.append('file', this.formws.file1)
             
             this.formws.file2.forEach(function (element, index, array) {
                 form.append('file_lists', element)
+                // element.status='uploading'
             });
             for (const [key, value] of form.entries()) {
                 console.log(`${key}: ${value}`);
                 console.log(value);
             }
+            this.loading = true;
             // console.log('file:'+form.has('file'))
             // this.visiable=false //测试
             this.$axios.post('http://localhost:8121/mapping/map', form, {
@@ -191,8 +215,9 @@ export default{
                 console.log(res)
                 if(res.status==200){
                     console.log(JSON.stringify(res.data));
+                    // this.loading = false;
                     // this.flag = true;
-                    // this.handleChange1
+                    // this.handleChange2();
                 }
             }).catch(err=>{
                 console.log(err)
@@ -200,11 +225,13 @@ export default{
         },
         handleChange1(info) {
             console.log("handleChange1", info.file);
-            info.file.status = 'done'
-            
             // if (this.flag) {
             //     info.file.status = 'uploading';
+            //     console.log('++++++uploading')
             //     this.flag=false
+            // } else {
+                info.file.status = 'done';
+                // console.log('======done=====')
             // }
             // if (info.file.status === 'uploading') {
             //     console.log('formws.file1 uploading');
@@ -213,6 +240,14 @@ export default{
         },
         handleChange2(info){
             console.log("handleChange2", info.file.name)
+            // if (this.flag) {
+            //     info.file.status = 'uploading';
+            //     console.log('++++++uploading')
+            //     this.flag=false
+            // } else {
+            //     info.file.status = 'done';
+            //     console.log('======done=====')
+            // }
             info.file.status = 'done'
             name = info.file.name.replace(/\.csv$/, '');
             info.file.url = 'http://localhost:8121/mapping/download/' + name
@@ -233,7 +268,9 @@ export default{
             this.formws.file2.push(filelist2.file) 
             console.log(this.formws.file2)
         },
-
+        handleDrop(e) {
+        console.log(e);
+        },
         // handleCancel: () => {
         //     this.previewVisible = false;
         //     this.previewTitle = '';
@@ -251,4 +288,32 @@ export default{
     }
 }
 </script>
-<style></style>
+<style lang="less">
+.websocket{
+    /*.second{
+    width: 100%;
+    background: rgba(255,255,255,0.6);
+    
+    }*/
+    /*.btn2{
+        width:100%;
+        background: rgba(255,255,255,0.6);
+        height: 300px;
+    }*/
+    .first,.ant-upload-drag{
+    background: rgba(255, 255, 255,0.3);
+    }
+    .myItem{
+        color: red;
+        :global{
+            .ant-upload-drag{
+            color: rgb(1, 200, 97);
+            font-weight: lighter;
+            }
+        }
+        
+    }
+
+}
+
+</style>
