@@ -71,8 +71,9 @@ public class DatasourcesController {
     @GetMapping("/listpage")
     public JsonData listByPage(@RequestParam(required = false) int pagenum,@RequestParam(required = false) int pagesize)
     {
+        List<DatasourcesDO> list_all=dataSourceService.listAll();
         List<DatasourcesDO> list=dataSourceService.listByPage(pagenum,pagesize);
-        return JsonData.buildSuccess(list);
+        return JsonData.buildSuccess(list,list_all.size());
     }
 }
 
