@@ -48,7 +48,9 @@ export function editUsersFromId(data:editUserList) {
   return myRequest.request({
     url: `update`,
     method:'post',
-    data,
+    data:{
+      dbname,ip
+    }
   })
 }
 // export function changeUserStatus(uId:number,type:boolean) {

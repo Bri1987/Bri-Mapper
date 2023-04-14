@@ -47,8 +47,7 @@ export const userStore = defineStore('user', {
         console.log(res)
 				 ElMessage.success('获取用户列表成功')
          this.users = res.data.data
-        this.total = Number(res.data.msg)
-        console.log(this.total)
+        //  this.total = res.data.total
         
       }else {
 				ElMessage.error('获取用户列表失败')

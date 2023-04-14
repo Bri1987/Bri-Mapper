@@ -10,7 +10,8 @@ export  function useAddUser (pageSize: number, pageNum: number) {
     password: '',
     dtype:null,
     dbname: '',
-    ip: ''
+    ip: '',
+    id:null,
   })
  // 添加用户的规则
   const addUserRules = reactive({
@@ -34,6 +35,11 @@ export  function useAddUser (pageSize: number, pageNum: number) {
     ip: [
       { required: true, message: '请输入ip', trigger: 'blur' },
       { min: 1, max: 15, message: '请输入ip', trigger: 'blur' },
+     
+    ],
+    id: [
+      { required: true, message: '请输入id', trigger: 'blur' },
+      { min: 1, max: 15, message: '请输入id', trigger: 'blur' },
      
     ]
   })

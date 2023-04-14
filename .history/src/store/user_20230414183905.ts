@@ -16,8 +16,7 @@ interface addUserList {
 }
 interface editUserList {
   id: number,
-  user: string,
-  password?:string,
+  user?:string,
   dbname?:string,
   ip?: string,
   dtype?:number
@@ -35,8 +34,8 @@ export const userStore = defineStore('user', {
   state: () => {
     return {
       users:[] as any[],
-      total:15,
-      // roles:[] as any[]
+      total:-1,
+      roles:[] as any[]
     }
   },
   actions: {
@@ -44,11 +43,10 @@ export const userStore = defineStore('user', {
       const res: any = await getUsers(value)
       console.log(111)
       if (res.status === 200) {
-        console.log(res)
+        // console.log(res)
 				 ElMessage.success('获取用户列表成功')
          this.users = res.data.data
-        this.total = Number(res.data.msg)
-        console.log(this.total)
+        //  this.total = res.data.total
         
       }else {
 				ElMessage.error('获取用户列表失败')
@@ -84,7 +82,7 @@ export const userStore = defineStore('user', {
      }
     },
     async editUsersFromId(data:editUserList){
-      const res:any = await editUsersFromId(data)
+      const res:any = await editUsersFromId(data.id,data.dbname,data.ip)
       if(res.status === 200){
         ElMessage.success('更新用户成功')
      }else {

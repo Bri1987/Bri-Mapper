@@ -24,7 +24,7 @@ export  function useAddUser (pageSize: number, pageNum: number) {
     ],
     dtype: [
       { required: true, message: '请输入数据源名称', trigger: 'blur' },
-      { max: 20, message: '数据源名称必须在20位之内', trigger: 'blur' }
+      { min: 1, max: 20, message: '数据源名称必须在0到20位之间', trigger: 'blur' }
     ],
     dbname: [
       { required: true, message: '请输入数据库名称', trigger: 'blur' },

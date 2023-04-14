@@ -12,14 +12,6 @@ interface addUserList {
   ip: string,
   id:number,
 }
-interface editUserList {
-  id: number,
-  user: string,
-  password?:string,
-  dbname?:string,
-  ip?: string,
-  dtype?:number
-}
 export function getUsers(data:userList) {
   return myRequest.request({
     url: '/listpage',
@@ -44,11 +36,13 @@ export function deleteUsersFromId(id:number) {
     method:'delete'
   })
 }
-export function editUsersFromId(data:editUserList) {
+export function editUsersFromId(id:number,dbname?:string,ip?:string) {
   return myRequest.request({
     url: `update`,
     method:'post',
-    data,
+    data:{
+      dbname,ip
+    }
   })
 }
 // export function changeUserStatus(uId:number,type:boolean) {

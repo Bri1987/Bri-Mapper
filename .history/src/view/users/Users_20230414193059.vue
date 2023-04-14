@@ -63,15 +63,14 @@
         </el-table>
         <!-- 分页 -->
         <el-pagination
-          v-model:current-page="pageNum"
+          v-model:currentPage="pageNum"
           v-model:page-size="pageSize"
           :page-sizes="[10, 15, 20]"
-          layout="total,sizes, prev, pager, next"
+          layout="total, sizes, prev, pager, next"
           :total="total"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
           class="pagination"
-          :aria-disabled="false"
         />
       </el-card>
       <!-- 添加数据源对话框 -->
@@ -151,7 +150,7 @@ import { useAddUser } from './hooks/useAddUser'
 import { useEditUser } from './hooks/useEditUser'
 
 const store = userStore()
-const { users, total } = storeToRefs(store)
+const { users, total, roles } = storeToRefs(store)
 let pageSize = ref(10) //每页显示条数
 let pageNum = ref(1) //当前页码
 const { addUserdialogVisible, addUserFormRef, addUserform, addUserRules, addUser, addDialogClose } =
@@ -209,9 +208,9 @@ const deleteUser = (id: number, user: string) => {
 //重置
 const resetForm = () => {
   query.value = ''
-  store.getUsers({ pagenum: 1, pagesize: 10 })
+  store.getUsers({ pagenum: 1, pagesize: 20 })
   pageNum.value = 1
-  pageSize.value = 10
+  pageSize.value = 20
 }
 onMounted(() => {
   store.getUsers({ pagenum: 1, pagesize: 10 })

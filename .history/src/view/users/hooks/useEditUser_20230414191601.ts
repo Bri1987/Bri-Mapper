@@ -21,7 +21,7 @@ export function useEditUser(pageSize: number, pageNum: number) {
     ],
     dtype: [
       { required: true, message: '请输入数据源类型', trigger: 'blur' },
-      { max: 20, message: '数据源类型必须在20位之内', trigger: 'blur' }
+      { min: -1, max: 20, message: '数据源类型必须在20位之内', trigger: 'blur' }
     ],
     ip: [
       { required: true, message: '请输入ip', trigger: 'blur' },

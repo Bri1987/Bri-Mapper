@@ -44,7 +44,7 @@
                   :icon="EditPen"
                   :underline="false"
                   @click="
-                    editGetUser(scope.row.id, scope.row.ip, scope.row.user, scope.row.dtype,scope.row.dbname)
+                    editGetUser(scope.row.user, scope.row.dbname, scope.row.ip, scope.row.id,scope.row.dtype)
                   "
                   >编辑</el-link
                 >
@@ -63,15 +63,14 @@
         </el-table>
         <!-- 分页 -->
         <el-pagination
-          v-model:current-page="pageNum"
+          v-model:currentPage="pageNum"
           v-model:page-size="pageSize"
           :page-sizes="[10, 15, 20]"
-          layout="total,sizes, prev, pager, next"
+          layout="total, sizes, prev, pager, next"
           :total="total"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
           class="pagination"
-          :aria-disabled="false"
         />
       </el-card>
       <!-- 添加数据源对话框 -->
@@ -109,17 +108,11 @@
           :rules="editUserRules"
           ref="editUserFormRef"
         >
-          <el-form-item label="id" prop="id">
-            <el-input v-model="editUserform.id" disabled/>
-          </el-form-item>
         <el-form-item label="ip" prop="ip">
           <el-input v-model="editUserform.ip" />
         </el-form-item>
           <el-form-item label="用户名" prop="user">
-            <el-input v-model="editUserform.user"/>
-          </el-form-item>
-          <el-form-item label="密码" prop="password">
-            <el-input v-model="editUserform.password"/>
+            <el-input v-model="editUserform.user" disabled />
           </el-form-item>
           <el-form-item label="数据源类型" prop="dtype">
             <el-input v-model="editUserform.dtype" />
@@ -151,7 +144,7 @@ import { useAddUser } from './hooks/useAddUser'
 import { useEditUser } from './hooks/useEditUser'
 
 const store = userStore()
-const { users, total } = storeToRefs(store)
+const { users, total, roles } = storeToRefs(store)
 let pageSize = ref(10) //每页显示条数
 let pageNum = ref(1) //当前页码
 const { addUserdialogVisible, addUserFormRef, addUserform, addUserRules, addUser, addDialogClose } =
@@ -211,7 +204,7 @@ const resetForm = () => {
   query.value = ''
   store.getUsers({ pagenum: 1, pagesize: 10 })
   pageNum.value = 1
-  pageSize.value = 10
+  pageSize.value = 20
 }
 onMounted(() => {
   store.getUsers({ pagenum: 1, pagesize: 10 })

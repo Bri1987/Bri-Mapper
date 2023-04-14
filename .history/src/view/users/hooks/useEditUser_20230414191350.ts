@@ -17,11 +17,11 @@ export function useEditUser(pageSize: number, pageNum: number) {
   const editUserRules = reactive({
     dbname: [
       { required: true, message: '请输入数据库名称', trigger: 'blur' },
-      { min: 0, max: 30, message: '请输入正确的数据库名称', trigger: 'blur' },
+      { min: 1, max: 30, message: '请输入正确的数据库名称', trigger: 'blur' },
     ],
     dtype: [
-      { required: true, message: '请输入数据源类型', trigger: 'blur' },
-      { max: 20, message: '数据源类型必须在20位之内', trigger: 'blur' }
+      { required: true, message: '请输入数据源名称', trigger: 'blur' },
+      { min: 0, max: 20, message: '数据源名称必须在1到20位之间', trigger: 'blur' }
     ],
     ip: [
       { required: true, message: '请输入ip', trigger: 'blur' },
