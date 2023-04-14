@@ -104,7 +104,7 @@ export default{
             visiable: true,
             
             formws: {
-                url: 'ws://localhost:8123/ws/session',
+                url: 'ws://localhost:8121/ws/session',
                 sessionid:'',
                 file1: {},
                 file2:[], 
