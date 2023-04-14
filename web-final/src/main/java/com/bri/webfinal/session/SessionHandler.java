@@ -35,6 +35,7 @@ public class SessionHandler extends TextWebSocketHandler {
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status)  {
         System.out.println("关闭");
+        System.out.println(session.getId());
         sessionService.destroy(session.getId());
     }
 

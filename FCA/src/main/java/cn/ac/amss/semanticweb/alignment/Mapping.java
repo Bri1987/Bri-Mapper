@@ -126,14 +126,15 @@ public class Mapping implements Iterable<MappingCell>
   }
 
   public final String getContent(int indent) {
-    MappingCell.setIndent(indent);
-    if (m_mapping == null) return "";
-
-    StringBuilder content = new StringBuilder();
-    for (MappingCell m : m_mapping) {
-      content.append(m.getMappingCellElement());
-    }
-    return content.toString();
+//    MappingCell.setIndent(indent);
+//    if (m_mapping == null) return "";
+//
+//    StringBuilder content = new StringBuilder();
+//    for (MappingCell m : m_mapping) {
+//      content.append(m.getMappingCellElement());
+//    }
+//    return content.toString();
+    return null;
   }
 
   public final void clear() {

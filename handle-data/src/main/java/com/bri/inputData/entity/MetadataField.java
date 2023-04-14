@@ -48,5 +48,8 @@ public class MetadataField {
     // 值域
     private String value;
 
+    //相似度
+    private double confi;
+
 }
 

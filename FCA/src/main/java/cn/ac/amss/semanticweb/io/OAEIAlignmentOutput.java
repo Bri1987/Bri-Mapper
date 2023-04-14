@@ -20,14 +20,16 @@ public class OAEIAlignmentOutput extends Element
   }
 
   private final String printXmlHead(String version, String encoding) {
-    return String.format("<?xml version=\"%s\" encoding=\"%s\"?>%n", version, encoding);
+    //return String.format("<?xml version=\"%s\" encoding=\"%s\"?>%n", version, encoding);
+    return null;
   }
 
   private final String printRDFHeader() {
-    return String.format("<rdf:RDF xmlns=\"%s\"%n  xmlns:rdf=\"%s\"%n  xmlns:xsd=\"%s\">%n",
-        "http://knowledgeweb.semanticweb.org/heterogeneity/alignment",
-        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-        "http://www.w3.org/2001/XMLSchema#");
+//    return String.format("<rdf:RDF xmlns=\"%s\"%n  xmlns:rdf=\"%s\"%n  xmlns:xsd=\"%s\">%n",
+//        "http://knowledgeweb.semanticweb.org/heterogeneity/alignment",
+//        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+//        "http://www.w3.org/2001/XMLSchema#");
+    return null;
   }
 
   private final String printRDFTail() {
@@ -35,27 +37,29 @@ public class OAEIAlignmentOutput extends Element
   }
 
   private final String getAlignmentContent(int indent) {
-    StringBuilder content = new StringBuilder();
+//    StringBuilder content = new StringBuilder();
+//
+//    content.append(getElementWithIndentln(startElement("Alignment"), indent));
+//
+//    content.append(getElementWithIndentln(getElementFormat("xml", "", "yes"), indent + 1));
+//    content.append(getElementWithIndentln(getElementFormat("level", "", "0"), indent + 1));
+//    content.append(getElementWithIndentln(getElementFormat("type", "", "??"), indent + 1));
+//
+//    content.append(m_alignment.getContent(indent + 1));
+//    content.append(getElementWithIndentln(endElement("Alignment"), indent));
 
-    content.append(getElementWithIndentln(startElement("Alignment"), indent));
-
-    content.append(getElementWithIndentln(getElementFormat("xml", "", "yes"), indent + 1));
-    content.append(getElementWithIndentln(getElementFormat("level", "", "0"), indent + 1));
-    content.append(getElementWithIndentln(getElementFormat("type", "", "??"), indent + 1));
-
-    content.append(m_alignment.getContent(indent + 1));
-    content.append(getElementWithIndentln(endElement("Alignment"), indent));
-
-    return content.toString();
+//    return content.toString();
+    return null;
   }
 
   public final String getContent() {
-    StringBuilder content = new StringBuilder();
-    content.append(printXmlHead("1.0", "utf-8"));
-    content.append(printRDFHeader());
-    content.append(getAlignmentContent(0));
-    content.append(printRDFTail());
-    return content.toString();
+//    StringBuilder content = new StringBuilder();
+//    content.append(printXmlHead("1.0", "utf-8"));
+//    content.append(printRDFHeader());
+//    content.append(getAlignmentContent(0));
+//    content.append(printRDFTail());
+//    return content.toString();
+    return null;
   }
 
   public final void write() throws Exception {

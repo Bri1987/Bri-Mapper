@@ -130,7 +130,7 @@ public class map2xml
 
                 Element child_description= doc.createElement("value");
                 child_description.setAttribute("name","定义");
-                child_description.setTextContent(meta.getUnit());
+                child_description.setTextContent(meta.getDescription());
                 instance.appendChild(child_description);
 
                 Element child_reference= doc.createElement("value");
@@ -208,7 +208,7 @@ public class map2xml
 
                 Element child_description2= doc.createElement("value");
                 child_description2.setAttribute("name","定义");
-                child_description2.setTextContent(source.getUnit());
+                child_description2.setTextContent(source.getDescription());
                 instance.appendChild(child_description2);
 
                 Element child_reference2= doc.createElement("value");
@@ -230,6 +230,10 @@ public class map2xml
                 child_category2.setAttribute("name","所属分类");
                 child_category2.setTextContent(source.getCategory());
                 instance.appendChild(child_category2);
+
+//                Element child_confi= doc.createElement("similarity");
+//                child_confi.setTextContent(Double.toString(source.getConfi()));
+//                instance.appendChild(child_confi);
             });
 
         });

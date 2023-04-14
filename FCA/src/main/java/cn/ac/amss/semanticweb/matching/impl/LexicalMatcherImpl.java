@@ -334,7 +334,7 @@ public class LexicalMatcherImpl extends AbstractMatcherByFCA implements LexicalM
     Set<String> tokensBuffer;
 
     //加载自定义词典
-    //Path path = FileSystems.getDefault().getPath("./Bri-Mapper\\FCA\\src\\main\\java\\cn\\ac\\amss\\semanticweb\\matching\\impl\\resources", "dict.txt");
+    //Path path = FileSystems.getDefault().getPath("D:\\A39\\new\\Bri-Mapper\\FCA\\src\\main\\java\\cn\\ac\\amss\\semanticweb\\matching\\impl\\resources", "dict.txt");
     //WordDictionary.getInstance().loadUserDict(path);
     JiebaSegmenter segmenter = new JiebaSegmenter();
 

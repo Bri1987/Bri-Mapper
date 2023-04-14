@@ -120,7 +120,8 @@ public class MappingCell extends Relation
   }
 
   public final String getMappingCellElement() {
-    return getMappingCellElementWithIndent(m_indent, getEntityElement1(), getEntityElement2(), getRelationElement(), getMeasureElement());
+    //return getMappingCellElementWithIndent(m_indent, getEntityElement1(), getEntityElement2(), getRelationElement(), getMeasureElement());
+    return null;
   }
 
   @Override
