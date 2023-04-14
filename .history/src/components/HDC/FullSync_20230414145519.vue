@@ -198,7 +198,7 @@ export default{
     top:0%;
     left:0%;
     padding: 0%;
-     background-color: rgba(254, 253, 253, 0);
+     background-color: rgba(228, 60, 60, 0.688);
      background-color:rgba(177, 231, 218, 0.981);
     /*background: rgba(255, 255, 255,0.6) linear-gradient(70deg, #488cba, #909ff3, #b375dc);*/
 }

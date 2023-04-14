@@ -227,7 +227,7 @@ p{
 }
 .wholecards{
     border-radius: 5%;
-    background-color: rgba(254, 253, 253, 0.832);
+    background-color: rgba(254, 253, 253, 0.793);
 }
 .wholecards:hover{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
