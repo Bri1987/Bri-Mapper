@@ -9,7 +9,7 @@
                 </a-list-item>
             </a-list>
         </a-card>
-        <a-layout>
+        <a-layout style="background: rgba(255, 255, 255, 0);">
             <a-input-search
                 v-model:value="select_sql"
                 placeholder="input select_sql"
@@ -17,7 +17,22 @@
                 size="large"
                 @search="onSearch" 
                 bordered="false"
+                style="width: 90%;display:inline-block"
                 />
+            <a-button type="primary" ghost @click="deletethis" style="display:inline-block;width:8%;height:6%;right:5%;position:absolute">删除配置</a-button>
+            <!-- <a-form :model="select_sql">
+                <a-row :gutter="20">
+                  <a-col :span="6">
+                    <a-form-item>
+                      <a-input placeholder="请输入数据源" width="600px" v-model.number="query" />
+                    </a-form-item>
+                  </a-col>
+                  <a-col :span="6">
+                    <a-button type="primary" :icon="Search" @click="searchUser">查询</a-button>
+                    <a-button :icon="Refresh" @click="resetForm">重置</a-button>
+                  </a-col>
+                </a-row>
+              </a-form> -->
             <a-layout-content style="position:absolute;height: 70%;top:22%;bottom: 0%;width: 72%;overflow: hidden;">
                 <div v-show="visiable" style="position: absolute;height:100%;left:0;right: -17px;top:0;bottom: 0;overflow-x: hidden;overflow-y: scroll;">
                 <a-row :gutter="[24,48]" style="margin-bottom: 32px;" >
@@ -40,6 +55,7 @@
 </template>
 
 <script>
+import { message } from 'ant-design-vue';
 import axios from 'axios';
 import {HeatMapOutlined, CloseCircleOutlined} from '@ant-design/icons-vue'
 export default{
@@ -149,6 +165,23 @@ export default{
         }
     },
     methods:{
+        deletethis(){
+            console.log("here1")
+            this.$axios.get('http://localhost:8121/function/delete')
+            .then(res=>{
+                if(res.status==200)
+                {
+                    console.log("here2")
+                    //弹窗+跳转
+                    message.info('已删除数据并离开')
+                    this.visiable=false
+                    this.$router.push('/HDC/form')
+                }
+            }).catch(err=>{
+                console.log(err)
+                message.info('删除失败！请重试')
+            })
+        },
         onSearch(){
             var form1 = new FormData()
             form1.append('select_sql',this.select_sql)
