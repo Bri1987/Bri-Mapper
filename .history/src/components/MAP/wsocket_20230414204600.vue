@@ -54,7 +54,7 @@
                         accept=".csv"
                         style="background: rgba(255, 255, 255,0.5)"
                         >
-                        <p class="ant-upload-drag-icon">
+                        <p class="drag-icon">
                             <inbox-outlined style="color: #1da57a;"></inbox-outlined>
                           </p>
                           <p class="ant-upload-text" style="color: #1da57a;
@@ -312,10 +312,6 @@ background: rgba(255, 255, 255,0.3);
 }
 .myItem{
     color: red;
-}
-.ant-upload-list{
-    width:90%;
-    background-color: aqua;
 }
 .ant-upload-drag{
 color: rgb(1, 200, 97);

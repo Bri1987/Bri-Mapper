@@ -314,8 +314,7 @@ background: rgba(255, 255, 255,0.3);
     color: red;
 }
 .ant-upload-list{
-    width:90%;
-    background-color: aqua;
+    width:90%
 }
 .ant-upload-drag{
 color: rgb(1, 200, 97);

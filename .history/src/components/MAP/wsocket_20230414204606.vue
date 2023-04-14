@@ -313,10 +313,6 @@ background: rgba(255, 255, 255,0.3);
 .myItem{
     color: red;
 }
-.ant-upload-list{
-    width:90%;
-    background-color: aqua;
-}
 .ant-upload-drag{
 color: rgb(1, 200, 97);
 font-weight: lighter;
