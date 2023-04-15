@@ -29,7 +29,7 @@ export default defineConfig({
     },
 
   },
-  base:'./',
+  base:'./'
   plugins: [
     vue(),
     Components({

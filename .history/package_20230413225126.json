@@ -1,11 +1,9 @@
 {
   "name": "frontend",
   "version": "0.0.0",
-
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview --port 8080"
+    "build": "vite build"
   },
   "dependencies": {
     "@fireworks-js/vue": "^2.10.2",
