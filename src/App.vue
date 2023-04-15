@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-menu v-model:selectedKeys="current" mode="horizontal" theme="dark">
+    <a-menu class="menua" v-model:selectedKeys="current" mode="horizontal" theme="dark">
       <a-menu-item key="home" @click="gotoHome">
         首页
       </a-menu-item>
@@ -55,8 +55,12 @@ div{
   left: 0%;
   right: 0%;
 }
-a-menu{
+.menua{
   position: fixed;
   top:0%;
+  height: 6%;
+  width: 100%;
+  z-index: 999;
 }
+
 </style>
