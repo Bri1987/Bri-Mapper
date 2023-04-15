@@ -133,7 +133,7 @@ export default{
             form.append('file2',this.newSubmit.file2)
             form.append('table_name',this.newSubmit.table_name)
 
-            this.$axios.post('http://123.60.171.50:8123/function/exchange',form)
+            this.$axios.post('http://localhost:8121/function/exchange',form)
             .then(res=>{
                 console.log(res)
                 if(res.status==200){

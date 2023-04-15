@@ -52,7 +52,7 @@
                         :show-upload-list="{ showDownloadIcon: true, showRemoveIcon: true }"
                         :customRequest="file=>uploadForm2(file)"
                         accept=".csv"
-                        style="background: rgba(255, 255, 255,0.5);height:120px"
+                        style="background: rgba(255, 255, 255,0.5)"
                         >
                         <p class="ant-upload-drag-icon">
                             <inbox-outlined style="color: #1da57a;"></inbox-outlined>
@@ -73,12 +73,12 @@
                     <div small-bg>
                         <dv-loading>
                           <div color-white>
-                            &nbsp Loading...
+                            &nbsp &nbsp Loading...
                           </div>
                         </dv-loading>
                       </div>
                 </a-form-item >
-                <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;bottom: 12%;right:20%">
+                <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;">
                     <a-button type="primary" @click="onSubmit">Submit</a-button>
                 </a-form-item>
             </a-form>
@@ -104,7 +104,7 @@ export default{
             visiable: true,
             
             formws: {
-                url: 'ws://123.60.171.50:8123/ws/session',
+                url: 'ws://localhost:8121/ws/session',
                 sessionid:'',
                 file1: {},
                 file2:[], 
@@ -212,9 +212,9 @@ export default{
             this.loading = true;
             // console.log('file:'+form.has('file'))
             // this.visiable=false //测试
-            this.$axios.post('http://123.60.171.50:8123/mapping/map', form, {
+            this.$axios.post('http://localhost:8121/mapping/map', form, {
                 "Content-Type": "multipart/form-data;charset=utf-8",
-                'Host': '123.60.171.50:8123', 
+                'Host': 'localhost:8123', 
                 'Connection': 'keep-alive',
             })
             .then(res=>{
@@ -256,7 +256,7 @@ export default{
             // }
             info.file.status = 'done'
             name = info.file.name.replace(/\.csv$/, '');
-            info.file.url = 'http://123.60.171.50:8123/mapping/download/' + name
+            info.file.url = 'http://localhost:8121/mapping/download/' + name
             console.log(info.file.url)
             // if(info.file.status==='uploading') {
             //     this.loading = true;

@@ -230,7 +230,7 @@ onMounted(() => {
 .box-card{
   background: rgba(255,255,255,0.6);
   margin-bottom: 30px;
-  height:93%;
+  height:90%;
 }
 .el-link {
   margin-right: 15px;

@@ -119,7 +119,7 @@ export default{
 
             console.log(form)
             
-            this.$axios.post('http://123.60.171.50:8123/function/import',form)
+            this.$axios.post('http://localhost:8121/function/import',form)
             .then(res=>{
                 console.log(res)
                 if(res.status==200){

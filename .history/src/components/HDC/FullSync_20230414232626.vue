@@ -67,7 +67,7 @@
                     </a-form-item>
                     </a-col>
                 </a-row>
-                <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;bottom: 7%;right:20%">
+                <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;bottom: 8%;right:20%">
                     <a-button type="primary" @click="onSubmit">Submit</a-button>
                 </a-form-item>
             </a-form>
@@ -133,7 +133,7 @@ export default{
             form.append('file2',this.newSubmit.file2)
             form.append('table_name',this.newSubmit.table_name)
 
-            this.$axios.post('http://123.60.171.50:8123/function/exchange',form)
+            this.$axios.post('http://localhost:8121/function/exchange',form)
             .then(res=>{
                 console.log(res)
                 if(res.status==200){

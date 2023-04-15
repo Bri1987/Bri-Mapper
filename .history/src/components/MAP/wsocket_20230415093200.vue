@@ -212,9 +212,9 @@ export default{
             this.loading = true;
             // console.log('file:'+form.has('file'))
             // this.visiable=false //测试
-            this.$axios.post('http://123.60.171.50:8123/mapping/map', form, {
+            this.$axios.post('http://localhost:8123/mapping/map', form, {
                 "Content-Type": "multipart/form-data;charset=utf-8",
-                'Host': '123.60.171.50:8123', 
+                'Host': 'localhost:8123', 
                 'Connection': 'keep-alive',
             })
             .then(res=>{
@@ -256,7 +256,7 @@ export default{
             // }
             info.file.status = 'done'
             name = info.file.name.replace(/\.csv$/, '');
-            info.file.url = 'http://123.60.171.50:8123/mapping/download/' + name
+            info.file.url = 'http://localhost:8123/mapping/download/' + name
             console.log(info.file.url)
             // if(info.file.status==='uploading') {
             //     this.loading = true;

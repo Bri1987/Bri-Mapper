@@ -2,7 +2,7 @@
   
     <a-layout  class="top" style="position:fixed;right: 0;left:0;bottom: 0%;height:94%;z-index: 999;">   
         <canvass></canvass>
-        <a-layout-content style="padding: 0 50px; position:fixed;left:5%;bottom: 4%;top:6%;width:90%;">
+        <a-layout-content style="padding: 0 50px; position:fixed;left:5%;bottom: 4%;top:8%;width:90%;">
           <a-breadcrumb style="margin: 10px 0 0 0">
             <a-breadcrumb-item>MAP</a-breadcrumb-item>
             <a-breadcrumb-item>{{ itemname1 }}</a-breadcrumb-item>

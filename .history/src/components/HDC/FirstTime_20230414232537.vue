@@ -62,7 +62,7 @@
                         </a-form-item>
                     </a-col>
                 </a-row>
-                <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;bottom: 7%;right:20%">
+                <a-form-item :wrapper-col="{ offset: 8, span: 16 }" style="position:fixed;bottom: 10%;right:20%">
                     <a-button type="primary" @click="onSubmit">Submit</a-button>
                 </a-form-item>
             </a-form>
@@ -119,7 +119,7 @@ export default{
 
             console.log(form)
             
-            this.$axios.post('http://123.60.171.50:8123/function/import',form)
+            this.$axios.post('http://localhost:8121/function/import',form)
             .then(res=>{
                 console.log(res)
                 if(res.status==200){
