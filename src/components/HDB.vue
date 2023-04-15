@@ -134,7 +134,7 @@ export default{
             form.append("file1",this.newSubmit.file1)
             form.append("table_name",this.newSubmit.table_name)
             // this.showResults()//测试
-            this.$axios.post('http://localhost:8121/heterogeneous/postgresql/exchange',form)
+            this.$axios.post('http://123.60.171.50:8123/heterogeneous/postgresql/exchange',form)
             .then(res=>{
                 console.log(res)
                 if(res.status==200){
@@ -179,6 +179,7 @@ export default{
 }
 .wholecards{
     border-radius: 5%;
+    background: rgba(255, 255, 255, 0.788);
 }
 .wholecards:hover{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -194,6 +195,7 @@ p{
 }
 .results{
     position:absolute;height: 80%;top:18%;bottom: 0%;width: 90%;left:5%;overflow: hidden; 
+    
 }
 .aftercfg{
     padding: 24px 0; 
